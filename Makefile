@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/02 14:30:10 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/02 15:13:22 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ ifeq ($(HOSTTYPE),)
 endif
 
 #update on every project
-LST_SRC :=	
+LST_SRC :=	malloc free realloc
 
 NAME := libft_malloc_$(HOSTTYPE).so
 
@@ -28,7 +28,7 @@ CPPFLAGS := #-std=c++98 #-pedantic
 #update if needed
 CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3#-fsanitize=address
 DIR_SRC := source#.
-SUB_DIR_LST := 
+SUB_DIR_LST := .
 
 #shouldn't need to update
 RM := rm -rf
@@ -44,7 +44,7 @@ SUB_DIR=$(addprefix $(DIR_OBJ)/,$(SUB_DIR_LST))
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) -shared $^ -o $@
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
