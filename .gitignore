@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+printf*
+main*
 
 # Object files
 *.o

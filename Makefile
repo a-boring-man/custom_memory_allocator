@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/02 15:13:22 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/03 19:36:19 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ endif
 LST_SRC :=	malloc free realloc
 
 NAME := libft_malloc_$(HOSTTYPE).so
+LINKNAME := libft_malloc.so
 
 #update to match c or cpp
 CC := gcc
@@ -45,6 +46,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) -shared $^ -o $@
+	$(RM) $(LINKNAME)
+	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
@@ -56,7 +59,7 @@ clean :
 	$(RM) $(DIR_OBJ)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(LINKNAME)
 
 re : fclean all
 
