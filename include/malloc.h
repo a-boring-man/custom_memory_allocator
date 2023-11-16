@@ -40,6 +40,8 @@ void	show_alloc_mem_ex();
 
 t_zone	*choose_the_right_page(size_t size);
 void	*create_page(t_zone *zone, size_t size);
-void	*glue_page_together(t_zone *zone, void *new_page, size_t size);
+void	*glue_page_together(t_zone *zone, void *new_page, size_t size, size_t page_size);
+
+size_t	ceilling_unsigned(double x);
 
 #endif
