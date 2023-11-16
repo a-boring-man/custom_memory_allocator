@@ -4,16 +4,16 @@
 #include <stdio.h>
 #include <unistd.h>
 
-typedef struct s_zone {
-	size_t	max_size;
-	void	*free;
-	void	*page;
-}	t_zone;
-
 typedef struct s_list {
 	void	*next;
 	void	*previous;
 }	t_list;
+
+typedef struct s_zone {
+	size_t	max_size;
+	t_list	*free;
+	void	*page;
+}	t_zone;
 
 static t_zone grimoire[14] __attribute__((unused)) = {
 	{8, NULL, NULL},
@@ -43,5 +43,6 @@ void	*create_page(t_zone *zone, size_t size);
 void	*glue_page_together(t_zone *zone, void *new_page, size_t size, size_t page_size);
 
 size_t	ceilling_unsigned(double x);
+void	add_block_to_free_list(t_list *new_block, t_list **list_head);
 
 #endif
