@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-void	add_block_to_free_list(t_list *new_block, t_list **list_head) {
+void	add_block_to_t_list_address_ordered(t_list *new_block, t_list **list_head) {
 	t_list	*current = *list_head;
 	if (*list_head == NULL) { // list is empty
 		*list_head = new_block;
@@ -19,7 +19,7 @@ void	add_block_to_free_list(t_list *new_block, t_list **list_head) {
 		*list_head = new_block;
 	}
 	else { // list have at least 2 element
-		while (current->next != *list_head && (t_list *)current->next < new_block )
+		while (current->next != *list_head && current->next < new_block )
 		{
 			current = current->next;
 		}
@@ -29,5 +29,19 @@ void	add_block_to_free_list(t_list *new_block, t_list **list_head) {
 			current->next = new_block;
 			new_block->previous = current;
 		}
+	}
+}
+
+void	add_block_to_t_list_first(t_list *new_block, t_list **list_head) {
+	if (*list_head == NULL) {
+		*list_head = new_block;
+	}
+	else {
+		t_list	*tmp = (*list_head)->previous;
+		new_block->next = *list_head;
+		new_block->previous = tmp;
+		tmp->next = new_block;
+		(*list_head)->previous = new_block;
+		*list_head = new_block;
 	}
 }

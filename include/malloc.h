@@ -5,14 +5,14 @@
 #include <unistd.h>
 
 typedef struct s_list {
-	void	*next;
-	void	*previous;
+	struct s_list	*next;
+	struct s_list	*previous;
 }	t_list;
 
 typedef struct s_zone {
 	size_t	max_size;
 	t_list	*free;
-	void	*page;
+	t_list	*page;
 }	t_zone;
 
 static t_zone grimoire[14] __attribute__((unused)) = {

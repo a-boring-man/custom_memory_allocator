@@ -14,5 +14,5 @@ void	*create_page(t_zone *zone, size_t size) {
 		new_page = mmap(0, zone->max_size * 128, PROT_READ | PROT_WRITE, MAP_ANONYMOUS, -1, 0);
 		page_size = ceilling_unsigned((double)(zone->max_size * 128) / (double)computer_page_size) * computer_page_size; // compute the allocated page TRUE size
 	}
-	return glue_page_together(zone, new_page, size, page_size);
+	return new_page;
 }

@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/16 10:46:34 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/17 10:04:16 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ ifeq ($(HOSTTYPE),)
 endif
 
 #update on every project
-LST_SRC :=	malloc free realloc page_selector create_page glue_page_together ceilling add_block_to_free_list
+LST_SRC :=	malloc free realloc page_selector create_page format_new_page ceilling add_block_to_t_list
 
 NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so
