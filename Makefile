@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/17 10:04:16 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/17 12:40:05 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ ifeq ($(HOSTTYPE),)
 endif
 
 #update on every project
-LST_SRC :=	malloc free realloc page_selector create_page format_new_page ceilling add_block_to_t_list
+LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list find_free_block\
+			core/malloc core/free core/realloc \
+			utils/ceilling \
+			bonus_features/free_poisoning \
 
 NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so
@@ -29,7 +32,7 @@ CPPFLAGS := #-std=c++98 #-pedantic
 #update if needed
 CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3#-fsanitize=address
 DIR_SRC := source#.
-SUB_DIR_LST := .
+SUB_DIR_LST := core utils bonus_features
 
 #shouldn't need to update
 RM := rm -rf

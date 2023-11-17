@@ -15,22 +15,7 @@ typedef struct s_zone {
 	t_list	*page;
 }	t_zone;
 
-static t_zone grimoire[14] __attribute__((unused)) = {
-	{8, NULL, NULL},
-	{16, NULL, NULL},
-	{32, NULL, NULL},
-	{64, NULL, NULL},
-	{96, NULL, NULL},
-	{128, NULL, NULL},
-	{192, NULL, NULL},
-	{256, NULL, NULL},
-	{512, NULL, NULL},
-	{1024, NULL, NULL},
-	{2048, NULL, NULL},
-	{4096, NULL, NULL},
-	{8192, NULL, NULL},
-	{0, NULL, NULL},
-};
+extern t_zone grimoire[11];
 
 void	free(void *ptr);
 void	*malloc(size_t size);
@@ -40,9 +25,17 @@ void	show_alloc_mem_ex();
 
 t_zone	*choose_the_right_page(size_t size);
 void	*create_page(t_zone *zone, size_t size);
-void	*glue_page_together(t_zone *zone, void *new_page, size_t size, size_t page_size);
 
 size_t	ceilling_unsigned(double x);
-void	add_block_to_free_list(t_list *new_block, t_list **list_head);
+void	add_block_to_t_list_address_ordered(t_list *new_block, t_list **list_head);
+void	add_block_to_t_list_first(t_list *new_block, t_list **list_head);
+void	poison_block(void *block, size_t size, char poison);
+
+void	format_new_page(void *new_page, size_t page_size);
+void	format_free_space(void *new_page, size_t free_block_size);
+
+void	*best_fit(size_t size_to_be_alloc, t_zone *zone);
+void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
+void	*first_fit(size_t size_to_be_alloc, t_zone *zone);
 
 #endif
