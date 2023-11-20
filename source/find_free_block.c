@@ -29,6 +29,7 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		void	*new_page = create_page(zone, size_to_be_alloc); 
 		format_new_page(new_page, determine_page_size(zone, size_to_be_alloc));
 		add_block_to_t_list((t_list *)((char *)new_page + sizeof(size_t)), (t_list **)(&(zone->page)));
+		add_block_to_t_list((t_list *)((char *)new_page + 2 * sizeof(size_t) + sizeof(t_list)), (t_list **)(&(zone->free)));
 	}
 	return NULL;
 }
