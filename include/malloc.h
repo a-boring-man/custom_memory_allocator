@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 # ifdef RED_ZONE_DEBUG_SIZE
-	#if RED_ZONE_DEBUG_SIZE < 16
+	#if 0 <= RED_ZONE_DEBUG_SIZE < 16
 		#define RED_ZONE_SIZE RED_ZONE_DEBUG_SIZE
 	#else
 		#define RED_ZONE_SIZE 16

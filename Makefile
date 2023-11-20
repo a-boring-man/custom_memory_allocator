@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/20 11:28:04 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/20 14:19:46 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ ifeq ($(HOSTTYPE),)
 endif
 
 #update on every project
-LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list find_free_block\
+LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list find_free_block mark_allocated \
 			core/malloc core/free core/realloc \
 			utils/ceilling utils/page_size \
 			bonus_features/free_poisoning \
