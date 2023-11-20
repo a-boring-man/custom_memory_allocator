@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-size_t	Ceil_to_pagesize_integer(size_t size) {
+static size_t	Ceil_to_pagesize_integer(size_t size) {
 	size_t	computer_page_size = getpagesize();
 
 	return (ceilling_unsigned((double)size / (double)computer_page_size) * computer_page_size);

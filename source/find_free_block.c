@@ -11,22 +11,24 @@ void	format_allocated_block(void	*block, size_t malloc_size) {
 }
 
 void	*best_fit(size_t size_to_be_alloc, t_zone *zone) {
-
+	(void)size_to_be_alloc;
+	(void)zone;
+	return NULL;
 }
 
-void	*next_fit(size_t size_to_be_alloc, t_zone *zone) {}
+void	*next_fit(size_t size_to_be_alloc, t_zone *zone) {
+	(void)size_to_be_alloc;
+	(void)zone;
+	return NULL;
+}
 
 void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	t_list	*list_head = zone->free;
 
 	if (list_head == NULL) { // empty free list
-		size_t	page_size;
-		size_t	computer_page_size = getpagesize();
-
-		if (zone->max_size == 0) {
-			page_size = ceilling_unsigned((double)(size_to_be_alloc + 3 * sizeof(size_t) + 2 * RED_ZONE_SIZE) / (double)computer_page_size) * computer_page_size; // compute the alocated page TRUE size
-		}
-		void	*new_page = create_page(zone, size_to_be_alloc + 2 * RED_ZONE_SIZE);
-		format_new_page(new_page, );
+		void	*new_page = create_page(zone, size_to_be_alloc); 
+		format_new_page(new_page, determine_page_size(zone, size_to_be_alloc));
+		add_block_to_t_list((t_list *)((char *)new_page + sizeof(size_t)), (t_list **)(&(zone->page)));
 	}
+	return NULL;
 }

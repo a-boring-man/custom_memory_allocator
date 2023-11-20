@@ -7,7 +7,7 @@ void	*create_page(t_zone *zone, size_t size) {
 	//size_t	computer_page_size = getpagesize();
 
 	if (zone->max_size == 0) {
-		new_page = mmap(0, size, PROT_READ | PROT_WRITE, MAP_ANONYMOUS, -1, 0);
+		new_page = mmap(0, size + 3 * sizeof(size_t) + 2 * RED_ZONE_SIZE, PROT_READ | PROT_WRITE, MAP_ANONYMOUS, -1, 0);
 	}
 	else if (RED_ZONE_SIZE > 4 && zone->max_size == 64) {
 		new_page = mmap(0, zone->max_size * 256, PROT_READ | PROT_WRITE, MAP_ANONYMOUS, -1, 0);

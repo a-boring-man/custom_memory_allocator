@@ -37,12 +37,14 @@ t_zone	*choose_the_right_page(size_t size);
 void	*create_page(t_zone *zone, size_t size);
 
 size_t	ceilling_unsigned(double x);
+void	add_block_to_t_list(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_address_ordered(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_first(t_list *new_block, t_list **list_head);
 void	poison_block(void *block, size_t size, char poison);
 
 void	format_new_page(void *new_page, size_t page_size);
 void	format_free_space(void *new_page, size_t free_block_size);
+size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
 
 void	*best_fit(size_t size_to_be_alloc, t_zone *zone);
 void	*next_fit(size_t size_to_be_alloc, t_zone *zone);

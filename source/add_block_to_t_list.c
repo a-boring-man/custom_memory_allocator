@@ -45,3 +45,8 @@ void	add_block_to_t_list_first(t_list *new_block, t_list **list_head) {
 		*list_head = new_block;
 	}
 }
+
+void	add_block_to_t_list(t_list *new_block, t_list **list_head) {
+	add_block_to_t_list_first(new_block, list_head);
+	//add_block_to_t_list_address_ordered(new_block, list_head);
+}

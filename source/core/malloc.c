@@ -5,6 +5,7 @@ void	*malloc(size_t size) {
 	//dprintf(1, "my_malloc %ld", size);
 	t_zone	*zone = choose_the_right_page(size);
 	return_ptr = first_fit(size, zone);
+	(void)return_ptr;
 	//void	*free_space = first_fit(zone, size);
 	//void	*free_space = next_fit(zone, size);
 	//void	*free_space = best_fit(zone, size);
