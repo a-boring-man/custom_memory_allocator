@@ -20,15 +20,13 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	t_list	*list_head = zone->free;
 
 	if (list_head == NULL) { // empty free list
-		size_t page_size;
+		size_t	page_size;
+		size_t	computer_page_size = getpagesize();
+
 		if (zone->max_size == 0) {
-			page_size = ceilling_unsigned((double)(size + 24 + 2 * RED_ZONE_SIZE) / (double)computer_page_size) * computer_page_size; // compute the alocated page TRUE size
+			page_size = ceilling_unsigned((double)(size_to_be_alloc + 3 * sizeof(size_t) + 2 * RED_ZONE_SIZE) / (double)computer_page_size) * computer_page_size; // compute the alocated page TRUE size
 		}
-		void	*new_page = create_page(zone, size_to_be_alloc 
-			#ifdef RED_ZONE_SIZE 
-			+ 2 * RED_ZONE_SIZE 
-			#endif
-			);
+		void	*new_page = create_page(zone, size_to_be_alloc + 2 * RED_ZONE_SIZE);
 		format_new_page(new_page, );
 	}
 }

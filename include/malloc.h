@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
+#define RED_ZONE_SIZE 8
+
 typedef struct s_list {
 	struct s_list	*next;
 	struct s_list	*previous;
