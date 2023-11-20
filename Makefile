@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/17 12:40:05 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/20 11:28:04 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ endif
 #update on every project
 LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list find_free_block\
 			core/malloc core/free core/realloc \
-			utils/ceilling \
+			utils/ceilling utils/page_size \
 			bonus_features/free_poisoning \
 
 NAME := libft_malloc_$(HOSTTYPE).so
@@ -53,7 +53,7 @@ $(NAME) : $(OBJ)
 	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< -D RED_ZONE_DEBUG_SIZE=42
 
 $(SUB_DIR) :
 	$(MD) $@

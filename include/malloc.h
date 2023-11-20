@@ -4,7 +4,15 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define RED_ZONE_SIZE 8
+# ifdef RED_ZONE_DEBUG_SIZE
+	#if RED_ZONE_DEBUG_SIZE < 16
+		#define RED_ZONE_SIZE RED_ZONE_DEBUG_SIZE
+	#else
+		#define RED_ZONE_SIZE 16
+	#endif
+# else
+	#define RED_ZONE_SIZE 0
+# endif
 
 typedef struct s_list {
 	struct s_list	*next;
