@@ -46,6 +46,7 @@ void	format_new_page(void *new_page, size_t page_size);
 void	format_free_space(void *new_page, size_t free_block_size);
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
 void	remove_block_from_t_list(t_list *block, t_list **head);
+void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone * zone);
 
 void	*best_fit(size_t size_to_be_alloc, t_zone *zone);
 void	*next_fit(size_t size_to_be_alloc, t_zone *zone);

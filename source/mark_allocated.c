@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-void	*mark_block_as_allocated(void *block, size_t size_to_be_allocated, t_zone *zone) {
+void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) {
 	void	*working_pointer = block;
 	size_t	payload_padded = ceilling_unsigned((double)size_to_be_allocated / (double)sizeof(size_t));
 	size_t	left_over = *(size_t *)working_pointer - (payload_padded + MINIMUM_ALLOCATED_BLOCK_SIZE);
@@ -11,6 +11,7 @@ void	*mark_block_as_allocated(void *block, size_t size_to_be_allocated, t_zone *
 
 	}
 	else { // if it can only contain the payload
+		remove_block_from_t_list(block, &(zone->free));
 		
 	}
 	*((size_t *)working_pointer) += 1;
