@@ -4,12 +4,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
-# ifdef RED_ZONE_DEBUG_SIZE
-	#if 0 <= RED_ZONE_DEBUG_SIZE < 16
-		#define RED_ZONE_SIZE RED_ZONE_DEBUG_SIZE
-	#else
-		#define RED_ZONE_SIZE 16
-	#endif
+# ifdef RED_ZONE_DEBUG
+	#define RED_ZONE_SIZE 2 * sizeof(size_t)
 # else
 	#define RED_ZONE_SIZE 0
 # endif
@@ -24,6 +20,10 @@ typedef struct s_zone {
 	t_list	*free;
 	t_list	*page;
 }	t_zone;
+
+# define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
+# define MINIMUM_ALLOCATED_BLOCK_SIZE sizeof(size_t) + 2 * RED_ZONE_SIZE
+# define MINIMUM_PAGE_SIZE sizeof(size_t) + sizeof(t_list) + 2 * RED_ZONE_SIZE
 
 extern t_zone grimoire[11];
 
