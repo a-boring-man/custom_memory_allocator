@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/21 13:47:15 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/11/21 15:31:55 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ endif
 
 #update on every project
 LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list remove_block_from_t_list find_free_block mark_allocated \
-			core/malloc core/free core/realloc \
+			core/malloc core/free core/realloc core/grimoire \
 			utils/ceilling utils/page_size \
 			bonus_features/free_poisoning \
 
@@ -30,7 +30,7 @@ HEADER_EXT := .h
 CPPFLAGS := #-std=c++98 #-pedantic
 
 #update if needed
-CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3#-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3 -fPIC#-fsanitize=address
 DIR_SRC := source#.
 SUB_DIR_LST := core utils bonus_features
 
