@@ -11,7 +11,7 @@ void	*mark_block_as_allocated(void *block, size_t size_to_be_allocated, t_zone *
 
 	}
 	else { // if it can only contain the payload
-
+		
 	}
 	*((size_t *)working_pointer) += 1;
 

@@ -22,7 +22,7 @@ typedef struct s_zone {
 }	t_zone;
 
 # define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
-# define MINIMUM_ALLOCATED_BLOCK_SIZE sizeof(size_t) + 2 * RED_ZONE_SIZE
+# define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
 # define MINIMUM_PAGE_SIZE sizeof(size_t) + sizeof(t_list) + 2 * RED_ZONE_SIZE
 
 extern t_zone grimoire[11];
@@ -45,6 +45,7 @@ void	poison_block(void *block, size_t size, char poison);
 void	format_new_page(void *new_page, size_t page_size);
 void	format_free_space(void *new_page, size_t free_block_size);
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
+void	remove_block_from_t_list(t_list *block, t_list **head);
 
 void	*best_fit(size_t size_to_be_alloc, t_zone *zone);
 void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
