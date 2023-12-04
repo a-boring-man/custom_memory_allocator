@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/11/21 15:31:55 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/12/04 11:22:56 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ endif
 LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list remove_block_from_t_list find_free_block mark_allocated \
 			core/malloc core/free core/realloc core/grimoire \
 			utils/ceilling utils/page_size \
-			bonus_features/free_poisoning \
+			bonus_features/poisoning \
 
 NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so

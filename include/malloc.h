@@ -25,6 +25,7 @@ typedef struct s_zone {
 # define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
 # define PAGE_OVERHEAD 2 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_PAGE_SIZE PAGE_OVERHEAD + 2 * RED_ZONE_SIZE
+# define RED_ZONE_COLOR 0xCC
 
 extern t_zone grimoire[11];
 
@@ -42,6 +43,7 @@ void	add_block_to_t_list(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_address_ordered(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_first(t_list *new_block, t_list **list_head);
 void	poison_block(void *block, size_t size, char poison);
+void	*red_zone(void *block, size_t size_allocated);
 
 void	format_new_page(void *new_page, size_t page_size);
 void	format_free_space(void *new_page, size_t free_block_size);
