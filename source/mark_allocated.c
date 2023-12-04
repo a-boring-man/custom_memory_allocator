@@ -20,11 +20,11 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
 		t_list copy = *((t_list *)working_pointer + 1);
 		*((size_t *)working_pointer) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
-		working_pointer += (size_t)(size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t));
+		working_pointer += (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t));
 		*((size_t *)working_pointer) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
-		working_pointer += (size_t)sizeof(size_t);
+		working_pointer += sizeof(size_t);
 		*((size_t *)working_pointer) = left_over;
-		working_pointer += (size_t)sizeof(size_t);
+		working_pointer += sizeof(size_t);
 		*((t_list *)working_pointer) = copy;
 		((t_list *)working_pointer)->next->previous = working_pointer;
 		((t_list *)working_pointer)->previous->next = working_pointer;
@@ -34,7 +34,9 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	}
 	else { // if it can only contain the payload
 		remove_block_from_t_list(block, &(zone->free));
-
+		*((size_t *)working_pointer) += + 1;
+		working_pointer += (*((size_t *)working_pointer) - 1 - sizeof(size_t));
+		*((size_t *)working_pointer) += 1;
 	}
 	*((size_t *)working_pointer) += 1;
 	return NULL;
