@@ -52,7 +52,6 @@
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) {
 	void	*working_pointer = block - sizeof(size_t);
 	size_t	block_size = *((size_t *)working_pointer);
-	// size_t	payload_padded = ceilling_unsigned((double)size_to_be_allocated / (double)sizeof(size_t)); to be copied in the caller of this function
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
 	
 	if (block == NULL)
@@ -74,9 +73,10 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	}
 	else { // if it can only contain the payload
 		remove_block_from_t_list(block, &(zone->free));
-		*((size_t *)working_pointer) += + 1;
+		*((size_t *)working_pointer) += 1;
 		working_pointer += (*((size_t *)working_pointer) - 1 - sizeof(size_t));
 		*((size_t *)working_pointer) += 1;
+		return red_zone(block, size_to_be_allocated);
 	}
 	*((size_t *)working_pointer) += 1;
 	return NULL;

@@ -21,6 +21,13 @@ typedef struct s_zone {
 	t_list	*page;
 }	t_zone;
 
+typedef union u_working_pointer {
+	void	*m_void;
+	size_t	*m_sizet;
+	t_list	*m_tlist;
+	char	*m_char;
+}	t_union;
+
 # define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
 # define PAGE_OVERHEAD 2 * sizeof(size_t) + sizeof(t_list)

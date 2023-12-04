@@ -56,25 +56,27 @@
  * @param page_size the size of the page to be formated
  * */
 void	format_new_page(void *new_page, size_t page_size) {
-	void	*working_pointer = new_page;
+	t_union	working_pointer;
+	working_pointer.m_void = new_page;
 	
-	*((size_t *)working_pointer) = page_size;
-	working_pointer += sizeof(size_t);
-	((t_list *)working_pointer)->next = working_pointer;
-	((t_list *)working_pointer)->previous = working_pointer;
-	working_pointer += sizeof(t_list);
-	*((size_t *)working_pointer) = 1;
-	format_free_space(working_pointer + sizeof(t_list), page_size - sizeof(size_t) - sizeof(t_list));
+	*(working_pointer.m_sizet) = page_size;
+	working_pointer.m_sizet += 1;
+	(working_pointer.m_tlist)->next = working_pointer.m_tlist;
+	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
+	working_pointer.m_tlist += 1;
+	*(working_pointer.m_sizet) = 1;
+	format_free_space((void *)(working_pointer.m_tlist + 1), page_size - sizeof(size_t) - sizeof(t_list));// todo !
 }
 
 void	format_free_space(void *new_page, size_t free_block_size) {
-	void	*working_pointer = new_page;
+	t_union	working_pointer;
+	working_pointer.m_void = new_page;
 	
-	*((size_t *)working_pointer) = free_block_size;
-	working_pointer += sizeof(size_t);
-	((t_list *)working_pointer)->next = working_pointer;
-	((t_list *)working_pointer)->previous = working_pointer;
-	working_pointer += free_block_size - 2 * sizeof(size_t);
-	*((size_t *)working_pointer) = free_block_size;
-	poison_block(working_pointer - free_block_size + sizeof(size_t) + sizeof(t_list), free_block_size - 2 * sizeof(size_t) - sizeof(t_list), 0xcc);
+	*(working_pointer.m_sizet) = free_block_size;
+	working_pointer.m_sizet += 1;
+	(working_pointer.m_tlist)->next = working_pointer.m_tlist;
+	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
+	working_pointer.m_char += free_block_size - 2 * sizeof(size_t);
+	*(working_pointer.m_sizet) = free_block_size;
+	poison_block((void *)(working_pointer.m_char - free_block_size + sizeof(size_t) + sizeof(t_list)), free_block_size - 2 * sizeof(size_t) - sizeof(t_list), 0xcc); // todo !
 } 
