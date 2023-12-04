@@ -23,7 +23,8 @@ typedef struct s_zone {
 
 # define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
-# define MINIMUM_PAGE_SIZE sizeof(size_t) + sizeof(t_list) + 2 * RED_ZONE_SIZE
+# define PAGE_OVERHEAD 2 * sizeof(size_t) + sizeof(t_list)
+# define MINIMUM_PAGE_SIZE PAGE_OVERHEAD + 2 * RED_ZONE_SIZE
 
 extern t_zone grimoire[11];
 
