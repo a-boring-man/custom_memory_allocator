@@ -50,32 +50,34 @@
  * @return void* a pointer to the beginning of the marked allocated block where the user can write
  */
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) {
-	void	*working_pointer = block - sizeof(size_t);
-	size_t	block_size = *((size_t *)working_pointer);
+	t_memory_pointer	working_pointer;
+	working_pointer.as_Tlist = block;
+	working_pointer.as_sizeT -= 1;
+	size_t	block_size = *(working_pointer.as_sizeT);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
 	
 	if (block == NULL)
 		return NULL;
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
-		t_list copy = *((t_list *)working_pointer + 1);
-		*((size_t *)working_pointer) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
-		working_pointer += (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t));
-		*((size_t *)working_pointer) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
-		working_pointer += sizeof(size_t);
-		*((size_t *)working_pointer) = left_over;
-		working_pointer += sizeof(size_t);
-		*((t_list *)working_pointer) = copy;
-		((t_list *)working_pointer)->next->previous = working_pointer;
-		((t_list *)working_pointer)->previous->next = working_pointer;
-		working_pointer += *((size_t *)(working_pointer - sizeof(size_t))) - 2 * sizeof(size_t);
-		*((size_t *)working_pointer) = left_over;
+		t_list copy = *(working_pointer.as_sizeT + 1);
+		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
+		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
+		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
+		working_pointer.as_sizeT += 1;
+		*(working_pointer.as_sizeT) = left_over;
+		working_pointer.as_sizeT += 1;
+		*(working_pointer.as_Tlist) = copy;
+		working_pointer.as_Tlist->next->previous = working_pointer;
+		working_pointer.as_Tlist->previous->next = working_pointer;
+		working_pointer.as_char += *(working_pointer.as_sizeT - 1) - 2 * sizeof(size_t);
+		*(working_pointer.as_sizeT) = left_over;
 		return red_zone(block, size_to_be_allocated);
 	}
 	else { // if it can only contain the payload
 		remove_block_from_t_list(block, &(zone->free));
-		*((size_t *)working_pointer) += 1;
-		working_pointer += (*((size_t *)working_pointer) - 1 - sizeof(size_t));
-		*((size_t *)working_pointer) += 1;
+		*(working_pointer.as_sizeT) += 1;
+		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
+		*(working_pointer.as_sizeT) += 1;
 		return red_zone(block, size_to_be_allocated);
 	}
 	*((size_t *)working_pointer) += 1;

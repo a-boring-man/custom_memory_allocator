@@ -56,27 +56,27 @@
  * @param page_size the size of the page to be formated
  * */
 void	format_new_page(void *new_page, size_t page_size) {
-	t_union	working_pointer;
-	working_pointer.m_void = new_page;
+	t_memory_pointer	working_pointer;
+	working_pointer.as_void = new_page;
 	
-	*(working_pointer.m_sizet) = page_size;
-	working_pointer.m_sizet += 1;
-	(working_pointer.m_tlist)->next = working_pointer.m_tlist;
-	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
-	working_pointer.m_tlist += 1;
-	*(working_pointer.m_sizet) = 1;
-	format_free_space((void *)(working_pointer.m_tlist + 1), page_size - PAGE_OVERHEAD);
+	*(working_pointer.as_sizeT) = page_size;
+	working_pointer.as_sizeT += 1;
+	(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
+	(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
+	working_pointer.as_Tlist += 1;
+	*(working_pointer.as_sizeT) = 1;
+	format_free_space((void *)(working_pointer.as_Tlist + 1), page_size - PAGE_OVERHEAD);
 }
 
 void	format_free_space(void *new_page, size_t free_block_size) {
-	t_union	working_pointer;
-	working_pointer.m_void = new_page;
+	t_memory_pointer	working_pointer;
+	working_pointer.as_void = new_page;
 	
-	*(working_pointer.m_sizet) = free_block_size;
-	working_pointer.m_sizet += 1;
-	(working_pointer.m_tlist)->next = working_pointer.m_tlist;
-	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
-	working_pointer.m_char += free_block_size - 2 * sizeof(size_t);
-	*(working_pointer.m_sizet) = free_block_size;
-	poison_block((void *)(working_pointer.m_char - free_block_size + sizeof(size_t) + sizeof(t_list)), free_block_size - MINIMUM_FREE_BLOCK_SIZE, 0xcc);
+	*(working_pointer.as_sizeT) = free_block_size;
+	working_pointer.as_sizeT += 1;
+	(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
+	(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
+	working_pointer.as_char += free_block_size - 2 * sizeof(size_t);
+	*(working_pointer.as_sizeT) = free_block_size;
+	poison_block((void *)(working_pointer.as_char - free_block_size + sizeof(size_t) + sizeof(t_list)), free_block_size - MINIMUM_FREE_BLOCK_SIZE, 0xcc);
 } 
