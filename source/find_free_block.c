@@ -24,7 +24,6 @@ void	*next_fit(size_t size_to_be_alloc, t_zone *zone) {
 
 void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	t_list	*list_head = zone->free;
-	//size_t	padded_allocation_size = ceilling_unsigned((double)size_to_be_alloc / (double)sizeof(size_t));
 
 	if (list_head == NULL) { // empty free list
 		void	*new_page = create_page(zone, size_to_be_alloc); 
