@@ -65,7 +65,7 @@ void	format_new_page(void *new_page, size_t page_size) {
 	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
 	working_pointer.m_tlist += 1;
 	*(working_pointer.m_sizet) = 1;
-	format_free_space((void *)(working_pointer.m_tlist + 1), page_size - sizeof(size_t) - sizeof(t_list));// todo !
+	format_free_space((void *)(working_pointer.m_tlist + 1), page_size - PAGE_OVERHEAD);
 }
 
 void	format_free_space(void *new_page, size_t free_block_size) {
@@ -78,5 +78,5 @@ void	format_free_space(void *new_page, size_t free_block_size) {
 	(working_pointer.m_tlist)->previous = working_pointer.m_tlist;
 	working_pointer.m_char += free_block_size - 2 * sizeof(size_t);
 	*(working_pointer.m_sizet) = free_block_size;
-	poison_block((void *)(working_pointer.m_char - free_block_size + sizeof(size_t) + sizeof(t_list)), free_block_size - 2 * sizeof(size_t) - sizeof(t_list), 0xcc); // todo !
+	poison_block((void *)(working_pointer.m_char - free_block_size + sizeof(size_t) + sizeof(t_list)), free_block_size - MINIMUM_FREE_BLOCK_SIZE, 0xcc);
 } 
