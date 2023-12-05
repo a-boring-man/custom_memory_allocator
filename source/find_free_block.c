@@ -26,10 +26,11 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	t_list	*list_head = zone->free;
 
 	if (list_head == NULL) { // empty free list
-		void	*new_page = create_page(zone, size_to_be_alloc); 
-		format_new_page(new_page, determine_page_size(zone, size_to_be_alloc));
-		add_block_to_t_list((t_list *)(new_page + sizeof(size_t)), (t_list **)(&(zone->page)));
-		add_block_to_t_list((t_list *)(new_page + PAGE_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
+		t_memory_pointer	new_page;
+		new_page.as_void = create_page(zone, size_to_be_alloc); 
+		format_new_page(new_page.as_void, determine_page_size(zone, size_to_be_alloc));
+		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (t_list **)(&(zone->page)));
+		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
 	}
 	return NULL;
 }

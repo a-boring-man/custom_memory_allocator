@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/12/04 11:22:56 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/12/05 10:18:47 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ $(NAME) : $(OBJ)
 	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< -D RED_ZONE_DEBUG_SIZE=42
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(SUB_DIR) :
 	$(MD) $@
