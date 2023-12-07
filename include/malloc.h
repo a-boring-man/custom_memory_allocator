@@ -30,6 +30,7 @@ typedef union u_memory_pointer {
 
 # define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
+# define PAGE_START_OVERHEAD 2 * sizeof(size_t) + sizeof(t_list)
 # define PAGE_OVERHEAD 3 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_PAGE_SIZE PAGE_OVERHEAD + 2 * RED_ZONE_SIZE
 # define RED_ZONE_COLOR 0xCC
