@@ -6,13 +6,20 @@ static size_t	Ceil_to_pagesize_integer(size_t size) {
 	return (ceilling_unsigned((double)size / (double)computer_page_size) * computer_page_size);
 }
 
+/**
+ * @brief 
+ * 
+ * @param zone 
+ * @param size_to_be_malloc the unpadded size
+ * @return size_t 
+ */
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc) {
 	size_t	page_size;
 
 	if (zone->max_size == 0) {
-		page_size = size_to_be_malloc + MINIMUM_PAGE_SIZE;
+		page_size = padded(size_to_be_malloc) + PAGE_OVERHEAD + MINIMUM_ALLOCATED_BLOCK_SIZE;
 	}
-	else if (RED_ZONE_SIZE > 0 && zone->max_size <= 128) {
+	else if (RED_ZONE_SIZE != 0 && zone->max_size <= 256) {
 		page_size = zone->max_size * 256;
 	}
 	else {

@@ -32,5 +32,11 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (t_list **)(&(zone->page)));
 		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
 	}
+	while {list_head != NULL \
+		&& list_head->next != list_head \
+		&& *((size_t *)(list_head) - 1) <}
+	// whyle free list is not empty and free block size <= size_to_be_allocated continue
+	// if end do the same as is free list was null and return the new free block created
+	// else return the block
 	return NULL;
 }

@@ -30,7 +30,7 @@ typedef union u_memory_pointer {
 
 # define MINIMUM_FREE_BLOCK_SIZE 2 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_ALLOCATED_BLOCK_SIZE 2 * sizeof(size_t) + 2 * RED_ZONE_SIZE
-# define PAGE_OVERHEAD 2 * sizeof(size_t) + sizeof(t_list)
+# define PAGE_OVERHEAD 3 * sizeof(size_t) + sizeof(t_list)
 # define MINIMUM_PAGE_SIZE PAGE_OVERHEAD + 2 * RED_ZONE_SIZE
 # define RED_ZONE_COLOR 0xCC
 
@@ -46,6 +46,7 @@ t_zone	*choose_the_right_page(size_t size);
 void	*create_page(t_zone *zone, size_t size);
 
 size_t	ceilling_unsigned(double x);
+size_t	padded(size_t size);
 void	add_block_to_t_list(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_address_ordered(t_list *new_block, t_list **list_head);
 void	add_block_to_t_list_first(t_list *new_block, t_list **list_head);

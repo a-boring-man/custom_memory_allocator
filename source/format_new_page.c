@@ -16,12 +16,12 @@
 //									V
 //								  PAGE
 ////////////////////////////////////////////////////////////////////////////
-//S(S | T | 1(S |                                                         //
-//I I | _ |   I |                                                         //
-//Z Z | L |   Z |    F   R   E   E       B   L   O   C   K                //
-//E E | I |   E |                                                         //
-//  _ | S |   _ |                                                         //
-//  T)| T |   T)|                                                         //
+//S(S | T | 1(S |                                                    |1(S //
+//I I | _ |   I |                                                    |  I //
+//Z Z | L |   Z |    F   R   E   E       B   L   O   C   K           |  Z //
+//E E | I |   E |                                                    |  E //
+//  _ | S |   _ |                                                    |  _ //
+//  T)| T |   T)|                                                    |  T)//
 ////////////////////////////////////////////////////////////////////////////
 
 
@@ -64,6 +64,8 @@ void	format_new_page(void *new_page, size_t page_size) {
 	(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
 	(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
 	working_pointer.as_Tlist += 1;
+	*(working_pointer.as_sizeT) = 1;
+	working_pointer.as_char += page_size - 2 * sizeof(size_t) - sizeof(t_list);
 	*(working_pointer.as_sizeT) = 1;
 	format_free_space((void *)(working_pointer.as_Tlist + 1), page_size - PAGE_OVERHEAD);
 }

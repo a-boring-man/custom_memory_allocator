@@ -10,3 +10,7 @@ size_t ceilling_unsigned(double x) {
 
 	return (result);
 }
+
+size_t	padded(size_t size) {
+	return (ceilling_unsigned((double)size / (double)sizeof(size_t)) * sizeof(size_t));
+}

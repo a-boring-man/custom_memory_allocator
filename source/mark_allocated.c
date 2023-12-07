@@ -49,7 +49,7 @@
  * @param zone is the t_zone where the free block is.
  * @return void* a pointer to the beginning of the marked allocated block where the user can write
  */
-void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) {
+void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) { // should be use with the padded allocated size
 	t_memory_pointer	working_pointer;
 	working_pointer.as_Tlist = block;
 	working_pointer.as_sizeT -= 1;
