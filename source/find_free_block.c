@@ -39,6 +39,7 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		format_new_page(new_page.as_void, determine_page_size(zone, size_to_be_alloc));
 		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (t_list **)(&(zone->page)));
 		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
+		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), padded(size_to_be_alloc), zone));
 	}
 	// if end do the same as is free list was null and return the new free block created
 	// else return the block
