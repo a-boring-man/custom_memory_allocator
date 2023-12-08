@@ -20,7 +20,7 @@ void	poison_block(void *block, size_t size, char poison) {
 void	*red_zone(void *block, size_t size_allocated) {
 	if (RED_ZONE_SIZE == 0)
 		return block;
-	ft_memset(block, RED_ZONE_COLOR, RED_ZONE_SIZE);
-	ft_memset(block + size_allocated + RED_ZONE_SIZE, RED_ZONE_COLOR, RED_ZONE_SIZE);
+	poison_block(block, RED_ZONE_SIZE, RED_ZONE_COLOR);
+	poison_block(block + size_allocated + RED_ZONE_SIZE, RED_ZONE_SIZE, RED_ZONE_COLOR);
 	return (block + RED_ZONE_SIZE);
 }

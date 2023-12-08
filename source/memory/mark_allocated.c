@@ -59,7 +59,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	if (block == NULL)
 		return NULL;
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
-		t_list copy = *((t_list *)(working_pointer.as_sizeT + 1));
+		t_list copy = *(block);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
@@ -68,11 +68,11 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		working_pointer.as_sizeT += 1;
 		*(working_pointer.as_Tlist) = copy;
 		zone->next = working_pointer.as_Tlist;
-		if (working_pointer.as_Tlist->next->previous != working_pointer.as_Tlist) {
+		if (working_pointer.as_Tlist->next->previous != working_pointer.as_Tlist) { // the free list had NOT only one element
 			working_pointer.as_Tlist->next->previous = working_pointer.as_Tlist;
 			working_pointer.as_Tlist->previous->next = working_pointer.as_Tlist;
 		}
-		else {
+		else { // free list had one element
 			zone->free = working_pointer.as_Tlist;
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT - 1) - 2 * sizeof(size_t);
