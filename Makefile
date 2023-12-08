@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/12/08 13:42:32 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/12/08 13:45:11 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ endif
 
 #update on every project
 LST_SRC :=	core/malloc core/free core/realloc core/grimoire \
-			bonus_features/poisoning bonus_features/find_free_block \
-			memory/create_page memory/format_new_page memory/mark_allocated \
+			bonus_features/poisoning bonus_features/find_free_block_bonus_algo \
+			memory/create_page memory/format_new_page memory/mark_allocated memory/find_free_block\
 			t_list/add_block_to_t_list t_list/remove_block_from_t_list \
 			utils/ceilling utils/page_size utils/page_selector \
 
