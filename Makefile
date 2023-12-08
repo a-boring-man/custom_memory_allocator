@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/12/05 10:18:47 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/12/08 13:42:32 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ ifeq ($(HOSTTYPE),)
 endif
 
 #update on every project
-LST_SRC :=	page_selector create_page format_new_page add_block_to_t_list remove_block_from_t_list find_free_block mark_allocated \
-			core/malloc core/free core/realloc core/grimoire \
-			utils/ceilling utils/page_size \
-			bonus_features/poisoning \
+LST_SRC :=	core/malloc core/free core/realloc core/grimoire \
+			bonus_features/poisoning bonus_features/find_free_block \
+			memory/create_page memory/format_new_page memory/mark_allocated \
+			t_list/add_block_to_t_list t_list/remove_block_from_t_list \
+			utils/ceilling utils/page_size utils/page_selector \
 
 NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so
@@ -32,7 +33,7 @@ CPPFLAGS := #-std=c++98 #-pedantic
 #update if needed
 CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3 -fPIC#-fsanitize=address
 DIR_SRC := source#.
-SUB_DIR_LST := core utils bonus_features
+SUB_DIR_LST := core utils bonus_features memory t_list
 
 #shouldn't need to update
 RM := rm -rf
