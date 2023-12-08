@@ -6,13 +6,6 @@ static size_t	Ceil_to_pagesize_integer(size_t size) {
 	return (ceilling_unsigned(size, computer_page_size) * computer_page_size);
 }
 
-/**
- * @brief 
- * 
- * @param zone 
- * @param size_to_be_malloc the unpadded size
- * @return size_t 
- */
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc) {
 	size_t	page_size;
 

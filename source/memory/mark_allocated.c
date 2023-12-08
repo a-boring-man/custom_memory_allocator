@@ -39,16 +39,6 @@
 //  T)|   |                                                     |   |  T)|//
 ////////////////////////////////////////////////////////////////////////////
 
-
-
-/**
- * @brief the goal of this function is to mark a chunck of memory as allocated
- * 
- * @param block is the addres of a t_list in a free block
- * @param size_to_be_allocated is the size to be allocated taking into acount the padding if needed
- * @param zone is the t_zone where the free block is.
- * @return void* a pointer to the beginning of the marked allocated block where the user can write
- */
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) { // should be use with the padded allocated size
 	t_memory_pointer	working_pointer;
 	working_pointer.as_Tlist = block;
