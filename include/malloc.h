@@ -159,9 +159,30 @@ void	remove_block_from_t_list(t_list *block, t_list **head);
 
 // -------------helper function-----------------
 
-
+/**
+ * @brief give back a rounded value to the nearest rounding
+ * 
+ * @param x the value to be rounded
+ * @param rounding rounded to rounding
+ * @return size_t the rounded value
+ */
 size_t	ceilling_unsigned(size_t x, size_t rounding);
+
+/**
+ * @brief return the padded (rounded to the upper sizeof(size_t)) size
+ * 
+ * @param size size to be padded
+ * @return size_t the returned size
+ */
 size_t	padded(size_t size);
+
+/**
+ * @brief calculate the created page size based on the size to be malloc and the page size for the given zone
+ * 
+ * @param zone 
+ * @param size_to_be_malloc 
+ * @return size_t 
+ */
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
 
 // -----------------------------------------
