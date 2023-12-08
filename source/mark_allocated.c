@@ -67,6 +67,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		*(working_pointer.as_sizeT) = left_over;
 		working_pointer.as_sizeT += 1;
 		*(working_pointer.as_Tlist) = copy;
+		zone->next = working_pointer.as_Tlist;
 		if (working_pointer.as_Tlist->next->previous != working_pointer.as_Tlist) {
 			working_pointer.as_Tlist->next->previous = working_pointer.as_Tlist;
 			working_pointer.as_Tlist->previous->next = working_pointer.as_Tlist;
@@ -80,6 +81,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	}
 	else { // if it can only contain the payload
 		remove_block_from_t_list(block, &(zone->free));
+		zone->next = NULL;
 		*(working_pointer.as_sizeT) += 1;
 		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
 		*(working_pointer.as_sizeT) += 1;

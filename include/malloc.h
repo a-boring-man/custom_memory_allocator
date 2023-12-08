@@ -19,6 +19,7 @@ typedef struct s_zone {
 	size_t	max_size;
 	t_list	*free;
 	t_list	*page;
+	t_list	*next;
 }	t_zone;
 
 typedef union u_memory_pointer {
