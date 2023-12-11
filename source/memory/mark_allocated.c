@@ -45,6 +45,8 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	working_pointer.as_sizeT -= 1;
 	size_t	block_size = *(working_pointer.as_sizeT);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
+
+	ft_printf("going to marked alloc\n");
 	
 	if (block == NULL)
 		return NULL;
@@ -67,6 +69,8 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT - 1) - 2 * sizeof(size_t);
 		*(working_pointer.as_sizeT) = left_over;
+	ft_printf("end of marked alloc returning : -%p-\n", block);
+	debug_hexa((size_t *)block -5, 60);
 		return red_zone(block, size_to_be_allocated);
 	}
 	else { // if it can only contain the payload
@@ -75,6 +79,8 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		*(working_pointer.as_sizeT) += 1;
 		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
 		*(working_pointer.as_sizeT) += 1;
+	ft_printf("end of marked alloc\n");
 		return red_zone(block, size_to_be_allocated);
 	}
+	ft_printf("end of marked alloc\n");
 }

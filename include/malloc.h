@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include "ft_printf.h"
 
 // ------------struct-------------
 
@@ -186,5 +187,7 @@ size_t	padded(size_t size);
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
 
 // -----------------------------------------
+
+void	debug_hexa(void *memory_location, size_t size);
 
 #endif
