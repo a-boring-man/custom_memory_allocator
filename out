@@ -1,0 +1,36 @@
+entering first fit
+must allocate a new page
+salut
+new page starting address : -0x7fb338fa7000-
+page end : -0x7fb338fa8ff8-
+page begginning in format free block : -0x7fb338fa7020-
+free block size : -8152-
+free space end : -0x7fb338fa8ff0-
+new page was created and formated
+the page was added to page t_list and the free block inside to the free t_list
+entering mark alloc
+going to marked alloc block : -0x7fb338fa7028-
+in split block in marked alloc
+the copy is : next -0x7fb338fa7028- previous -0x7fb338fa7028-
+end of marked alloc returning : -0x7fb338fa7028-
+SHOULD NOT PRINT
+pointer at : -0x7fb338fa7000-
+2000 38fa7008 38fa7008 1 39 38fa7060 38fa7060 cccccccc cccccccc cccccccc 39 1fa0 38fa7028 38fa7028 after wrinting
+pointer at : -0x7fb338fa7000-
+2000 38fa7008 38fa7008 1 39 2a 20 5 32 46 39 1fa0 38fa7028 38fa7028 64 bytes or less : 
+page : 0
+allocated from : -0x7fb338fa7020- to -0x7fb338fa7058- : 56 bytes
+free from : -0x7fb338fa7058- to -0x7fb338fa8ff8- : 8096 bytes
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+entering first fit
+has not segfault before checking the size, list_head_next == : -0x2a- and zone->free = : -0x7fb338fa7028-
+has not segfault after jumping to the next element list_head : -0x2a-

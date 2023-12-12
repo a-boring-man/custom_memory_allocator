@@ -43,6 +43,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	t_memory_pointer	working_pointer;
 	working_pointer.as_Tlist = block;
 	working_pointer.as_sizeT -= 1;
+	ft_printf("entering mark alloc\n");
 	size_t	block_size = *(working_pointer.as_sizeT);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
 
@@ -53,6 +54,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
 	ft_printf("in split block in marked alloc\n");
 		t_list copy = *(block);
+		ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
 	ft_printf("end of marked alloc returning : -%p-\n", block);
@@ -63,6 +65,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		*(working_pointer.as_Tlist) = copy;
 		zone->next = working_pointer.as_Tlist;
 		if (working_pointer.as_Tlist->next->previous != working_pointer.as_Tlist) { // the free list had NOT only one element
+			ft_printf("SHOULD NOT PRINT\n");
 			working_pointer.as_Tlist->next->previous = working_pointer.as_Tlist;
 			working_pointer.as_Tlist->previous->next = working_pointer.as_Tlist;
 		}
