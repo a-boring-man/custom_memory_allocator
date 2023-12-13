@@ -41,7 +41,7 @@ typedef union u_memory_pointer {
 # define PAGE_START_OVERHEAD (2 * sizeof(size_t) + sizeof(t_list))
 # define PAGE_OVERHEAD (3 * sizeof(size_t) + sizeof(t_list))
 # define MINIMUM_PAGE_SIZE (PAGE_OVERHEAD + 2 * RED_ZONE_SIZE)
-# define RED_ZONE_COLOR 0xCC
+# define RED_ZONE_COLOR 0xee
 
 // -------------global allocation variable-------------
 
@@ -138,7 +138,9 @@ void	format_new_page(void *new_page, size_t page_size);
  * @param zone the zone conatinning the free block
  * @return void* a pointer redzonned to the written part of the newly allocated block
  */
-void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone * zone);
+void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone);
+
+void	mark_block_as_free(void *block); // todo
 
 // -------------t_list function----------------
 
