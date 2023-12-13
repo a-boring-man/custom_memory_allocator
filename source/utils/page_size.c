@@ -16,8 +16,8 @@ size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc) {
 		page_size = zone->max_size * 256;
 	}
 	else {
-	int pff = write(1, "salut\n", 6);
-	(void)pff;
+	//int pff = write(1, "salut\n", 6);
+	//(void)pff;
 		page_size = zone->max_size * 128;
 	}
 	return Ceil_to_pagesize_integer(page_size);

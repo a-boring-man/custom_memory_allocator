@@ -44,24 +44,24 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	working_pointer.as_Tlist = block;
 	working_pointer.as_sizeT -= 1;
 	int	is_alone = 0;
-	ft_printf("entering mark alloc, working pointer is : -%p-\n", working_pointer.as_void);
+	//ft_printf("entering mark alloc, working pointer is : -%p-\n", working_pointer.as_void);
 	size_t	block_size = *(working_pointer.as_sizeT);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
 
-	ft_printf("going to marked alloc block : -%p-\n", block);
+	//ft_printf("going to marked alloc block : -%p-\n", block);
 	
 	if (block == NULL)
 		return NULL;
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
-	ft_printf("in split block in marked alloc\n");
+	//ft_printf("in split block in marked alloc\n");
 		t_list copy = *(block);
 		if (block->next == block) {
 			is_alone = 1;
 		}
-		ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
+	//ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
-	ft_printf("end of marked alloc returning : -%p-\n", block);
+	//ft_printf("end of marked alloc returning : -%p-\n", block);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_sizeT += 1;
 		*(working_pointer.as_sizeT) = left_over;
@@ -79,7 +79,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT - 1) - 2 * sizeof(size_t);
 		*(working_pointer.as_sizeT) = left_over;
-	debug_hexa((size_t *)block -5, 14);
+	//debug_hexa((size_t *)block -5, 14);
 		return red_zone(block, size_to_be_allocated);
 	}
 	else { // if it can only contain the payload
@@ -88,8 +88,8 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		*(working_pointer.as_sizeT) += 1;
 		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
 		*(working_pointer.as_sizeT) += 1;
-	ft_printf("end of marked alloc\n");
+	//ft_printf("end of marked alloc\n");
 		return red_zone(block, size_to_be_allocated);
 	}
-	ft_printf("end of marked alloc\n");
+	//ft_printf("end of marked alloc\n");
 }
