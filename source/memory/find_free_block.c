@@ -22,7 +22,7 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		ft_printf("new page was created and formated\n");
 		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (t_list **)(&(zone->page)));
 		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
-		ft_printf("the page was added to page t_list and the free block inside to the free t_list\n");
+		ft_printf("the page was added to page t_list and the free block inside to the free t_list zone->free : -%p- and zone->page : -%p-\n", zone->free, zone->page);
 		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), padded(size_to_be_alloc), zone));
 	}
 	else { // if a block was found
