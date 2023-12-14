@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/12/13 14:10:01 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2023/12/14 09:35:29 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ endif
 LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc \
 			\
 			bonus_features/poisoning bonus_features/find_free_block_bonus_algo \
+			bonus_features/coalescing \
 			\
 			memory/create_page memory/format_new_page memory/mark_allocated \
 			memory/find_free_block memory/mark_free \

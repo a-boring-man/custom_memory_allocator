@@ -111,6 +111,8 @@ void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
  */
 void	*first_fit(size_t size_to_be_alloc, t_zone *zone);
 
+void	coalescing(void *ptr, t_zone *zone); // todo
+
 // -------------memory function----------------
 
 /**
