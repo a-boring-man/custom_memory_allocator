@@ -14,7 +14,7 @@ void	free(void *ptr) {
 	
 	ft_printf("wanting to free the block at : -%p- of size : -%d- and of true size : -%d-\n", ptr, block_size, data_size);
 	
-	mark_block_as_free(ptr, block_size, data_size);
+	mark_block_as_free(ptr);
 	coalescing(ptr, zone);
 	
 	(void)ptr;
