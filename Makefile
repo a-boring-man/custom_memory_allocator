@@ -33,7 +33,7 @@ NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so
 
 #update to match c or cpp
-CC := gcc
+CC := cc
 FILE_EXT := .c
 HEADER_EXT := .h
 CPPFLAGS := #-std=c++98 #-pedantic

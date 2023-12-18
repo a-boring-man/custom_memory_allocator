@@ -2,7 +2,7 @@
 
 void	*malloc(size_t size) {
 	void	*return_ptr;
-	//dprintf(1, "my_malloc %ld", size);
+	ft_printf("my_malloc %u\n", size);
 	t_zone	*zone = choose_the_right_page(size);
 	return_ptr = first_fit(size, zone);
 	return (return_ptr);
