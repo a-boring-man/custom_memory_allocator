@@ -40,12 +40,14 @@
 ////////////////////////////////////////////////////////////////////////////
 
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) { // should be use with the padded allocated size
+	ft_printf("AAAAAAAAAAAAAAaaathe arg block : -%p-\n", block);
 	t_memory_pointer	working_pointer;
 	working_pointer.as_Tlist = block;
 	working_pointer.as_sizeT -= 1;
 	int	is_alone = 0;
 	//ft_printf("entering mark alloc, working pointer is : -%p-\n", working_pointer.as_void);
 	size_t	block_size = *(working_pointer.as_sizeT);
+	ft_printf("BBBBBBBBBBBBB the detected block size = -%u-\n", block_size);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
 
 	//ft_printf("going to marked alloc block : -%p-\n", block);
@@ -74,6 +76,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		}
 		else { // is alone in zone->free
 			zone->free = working_pointer.as_Tlist;
+			ft_printf("----------->>>>>>the pointer is at address : -%p-\n", working_pointer.as_void);
 			(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
 			(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
 		}

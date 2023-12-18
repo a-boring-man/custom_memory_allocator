@@ -11,6 +11,7 @@ void	debug_hexa(void *memory_location, size_t size) {
 		ptr.as_sizeT += 1;
 		i += 1;
 	}
+	ft_printf("\n");
 }
 
 static void display_page(void *page) {

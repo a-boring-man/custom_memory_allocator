@@ -7,6 +7,7 @@ static	int	coalescing_left(void **block_ptr) { // return the left side of a free
 	working_pointer.as_sizeT -= 1; // put the pointer to the end of the previous block
 
 	if (*working_pointer.as_sizeT & 1) { // begginning of the page or allocated block
+		ft_printf("there is no free block on the left\n");
 		return (1); // return garbadge true
 	}
 	left_block_size = *working_pointer.as_sizeT; // store the original left block size
@@ -44,9 +45,10 @@ static	int	coalescing_right(void **block_ptr, t_zone *zone, int garbadge_flag) {
 	if (garbadge_flag) { // if the left block has garbade value as t_list
 		*working_pointer.as_Tlist = copy;
 		if (is_alone) {
+			zone->free = working_pointer.as_Tlist;
+			ft_printf("_____________should pass here, working_pointer address is : -%p- \n", working_pointer.as_void);
 			(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
 			(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
-			zone->free = working_pointer.as_Tlist;
 		}
 		else {
 			(working_pointer.as_Tlist)->next->previous = working_pointer.as_Tlist;
@@ -67,5 +69,7 @@ void	coalescing(void *ptr, t_zone *zone) {
 	
 	working_pointer.as_char -= (RED_ZONE_SIZE + sizeof(size_t)); // pointer to the size of the block
 	has_garbadge = coalescing_left(&working_pointer.as_void);
+	ft_printf("-------------------------the left has_garbadge was : -%d-", has_garbadge);
 	has_garbadge = coalescing_right(&working_pointer.as_void, zone, has_garbadge);
+	ft_printf("-------------------------the right has_garbadge was : -%d-", has_garbadge);
 }

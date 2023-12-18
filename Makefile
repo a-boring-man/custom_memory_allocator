@@ -62,7 +62,7 @@ $(NAME) : $(OBJ)
 	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -DRED_ZONE_DEBUG=1 -o $@ -c $<
 
 $(SUB_DIR) :
 	$(MD) $@
