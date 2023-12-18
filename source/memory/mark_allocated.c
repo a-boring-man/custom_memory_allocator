@@ -49,6 +49,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	size_t	block_size = *(working_pointer.as_sizeT);
 	ft_printf("BBBBBBBBBBBBB the detected block size = -%u-\n", block_size);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE);
+	ft_printf("CCCCCCCCCCCC the left over size = -%u-\n", left_over);
 
 	//ft_printf("going to marked alloc block : -%p-\n", block);
 	
@@ -60,6 +61,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		if (block->next == block) {
 			is_alone = 1;
 		}
+		ft_printf("DDDDDDDDddd is alone : -%d-\n", is_alone);
 	//ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
