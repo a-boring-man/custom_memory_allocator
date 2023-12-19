@@ -40,41 +40,41 @@
 ////////////////////////////////////////////////////////////////////////////
 
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone) { // should be use with the padded allocated size
-	ft_printf("AAAAAAAAAAAAAAaaathe arg block : -%p-\n", block);
+	//ft_printf("AAAAAAAAAAAAAAaaathe arg block : -%p-\n", block);
 	t_memory_pointer	working_pointer;
 	working_pointer.as_Tlist = block;
 	working_pointer.as_sizeT -= 1; // go back to the beginning of the block
 	int	is_alone = 0;
 	//ft_printf("entering mark alloc, working pointer is : -%p-\n", working_pointer.as_void);
 	size_t	block_size = *(working_pointer.as_sizeT); //  get the block size
-	ft_printf("BBBBBBBBBBBBB the detected block size = -%u-\n", block_size);
+	//ft_printf("BBBBBBBBBBBBB the detected block size = -%u-\n", block_size);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE); //  calculate the left over
-	ft_printf("CCCCCCCCCCCC the left over size = -%u-\n", left_over);
+	//ft_printf("CCCCCCCCCCCC the left over size = -%u-\n", left_over);
 
 	//ft_printf("going to marked alloc block : -%p-\n", block);
 	
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
 	//ft_printf("in split block in marked alloc\n");
 		t_list copy = *(block);
-		ft_printf("CCCCCCCCCCCDDDDDDDDDDD copy contain next : -%p- previous : -%p-\n", copy.next, copy.previous);
+		//ft_printf("CCCCCCCCCCCDDDDDDDDDDD copy contain next : -%p- previous : -%p-\n", copy.next, copy.previous);
 		if (block->next == block) {
 			is_alone = 1;
 		}
-		ft_printf("DDDDDDDDddd is alone : -%d-\n", is_alone);
+		//ft_printf("DDDDDDDDddd is alone : -%d-\n", is_alone);
 	//ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // change the first size to be the allocated block size
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t); // move the pointer to the end of the allocated block
-		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
+		//ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 	//ft_printf("end of marked alloc returning : -%p-\n", block);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new size here
 		working_pointer.as_sizeT += 1; // move to the free space after
-		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
+		//ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 		*(working_pointer.as_sizeT) = left_over; // change the free space size
 		working_pointer.as_sizeT += 1; // move to the t_list part
-		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
+		//ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 		*(working_pointer.as_Tlist) = copy; // copt the t_list
-		ft_printf("EEEEEEEEEEEEE size to be allocated : -%d-\n", size_to_be_allocated);
-		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
+		//ft_printf("EEEEEEEEEEEEE size to be allocated : -%d-\n", size_to_be_allocated);
+		//ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 		zone->next = working_pointer.as_Tlist;
 		if (!is_alone) {
 			(working_pointer.as_Tlist)->next->previous = working_pointer.as_Tlist;
@@ -82,7 +82,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		}
 		else { // is alone in zone->free
 			zone->free = working_pointer.as_Tlist;
-			ft_printf("----------->>>>>>the pointer is at address : -%p-\n", working_pointer.as_void);
+			//ft_printf("----------->>>>>>the pointer is at address : -%p-\n", working_pointer.as_void);
 			(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
 			(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
 		}

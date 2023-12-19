@@ -1,20 +1,9 @@
 my_malloc 16
  red_zone_size = 16
-AAAAAAAAAAAAAAaaathe arg block : -0x7fdd32b77028-
-BBBBBBBBBBBBB the detected block size = -16344-
-CCCCCCCCCCCC the left over size = -16280-
-CCCCCCCCCCCDDDDDDDDDDD copy contain next : -0x7fdd32b77028- previous : -0x7fdd32b77028-
-DDDDDDDDddd is alone : -1-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b77058-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b77060-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b77068-
-EEEEEEEEEEEEE size to be allocated : -16-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b77068-
------------>>>>>>the pointer is at address : -0x7fdd32b77068-
 64 bytes or less : 
 page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-free from : -0x7fdd32b77060- to -0x7fdd32b7aff8- : 16280 bytes
+allocated from : -0x7fca58e7b020- to -0x7fca58e7b060- : 64 bytes
+free from : -0x7fca58e7b060- to -0x7fca58e7eff8- : 16280 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -25,26 +14,15 @@ free from : -0x7fdd32b77060- to -0x7fdd32b7aff8- : 16280 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f98 32b77068 32b77068 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7fca58e7b010-
+58e7b008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f98 58e7b068 58e7b068 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
 my_malloc 16
  red_zone_size = 16
-AAAAAAAAAAAAAAaaathe arg block : -0x7fdd32b77068-
-BBBBBBBBBBBBB the detected block size = -16280-
-CCCCCCCCCCCC the left over size = -16216-
-CCCCCCCCCCCDDDDDDDDDDD copy contain next : -0x7fdd32b77068- previous : -0x7fdd32b77068-
-DDDDDDDDddd is alone : -1-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b77098-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770a0-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770a8-
-EEEEEEEEEEEEE size to be allocated : -16-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770a8-
------------>>>>>>the pointer is at address : -0x7fdd32b770a8-
 64 bytes or less : 
 page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-allocated from : -0x7fdd32b77060- to -0x7fdd32b770a0- : 64 bytes
-free from : -0x7fdd32b770a0- to -0x7fdd32b7aff8- : 16216 bytes
+allocated from : -0x7fca58e7b020- to -0x7fca58e7b060- : 64 bytes
+allocated from : -0x7fca58e7b060- to -0x7fca58e7b0a0- : 64 bytes
+free from : -0x7fca58e7b0a0- to -0x7fca58e7eff8- : 16216 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -55,27 +33,16 @@ free from : -0x7fdd32b770a0- to -0x7fdd32b7aff8- : 16216 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f58 32b770a8 32b770a8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7fca58e7b010-
+58e7b008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f58 58e7b0a8 58e7b0a8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
 my_malloc 16
  red_zone_size = 16
-AAAAAAAAAAAAAAaaathe arg block : -0x7fdd32b770a8-
-BBBBBBBBBBBBB the detected block size = -16216-
-CCCCCCCCCCCC the left over size = -16152-
-CCCCCCCCCCCDDDDDDDDDDD copy contain next : -0x7fdd32b770a8- previous : -0x7fdd32b770a8-
-DDDDDDDDddd is alone : -1-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770d8-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770e0-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770e8-
-EEEEEEEEEEEEE size to be allocated : -16-
-FFFFFFFFFFFF working_pointer.as_void: -0x7fdd32b770e8-
------------>>>>>>the pointer is at address : -0x7fdd32b770e8-
 64 bytes or less : 
 page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-allocated from : -0x7fdd32b77060- to -0x7fdd32b770a0- : 64 bytes
-allocated from : -0x7fdd32b770a0- to -0x7fdd32b770e0- : 64 bytes
-free from : -0x7fdd32b770e0- to -0x7fdd32b7aff8- : 16152 bytes
+allocated from : -0x7fca58e7b020- to -0x7fca58e7b060- : 64 bytes
+allocated from : -0x7fca58e7b060- to -0x7fca58e7b0a0- : 64 bytes
+allocated from : -0x7fca58e7b0a0- to -0x7fca58e7b0e0- : 64 bytes
+free from : -0x7fca58e7b0e0- to -0x7fca58e7eff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -86,14 +53,14 @@ free from : -0x7fdd32b770e0- to -0x7fdd32b7aff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f18 32b770e8 32b770e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7fca58e7b010-
+58e7b008 1 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee cccccccc cccccccc eeeeeeee eeeeeeee 41 3f18 58e7b0e8 58e7b0e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
 64 bytes or less : 
 page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-allocated from : -0x7fdd32b77060- to -0x7fdd32b770a0- : 64 bytes
-allocated from : -0x7fdd32b770a0- to -0x7fdd32b770e0- : 64 bytes
-free from : -0x7fdd32b770e0- to -0x7fdd32b7aff8- : 16152 bytes
+allocated from : -0x7fca58e7b020- to -0x7fca58e7b060- : 64 bytes
+allocated from : -0x7fca58e7b060- to -0x7fca58e7b0a0- : 64 bytes
+allocated from : -0x7fca58e7b0a0- to -0x7fca58e7b0e0- : 64 bytes
+free from : -0x7fca58e7b0e0- to -0x7fca58e7eff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -104,67 +71,4 @@ free from : -0x7fdd32b770e0- to -0x7fdd32b7aff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 32b770e8 32b770e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
 first_free
-wanting to free the block at : -0x7fdd32b770b8- of size : --286331154- and of true size : --286331202-
-there is no free block on the left
--------------------------the left has_garbadge was : -1-_____________should pass here, working_pointer address is : -0x7fdd32b770a8- 
--------------------------the right has_garbadge was : -0-coucou
-64 bytes or less : 
-page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-allocated from : -0x7fdd32b77060- to -0x7fdd32b770a0- : 64 bytes
-free from : -0x7fdd32b770a0- to -0x7fdd32b7aff8- : 16216 bytes
-96 bytes or less : 
-128 bytes or less : 
-192 bytes or less : 
-256 bytes or less : 
-512 bytes or less : 
-1024 bytes or less : 
-2048 bytes or less : 
-4096 bytes or less : 
-8192 bytes or less : 
-0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 3f58 32b770a8 32b770a8 22ee 17 eeeeeeee eeeeeeee 40 3f18 32b770e8 32b770e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
-second_free
-wanting to free the block at : -0x7fdd32b77078- of size : --286331154- and of true size : --286331202-
-there is no free block on the left
--------------------------the left has_garbadge was : -1-_____________should pass here, working_pointer address is : -0x7fdd32b77068- 
--------------------------the right has_garbadge was : -0-coucou
-64 bytes or less : 
-page : 0
-allocated from : -0x7fdd32b77020- to -0x7fdd32b77060- : 64 bytes
-free from : -0x7fdd32b77060- to -0x7fdd32b7aff8- : 16280 bytes
-96 bytes or less : 
-128 bytes or less : 
-192 bytes or less : 
-256 bytes or less : 
-512 bytes or less : 
-1024 bytes or less : 
-2048 bytes or less : 
-4096 bytes or less : 
-8192 bytes or less : 
-0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 3f98 32b77068 32b77068 22ee 22ee eeeeeeee eeeeeeee 40 3f58 32b770a8 32b770a8 22ee 17 eeeeeeee eeeeeeee 40 3f18 32b770e8 32b770e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
-wanting to free the block at : -0x7fdd32b77038- of size : --286331154- and of true size : --286331202-
-there is no free block on the left
--------------------------the left has_garbadge was : -1-_____________should pass here, working_pointer address is : -0x7fdd32b77028- 
--------------------------the right has_garbadge was : -0-coucou
-64 bytes or less : 
-page : 0
-free from : -0x7fdd32b77020- to -0x7fdd32b7aff8- : 16344 bytes
-96 bytes or less : 
-128 bytes or less : 
-192 bytes or less : 
-256 bytes or less : 
-512 bytes or less : 
-1024 bytes or less : 
-2048 bytes or less : 
-4096 bytes or less : 
-8192 bytes or less : 
-0 bytes or less : 
-pointer at : -0x7fdd32b77010-
-32b77008 1 3fd8 32b77028 32b77028 2a 43 eeeeeeee eeeeeeee 40 3f98 32b77068 32b77068 22ee 22ee eeeeeeee eeeeeeee 40 3f58 32b770a8 32b770a8 22ee 17 eeeeeeee eeeeeeee 40 3f18 32b770e8 32b770e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 

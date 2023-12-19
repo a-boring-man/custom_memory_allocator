@@ -142,7 +142,7 @@ void	format_new_page(void *new_page, size_t page_size);
  */
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone);
 
-void	mark_block_as_free(void *block); // todo
+void	mark_block_as_free(void *block, t_zone *zone); // todo
 
 // -------------t_list function----------------
 

@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-void	mark_block_as_free(void *block) {
+void	mark_block_as_free(void *block, t_zone *zone) {
 	t_memory_pointer	working_pointer;
 	
 	working_pointer.as_void = block;
@@ -8,4 +8,5 @@ void	mark_block_as_free(void *block) {
 	*working_pointer.as_sizeT = *working_pointer.as_sizeT & -2; // mark as free
 	working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // move to the end of the block
 	*working_pointer.as_sizeT = *working_pointer.as_sizeT & -2; // mark as free
+	add_block_to_t_list((t_list *)((char *)block - RED_ZONE_SIZE), &(zone->free));
 }
