@@ -64,11 +64,14 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	//ft_printf("the copy is : next -%p- previous -%p-\n", copy.next, copy.previous);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // change the first size to be the allocated block size
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t); // move the pointer to the end of the allocated block
+		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 	//ft_printf("end of marked alloc returning : -%p-\n", block);
 		*(working_pointer.as_sizeT) = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new size here
 		working_pointer.as_sizeT += 1; // move to the free space after
+		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 		*(working_pointer.as_sizeT) = left_over; // change the free space size
 		working_pointer.as_sizeT += 1; // move to the t_list part
+		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 		*(working_pointer.as_Tlist) = copy; // copt the t_list
 		ft_printf("EEEEEEEEEEEEE size to be allocated : -%d-\n", size_to_be_allocated);
 		ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
