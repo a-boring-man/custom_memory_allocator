@@ -15,7 +15,7 @@ void	free(void *ptr) {
 	
 	
 	mark_block_as_free(ptr, zone);
-	//coalescing(ptr, zone);
+	coalescing(ptr, zone);
 	
 	(void)ptr;
 	int pff = write(1, "coucou\n", 7);

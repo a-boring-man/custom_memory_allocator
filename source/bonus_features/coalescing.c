@@ -19,6 +19,7 @@ static	void	coalescing_left(void **block_ptr, t_zone *zone) { // return the left
 	working_pointer.as_sizeT += 1; // put the pointer to the t_list part
 	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
 	add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
+	working_pointer.as_sizeT -= 1;
 	*block_ptr = working_pointer.as_void; // srt the block address to the very begginning of the coalesced block
 }
 
@@ -28,6 +29,7 @@ static	void	coalescing_right(void *block_ptr, t_zone *zone) {
 	working_pointer.as_void = block_ptr;
 	working_pointer.as_char += *((size_t *)(block_ptr)); // put the pointer to the begginnin of the right block
 
+	ft_printf("in coalescing right\n");
 	if (*working_pointer.as_sizeT & 1) { // if the right block is allocated
 		ft_printf("no space on the right side");
 		return ;
@@ -50,6 +52,9 @@ void	coalescing(void *ptr, t_zone *zone) {
 	working_pointer.as_void = ptr;
 	
 	working_pointer.as_char -= (RED_ZONE_SIZE + sizeof(size_t)); // pointer to the size of the block
+	ft_printf("in coalescing ptr address is : -%p-\n", ptr);
 	coalescing_left(&working_pointer.as_void, zone);
+	ft_printf("passing coalescing left working_ptr addres is : -%p-\n", working_pointer.as_void);
 	coalescing_right(working_pointer.as_void, zone);
+	ft_printf("after coalescing right working_ptr addres is : -%p-\n", working_pointer.as_void);
 }
