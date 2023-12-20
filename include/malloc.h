@@ -112,7 +112,13 @@ void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
  */
 void	*first_fit(size_t size_to_be_alloc, t_zone *zone);
 
-void	coalescing(void *ptr, t_zone *zone); // todo
+/**
+ * @brief a bonus function that help reduce splinter at the beginning of memory by coalescing freeblock together
+ * 
+ * @param ptr the addres given to the free function
+ * @param zone the correct zone for the malloced size
+ */
+void	coalescing(void *ptr, t_zone *zone);
 
 // -------------memory function----------------
 
@@ -143,7 +149,13 @@ void	format_new_page(void *new_page, size_t page_size);
  */
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone);
 
-void	mark_block_as_free(void *block, t_zone *zone); // todo
+/**
+ * @brief mark a region of memory as free
+ * 
+ * @param block the pointer given as argument to free
+ * @param zone the corrected zone of the maloced block
+ */
+void	mark_block_as_free(void *block, t_zone *zone);
 
 // -------------t_list function----------------
 
@@ -163,7 +175,13 @@ void	add_block_to_t_list(t_list *new_block, t_list **list_head);
  */
 void	remove_block_from_t_list(t_list *block, t_list **head);
 
-void	remove_page_if(t_list **list_head, int (*condition_function)(void *)); // todo
+/**
+ * @brief check all element a page containning t_list and remove them if the condition function return true on an element
+ * 
+ * @param list_head the address of the beginning of the list
+ * @param condition_function in that specifique case a function that determini if the page is only composed of on big free block may be improved to also recognize a case where we don't coalesc block together
+ */
+void	remove_page_if(t_list **list_head, int (*condition_function)(void *));
 
 // -------------helper function-----------------
 
