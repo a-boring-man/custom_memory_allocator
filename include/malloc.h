@@ -42,6 +42,7 @@ typedef union u_memory_pointer {
 # define PAGE_OVERHEAD (3 * sizeof(size_t) + sizeof(t_list))
 # define MINIMUM_PAGE_SIZE (PAGE_OVERHEAD + 2 * RED_ZONE_SIZE)
 # define RED_ZONE_COLOR 0xee
+# define FREE_DELAY 256
 # define unlikely(x)	(__builtin_expect(!!(x), 0))
 
 // -------------global allocation variable-------------

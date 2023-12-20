@@ -20,7 +20,7 @@ static int check_if_page_is_empty(void *page) {
 	page_size = *working_pointer.as_sizeT; // store page size
 	working_pointer.as_char += PAGE_START_OVERHEAD;
 	has_only_free_block = check_if_only_contain_free_block(working_pointer.as_void);
-	return (!(*working_pointer.as_sizeT & 1) && (page_size == *working_pointer.as_sizeT & -2 + PAGE_OVERHEAD || free_block_sum + PAGE_OVERHEAD == page_size)); // return true if the first block is not malloc AND either the hol page is a free block or composed of free block only
+	return (!(*working_pointer.as_sizeT & 1) && (page_size == (*working_pointer.as_sizeT & -2) + PAGE_OVERHEAD || has_only_free_block)); // return true if the first block is not malloc AND either the hol page is a free block or composed of free block only
 }
 
 static void check_for_unmap_page() {
@@ -35,7 +35,7 @@ static void check_for_unmap_page() {
 void	free(void *ptr) {
 	size_t	block_size;
 	size_t	data_size;
-	static int free_page_counter = 256; // the number of free before a page cleanup
+	static int free_page_counter = FREE_DELAY; // the number of free before a page cleanup
 	
 	if (ptr == NULL) {
 		return;
@@ -51,8 +51,8 @@ void	free(void *ptr) {
 	coalescing(ptr, zone);
 	if (free_page_counter-- == 0) { // free all empty page once in a while
 		check_for_unmap_page();
-		free_page_counter = 256;
+		free_page_counter = FREE_DELAY;
 	}
 	
-	//ft_printf("free_page_counter : -%d-\n", free_page_counter);
+	ft_printf("free_page_counter ||||||||||||||||||||||: -%d-\n", free_page_counter);
 }
