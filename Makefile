@@ -23,7 +23,7 @@ LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc \
 			memory/create_page memory/format_new_page memory/mark_allocated \
 			memory/find_free_block memory/mark_free \
 			\
-			t_list/add_block_to_t_list t_list/remove_block_from_t_list \
+			t_list/add_block_to_t_list t_list/remove_block_from_t_list t_list/apply_to_all_element \
 			\
 			utils/ceilling utils/page_size utils/page_selector \
 			\

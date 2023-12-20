@@ -42,6 +42,7 @@ typedef union u_memory_pointer {
 # define PAGE_OVERHEAD (3 * sizeof(size_t) + sizeof(t_list))
 # define MINIMUM_PAGE_SIZE (PAGE_OVERHEAD + 2 * RED_ZONE_SIZE)
 # define RED_ZONE_COLOR 0xee
+# define unlikely(x)	(__builtin_expect(!!(x), 0))
 
 // -------------global allocation variable-------------
 
@@ -161,6 +162,8 @@ void	add_block_to_t_list(t_list *new_block, t_list **list_head);
  * @param head the address of the list_head to be modified
  */
 void	remove_block_from_t_list(t_list *block, t_list **head);
+
+void	remove_page_if(t_list **list_head, int (*condition_function)(void *)); // todo
 
 // -------------helper function-----------------
 
