@@ -1,5 +1,20 @@
 #include "malloc.h"
 
+void	*ft_memcpy(void *to, void *from, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (!to && ! from)
+		return (NULL);
+	while (i < size)
+	{
+		*(char *)(to + i) = *(char *)(from + i);
+		i++;
+	}
+	return (to);
+}
+
 void	*realloc(void *ptr, size_t size) {
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
 		return (malloc(size));
@@ -37,10 +52,12 @@ void	*realloc(void *ptr, size_t size) {
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, padded(size));
 		}
 		else { // call malloc then copy if need to be moved 
-
+			void	*new_pointer = malloc(size);
+			ft_memcpy(new_pointer, ptr, data_size); // copy the old content
 		}
 	}
 	else { // the size will be shrinked
-
+		
+		int should_be_split =
 	}
 }
