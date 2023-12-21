@@ -103,3 +103,16 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	//ft_printf("end of marked alloc\n");
 }
 
+void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc
+	t_memory_pointer	working_pointer;
+	working_pointer.as_void = block_beginning;
+	size_t	block_size = *working_pointer.as_sizeT; // store the block size for later use
+	size_t	needed_size = size + MINIMUM_ALLOCATED_BLOCK_SIZE;
+	int		should_be_split = block_size - needed_size >= MINIMUM_FREE_BLOCK_SIZE; // determini if the block shoul be split into a allocated block and a free block
+	if (should_be_split) {
+
+	}
+	else {
+		
+	}
+}

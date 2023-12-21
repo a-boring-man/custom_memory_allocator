@@ -28,15 +28,15 @@ void	*realloc(void *ptr, size_t size) {
 	if (need_to_be_moved || size > data_size) { // need to check if a free space is next to the block and big enought else send back to malloc
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (size + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
-			size_t	right_block_size = *working_pointer.as_sizeT; // the idea is to mark the hol two block as one free block and reuse the mark block as allocated function to split it if needed
-			// well the idea don't work because mark block assume a real free block with a t_list componant
+			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
+			remove_block_from_t_list(working_pointer.as_sizeT + 1, &(zone->free)); // remove the right free block from the list
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // put the lenght of the two block and mark it as free;
 			working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go back to the beginning
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // set the left size to the size of the two block as free block
-			mark_block_as_allocated_from_realloc(working_pointer.as_void, );
+			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, size);
 		}
-		else { // call malloc then copy
+		else { // call malloc then copy if need to be moved 
 
 		}
 	}
