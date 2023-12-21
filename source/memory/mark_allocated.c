@@ -103,16 +103,31 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	//ft_printf("end of marked alloc\n");
 }
 
-void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc
+void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc padded. here i already remove the free block from the list
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = block_beginning;
 	size_t	block_size = *working_pointer.as_sizeT; // store the block size for later use
 	size_t	needed_size = size + MINIMUM_ALLOCATED_BLOCK_SIZE;
 	int		should_be_split = block_size - needed_size >= MINIMUM_FREE_BLOCK_SIZE; // determini if the block shoul be split into a allocated block and a free block
 	if (should_be_split) {
-
+		size_t	left_over = block_size - needed_size;
+		*working_pointer.as_sizeT = needed_size + 1; // put the true needed size
+		working_pointer.as_char += (needed_size - sizeof(size_t)); // move the pointer to the end of the nwely marked allocated block
+		*working_pointer.as_sizeT = needed_size + 1; // mark the end of the block
+		working_pointer.as_sizeT += 1; // move to the free section
+		*working_pointer.as_sizeT = left_over; // write the size of the free block
+		working_pointer.as_char += (left_over - sizeof(size_t)); // go to the end of the free block
+		*working_pointer.as_sizeT = left_over; // store the end marker
+		working_pointer.as_char -= (*working_pointer.as_sizeT - 2 * sizeof(size_t)); // return at the t_list emplacement
+		add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // add the last block to the free list
+		// todo add coalescing in bonus version
+		red_zone((char *)block_beginning + sizeof(size_t) + RED_ZONE_SIZE, size); // recollor the block
 	}
-	else {
-		
+	else { // cant split it
+		*working_pointer.as_sizeT = block_size + 1; // mark bothe end of the block
+		working_pointer.as_char += (block_size - sizeof(size_t));
+		*working_pointer.as_sizeT = block_size + 1;
+		working_pointer.as_char -= (block_size - 2 * sizeof(size_t)); // go back to the t_list part of the allocated block
+		red_zone(working_pointer.as_Tlist, size);
 	}
 }
