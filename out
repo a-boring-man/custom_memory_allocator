@@ -6,10 +6,10 @@ my_malloc 16
  red_zone_size = 16
 64 bytes or less : 
 page : 0
-allocated from : -0x7f3ba6023020- to -0x7f3ba6023060- : 64 bytes
-allocated from : -0x7f3ba6023060- to -0x7f3ba60230a0- : 64 bytes
-allocated from : -0x7f3ba60230a0- to -0x7f3ba60230e0- : 64 bytes
-free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
+allocated from : -0x7ff4981ab020- to -0x7ff4981ab060- : 64 bytes
+allocated from : -0x7ff4981ab060- to -0x7ff4981ab0a0- : 64 bytes
+allocated from : -0x7ff4981ab0a0- to -0x7ff4981ab0e0- : 64 bytes
+free from : -0x7ff4981ab0e0- to -0x7ff4981aeff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -20,22 +20,23 @@ free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f3ba6023010-
-a6023008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 a60230e8 a60230e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7ff4981ab010-
+981ab008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 981ab0e8 981ab0e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+realloc pointer is : -0x7ff4981ab038- and size : -3- the block size is : -64- the data size is : -16-
 first_free
-wanting to free the block at : -0x7f3ba6023038- of size : -64- and of true size : -16-
-in coalescing ptr address is : -0x7f3ba6023038-
+wanting to free the block at : -0x7ff4981ab038- of size : -64- and of true size : -16-
+in coalescing ptr address is : -0x7ff4981ab038-
 there is no free block on the left
-passing coalescing left working_ptr addres is : -0x7f3ba6023020-
+passing coalescing left working_ptr addres is : -0x7ff4981ab020-
 in coalescing right
-no space on the right sideafter coalescing right working_ptr addres is : -0x7f3ba6023020-
+no space on the right sideafter coalescing right working_ptr addres is : -0x7ff4981ab020-
 free_page_counter ||||||||||||||||||||||: -255-
 64 bytes or less : 
 page : 0
-free from : -0x7f3ba6023020- to -0x7f3ba6023060- : 64 bytes
-allocated from : -0x7f3ba6023060- to -0x7f3ba60230a0- : 64 bytes
-allocated from : -0x7f3ba60230a0- to -0x7f3ba60230e0- : 64 bytes
-free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
+free from : -0x7ff4981ab020- to -0x7ff4981ab060- : 64 bytes
+allocated from : -0x7ff4981ab060- to -0x7ff4981ab0a0- : 64 bytes
+allocated from : -0x7ff4981ab0a0- to -0x7ff4981ab0e0- : 64 bytes
+free from : -0x7ff4981ab0e0- to -0x7ff4981aeff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -46,20 +47,20 @@ free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f3ba6023010-
-a6023008 1 40 a60230e8 a60230e8 2a 43 eeeeeeee eeeeeeee 40 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 a6023028 a6023028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7ff4981ab010-
+981ab008 1 40 981ab0e8 981ab0e8 2a 43 eeeeeeee eeeeeeee 40 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 981ab028 981ab028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
 second_free
-wanting to free the block at : -0x7f3ba6023078- of size : -64- and of true size : -16-
-in coalescing ptr address is : -0x7f3ba6023078-
-passing coalescing left working_ptr addres is : -0x7f3ba6023020-
+wanting to free the block at : -0x7ff4981ab078- of size : -64- and of true size : -16-
+in coalescing ptr address is : -0x7ff4981ab078-
+passing coalescing left working_ptr addres is : -0x7ff4981ab020-
 in coalescing right
-no space on the right sideafter coalescing right working_ptr addres is : -0x7f3ba6023020-
+no space on the right sideafter coalescing right working_ptr addres is : -0x7ff4981ab020-
 free_page_counter ||||||||||||||||||||||: -254-
 64 bytes or less : 
 page : 0
-free from : -0x7f3ba6023020- to -0x7f3ba60230a0- : 128 bytes
-allocated from : -0x7f3ba60230a0- to -0x7f3ba60230e0- : 64 bytes
-free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
+free from : -0x7ff4981ab020- to -0x7ff4981ab0a0- : 128 bytes
+allocated from : -0x7ff4981ab0a0- to -0x7ff4981ab0e0- : 64 bytes
+free from : -0x7ff4981ab0e0- to -0x7ff4981aeff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -70,17 +71,17 @@ free from : -0x7f3ba60230e0- to -0x7f3ba6026ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f3ba6023010-
-a6023008 1 80 a60230e8 a60230e8 2a 43 eeeeeeee eeeeeeee 40 40 a6023028 a60230e8 22ee 22ee eeeeeeee eeeeeeee 80 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 a6023028 a6023028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
-wanting to free the block at : -0x7f3ba60230b8- of size : -64- and of true size : -16-
-in coalescing ptr address is : -0x7f3ba60230b8-
-passing coalescing left working_ptr addres is : -0x7f3ba6023020-
+pointer at : -0x7ff4981ab010-
+981ab008 1 80 981ab0e8 981ab0e8 2a 43 eeeeeeee eeeeeeee 40 40 981ab028 981ab0e8 22ee 22ee eeeeeeee eeeeeeee 80 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 981ab028 981ab028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+wanting to free the block at : -0x7ff4981ab0b8- of size : -64- and of true size : -16-
+in coalescing ptr address is : -0x7ff4981ab0b8-
+passing coalescing left working_ptr addres is : -0x7ff4981ab020-
 in coalescing right
-after coalescing right working_ptr addres is : -0x7f3ba6023020-
+after coalescing right working_ptr addres is : -0x7ff4981ab020-
 free_page_counter ||||||||||||||||||||||: -253-
 64 bytes or less : 
 page : 0
-free from : -0x7f3ba6023020- to -0x7f3ba6026ff8- : 16344 bytes
+free from : -0x7ff4981ab020- to -0x7ff4981aeff8- : 16344 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -91,5 +92,5 @@ free from : -0x7f3ba6023020- to -0x7f3ba6026ff8- : 16344 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f3ba6023010-
-a6023008 1 3fd8 a6023028 a6023028 2a 43 eeeeeeee eeeeeeee 40 40 a6023028 a60230e8 22ee 22ee eeeeeeee eeeeeeee 80 40 a6023028 a60230e8 22ee 17 eeeeeeee eeeeeeee c0 3f18 a6023028 a6023028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+pointer at : -0x7ff4981ab010-
+981ab008 1 3fd8 981ab028 981ab028 2a 43 eeeeeeee eeeeeeee 40 40 981ab028 981ab0e8 22ee 22ee eeeeeeee eeeeeeee 80 40 981ab028 981ab0e8 22ee 17 eeeeeeee eeeeeeee c0 3f18 981ab028 981ab028 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 

@@ -22,6 +22,7 @@ int main() {
     test2[1] = 23;
     show_alloc_mem();
     debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
+    realloc(test, 3);
     ft_printf("first_free\n");
     free(test);
     show_alloc_mem();

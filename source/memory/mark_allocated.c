@@ -46,7 +46,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	working_pointer.as_sizeT -= 1; // go back to the beginning of the block
 	int	is_alone = 0;
 	//ft_printf("entering mark alloc, working pointer is : -%p-\n", working_pointer.as_void);
-	size_t	block_size = *(working_pointer.as_sizeT); //  get the block size
+	size_t	block_size = (*working_pointer.as_sizeT & -2); //  get the block size
 	//ft_printf("BBBBBBBBBBBBB the detected block size = -%u-\n", block_size);
 	size_t	left_over = block_size - (size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE); //  calculate the left over
 	//ft_printf("CCCCCCCCCCCC the left over size = -%u-\n", left_over);
@@ -102,3 +102,4 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	}
 	//ft_printf("end of marked alloc\n");
 }
+
