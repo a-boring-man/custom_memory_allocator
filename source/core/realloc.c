@@ -44,7 +44,7 @@ void	*realloc(void *ptr, size_t size) {
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
 			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
-			remove_block_from_t_list(working_pointer.as_sizeT + 1, &(zone->free)); // remove the right free block from the list
+			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove the right free block from the list
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // put the lenght of the two block and mark it as free;
 			working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go back to the beginning
@@ -58,6 +58,6 @@ void	*realloc(void *ptr, size_t size) {
 	}
 	else { // the size will be shrinked
 		
-		int should_be_split =
+		//int should_be_split =
 	}
 }

@@ -151,6 +151,15 @@ void	format_new_page(void *new_page, size_t page_size);
 void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone *zone);
 
 /**
+ * @brief use if the block can be realloc on place, so only changing the free block next to it
+ * 
+ * @param block_beginning self explicit
+ * @param zone the correct zone for the block
+ * @param size the padded size to realloc
+ */
+void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size);
+
+/**
  * @brief mark a region of memory as free
  * 
  * @param block the pointer given as argument to free

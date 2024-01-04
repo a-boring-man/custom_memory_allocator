@@ -106,7 +106,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc padded. here i already remove the free block from the list
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = block_beginning;
-	size_t	block_size = *working_pointer.as_sizeT; // store the block size for later use
+	size_t	block_size = *working_pointer.as_sizeT & -2; // store the block size for later use
 	size_t	needed_size = size + MINIMUM_ALLOCATED_BLOCK_SIZE;
 	int		should_be_split = block_size - needed_size >= MINIMUM_FREE_BLOCK_SIZE; // determini if the block shoul be split into a allocated block and a free block
 	if (should_be_split) {
@@ -120,8 +120,8 @@ void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, s
 		*working_pointer.as_sizeT = left_over; // store the end marker
 		working_pointer.as_char -= (*working_pointer.as_sizeT - 2 * sizeof(size_t)); // return at the t_list emplacement
 		add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // add the last block to the free list
-		// todo add coalescing in bonus version
-		red_zone((char *)block_beginning + sizeof(size_t) + RED_ZONE_SIZE, size); // recollor the block
+		// todo add coalescing in bonus version, nothing to do here because the free block is already a unique big block before either the end of the page or an other allocated block
+		red_zone((char *)block_beginning + sizeof(size_t), size); // recollor the block
 	}
 	else { // cant split it
 		*working_pointer.as_sizeT = block_size + 1; // mark bothe end of the block
