@@ -35,6 +35,9 @@ void	*realloc(void *ptr, size_t size) {
 	ft_printf(" the block size is : -%d-", left_block_size);
 	size_t	data_size = left_block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	ft_printf(" the data size is : -%d-\n", data_size);
+	if (padded(size) == data_size) {
+		return ptr;
+	}
 
 	t_zone	*block_zone = choose_the_right_page(data_size); // get the zone of the data to be realloc
 	t_zone	*new_block_zone = choose_the_right_page(size); // get the zone of the newly size malloc
@@ -64,6 +67,23 @@ void	*realloc(void *ptr, size_t size) {
 		return NULL;
 		
 		int should_be_split = data_size - padded(size) >= MINIMUM_FREE_BLOCK_SIZE; // if there is enough space to put a new free_block
+		size_t	left_over = data_size - padded(size);
+		working_pointer.as_char += left_block_size; // move the wp to the next block to see if it's a free block
+		int	has_a_free_block_behind = !(*working_pointer.as_sizeT & 1); // self explenatory
+		size_t	free_block_size = 0;
+
+		if (has_a_free_block_behind) {// free block behind can be split and merge to the free block
+			free_block_size = *working_pointer.as_sizeT & -2;
+			remove_block_from_t_list((t_list *)(working_pointer.));
+			working_pointer.as_char -= (left_over); // go back to the now new beguinning of the block
+			*working_pointer.as_sizeT = free_block_size + left_over;
+		}
+		else if (should_be_split) {//can be split
+
+		}
+		else {// nothing to be done
+
+		}
 	}
 	return NULL;
 }
