@@ -5,6 +5,7 @@ void	*ft_memcpy(void *to, void *from, size_t size)
 	size_t	i;
 
 	i = 0;
+	ft_printf("my memcpy \n");
 	if (!to && ! from)
 		return (NULL);
 	while (i < size)
@@ -29,7 +30,7 @@ void	*realloc(void *ptr, size_t size) {
 	working_pointer.as_void = ptr;
 	working_pointer.as_char -= (sizeof(size_t) + RED_ZONE_SIZE); // put the working_pointer to the size of the block
 	
-	ft_printf("realloc pointer is : -%p- and size : -%d-", ptr, size);
+	ft_printf("!!!!!!!!!!!realloc pointer is : -%p- and size : -%d-", ptr, size);
 	size_t	left_block_size = *working_pointer.as_sizeT & -2;
 	ft_printf(" the block size is : -%d-", left_block_size);
 	size_t	data_size = left_block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
@@ -39,7 +40,6 @@ void	*realloc(void *ptr, size_t size) {
 	t_zone	*new_block_zone = choose_the_right_page(size); // get the zone of the newly size malloc
 	int need_to_be_moved = block_zone != new_block_zone; // check to see if the content need to be moved
 
-	return NULL;
 	if (need_to_be_moved || size > data_size) { // need to check if a free space is next to the block and big enought else send back to malloc
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
@@ -54,10 +54,16 @@ void	*realloc(void *ptr, size_t size) {
 		else { // call malloc then copy if need to be moved 
 			void	*new_pointer = malloc(size);
 			ft_memcpy(new_pointer, ptr, data_size); // copy the old content
+			ft_printf("just before debug in realloc new_pointer is %p and red_size is %d\n", new_pointer, RED_ZONE_SIZE);
+			debug_hexa((size_t *)new_pointer - 7, 50);
+			free(ptr);
+			return new_pointer;
 		}
 	}
 	else { // the size will be shrinked
+		return NULL;
 		
-		//int should_be_split =
+		int should_be_split = data_size - padded(size) >= MINIMUM_FREE_BLOCK_SIZE; // if there is enough space to put a new free_block
 	}
+	return NULL;
 }
