@@ -4,6 +4,7 @@ void	debug_hexa(void *memory_location, size_t size) {
 	size_t i = 0;
 	t_memory_pointer ptr;
 	ptr.as_void = memory_location;
+	ft_printf("\n");
 	ft_printf("pointer at : -%p-\n", memory_location);
 
 	while (i < size) {
@@ -11,7 +12,7 @@ void	debug_hexa(void *memory_location, size_t size) {
 		ptr.as_sizeT += 1;
 		i += 1;
 	}
-	ft_printf("\n");
+	ft_printf("\n\n");
 }
 
 static void display_page(void *page) {
@@ -34,6 +35,7 @@ void	show_alloc_mem() {
 	size_t	grimoire_page = 0;
 	size_t	page;
 
+	ft_printf("\n");
 	while (grimoire_page != 11) {
 		page = 0;
 		ft_printf("%d bytes or less : \n", grimoire[grimoire_page].max_size);
@@ -47,4 +49,5 @@ void	show_alloc_mem() {
 		}
 		grimoire_page += 1;
 	}
+	ft_printf("\n");
 }

@@ -4,12 +4,13 @@ my_malloc 16
  red_zone_size = 16
 my_malloc 16
  red_zone_size = 16
+
 64 bytes or less : 
 page : 0
-allocated from : -0x7f67c96c1020- to -0x7f67c96c1060- : 64 bytes
-allocated from : -0x7f67c96c1060- to -0x7f67c96c10a0- : 64 bytes
-allocated from : -0x7f67c96c10a0- to -0x7f67c96c10e0- : 64 bytes
-free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
+allocated from : -0x7ff5e39e1020- to -0x7ff5e39e1060- : 64 bytes
+allocated from : -0x7ff5e39e1060- to -0x7ff5e39e10a0- : 64 bytes
+allocated from : -0x7ff5e39e10a0- to -0x7ff5e39e10e0- : 64 bytes
+free from : -0x7ff5e39e10e0- to -0x7ff5e39e4ff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -20,21 +21,25 @@ free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f67c96c1010-
-c96c1008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 c96c10e8 c96c10e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
-wanting to free the block at : -0x7f67c96c1078- of size : -64- and of true size : -16-
-in coalescing ptr address is : -0x7f67c96c1078-
+
+
+pointer at : -0x7ff5e39e1010-
+e39e1008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 22ee eeeeeeee eeeeeeee 41 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 e39e10e8 e39e10e8 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
+wanting to free the block at : -0x7ff5e39e1078- of size : -64- and of true size : -16-
+in coalescing ptr address is : -0x7ff5e39e1078-
 there is no free block on the left
-passing coalescing left working_ptr addres is : -0x7f67c96c1060-
+passing coalescing left working_ptr addres is : -0x7ff5e39e1060-
 in coalescing right
-no space on the right sideafter coalescing right working_ptr addres is : -0x7f67c96c1060-
+no space on the right sideafter coalescing right working_ptr addres is : -0x7ff5e39e1060-
 free_page_counter ||||||||||||||||||||||: -255-
+
 64 bytes or less : 
 page : 0
-allocated from : -0x7f67c96c1020- to -0x7f67c96c1060- : 64 bytes
-free from : -0x7f67c96c1060- to -0x7f67c96c10a0- : 64 bytes
-allocated from : -0x7f67c96c10a0- to -0x7f67c96c10e0- : 64 bytes
-free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
+allocated from : -0x7ff5e39e1020- to -0x7ff5e39e1060- : 64 bytes
+free from : -0x7ff5e39e1060- to -0x7ff5e39e10a0- : 64 bytes
+allocated from : -0x7ff5e39e10a0- to -0x7ff5e39e10e0- : 64 bytes
+free from : -0x7ff5e39e10e0- to -0x7ff5e39e4ff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -45,9 +50,12 @@ free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f67c96c1010-
-c96c1008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 40 c96c10e8 c96c10e8 22ee 22ee eeeeeeee eeeeeeee 40 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 c96c1068 c96c1068 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
-!!!!!!!!!!!realloc pointer is : -0x7f67c96c1038- and size : -8- the block size is : -64- the data size is : -16-
+
+
+pointer at : -0x7ff5e39e1010-
+e39e1008 1 41 eeeeeeee eeeeeeee 2a 43 eeeeeeee eeeeeeee 41 40 e39e10e8 e39e10e8 22ee 22ee eeeeeeee eeeeeeee 40 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 e39e1068 e39e1068 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
+!!!!!!!!!!!realloc pointer is : -0x7ff5e39e1038- and size : -8- the block size is : -64- the data size is : -16-
 in realloc third case
 left_over is 8
 in realloc fourth case
@@ -55,15 +63,18 @@ realloc found free_block size : 64
 what is writen is 72
 new_free_block size : 72
 HERE\\\\\\\\\\\
-new pointer is now : 0x7f67c96c1038
-pointer at : -0x7f67c96c1000-
-4000 c96c1008 c96c1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 48 c96c10e8 c96c10e8 c96c10e8 22ee 22ee eeeeeeee eeeeeeee 48 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 c96c1060 c96c1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+new pointer is now : 0x7ff5e39e1038
+
+pointer at : -0x7ff5e39e1000-
+4000 e39e1008 e39e1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 48 e39e10e8 e39e10e8 e39e10e8 22ee 22ee eeeeeeee eeeeeeee 48 41 eeeeeeee eeeeeeee 22ee 17 eeeeeeee eeeeeeee 41 3f18 e39e1060 e39e1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
+
 64 bytes or less : 
 page : 0
-allocated from : -0x7f67c96c1020- to -0x7f67c96c1058- : 56 bytes
-free from : -0x7f67c96c1058- to -0x7f67c96c10a0- : 72 bytes
-allocated from : -0x7f67c96c10a0- to -0x7f67c96c10e0- : 64 bytes
-free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
+allocated from : -0x7ff5e39e1020- to -0x7ff5e39e1058- : 56 bytes
+free from : -0x7ff5e39e1058- to -0x7ff5e39e10a0- : 72 bytes
+allocated from : -0x7ff5e39e10a0- to -0x7ff5e39e10e0- : 64 bytes
+free from : -0x7ff5e39e10e0- to -0x7ff5e39e4ff8- : 16152 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -74,17 +85,19 @@ free from : -0x7f67c96c10e0- to -0x7f67c96c4ff8- : 16152 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
+
 first_free
-wanting to free the block at : -0x7f67c96c10b8- of size : -64- and of true size : -16-
-in coalescing ptr address is : -0x7f67c96c10b8-
-passing coalescing left working_ptr addres is : -0x7f67c96c1058-
+wanting to free the block at : -0x7ff5e39e10b8- of size : -64- and of true size : -16-
+in coalescing ptr address is : -0x7ff5e39e10b8-
+passing coalescing left working_ptr addres is : -0x7ff5e39e1058-
 in coalescing right
-after coalescing right working_ptr addres is : -0x7f67c96c1058-
+after coalescing right working_ptr addres is : -0x7ff5e39e1058-
 free_page_counter ||||||||||||||||||||||: -254-
+
 64 bytes or less : 
 page : 0
-allocated from : -0x7f67c96c1020- to -0x7f67c96c1058- : 56 bytes
-free from : -0x7f67c96c1058- to -0x7f67c96c4ff8- : 16288 bytes
+allocated from : -0x7ff5e39e1020- to -0x7ff5e39e1058- : 56 bytes
+free from : -0x7ff5e39e1058- to -0x7ff5e39e4ff8- : 16288 bytes
 96 bytes or less : 
 128 bytes or less : 
 192 bytes or less : 
@@ -95,8 +108,13 @@ free from : -0x7f67c96c1058- to -0x7f67c96c4ff8- : 16288 bytes
 4096 bytes or less : 
 8192 bytes or less : 
 0 bytes or less : 
-pointer at : -0x7f67c96c1010-
-c96c1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 3fa0 c96c1060 c96c1060 c96c10e8 22ee 22ee eeeeeeee eeeeeeee 48 40 c96c1060 c96c10e8 22ee 17 eeeeeeee eeeeeeee 88 3f18 c96c1060 c96c1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
+
+pointer at : -0x7ff5e39e1010-
+e39e1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 3fa0 e39e1060 e39e1060 e39e10e8 22ee 22ee eeeeeeee eeeeeeee 48 40 e39e1060 e39e10e8 22ee 17 eeeeeeee eeeeeeee 88 3f18 e39e1060 e39e1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
 second and third_free
-pointer at : -0x7f67c96c1010-
-c96c1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 3fa0 c96c1060 c96c1060 c96c10e8 22ee 22ee eeeeeeee eeeeeeee 48 40 c96c1060 c96c10e8 22ee 17 eeeeeeee eeeeeeee 88 3f18 c96c1060 c96c1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
+pointer at : -0x7ff5e39e1010-
+e39e1008 1 39 eeeeeeee eeeeeeee 2a eeeeeeee eeeeeeee 39 3fa0 e39e1060 e39e1060 e39e10e8 22ee 22ee eeeeeeee eeeeeeee 48 40 e39e1060 e39e10e8 22ee 17 eeeeeeee eeeeeeee 88 3f18 e39e1060 e39e1060 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc 
+
