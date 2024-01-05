@@ -5,13 +5,13 @@ int main() {
     size_t *test1;
     size_t *test2;
 
-    test = malloc(2 * sizeof(size_t));
+    test = malloc(8 * sizeof(size_t));
     //show_alloc_mem();
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    test1 = malloc(2 * sizeof(size_t));
+    test1 = malloc(8 * sizeof(size_t));
     //show_alloc_mem();
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    test2 = malloc(2 * sizeof(size_t));
+    test2 = malloc(8 * sizeof(size_t));
     //show_alloc_mem();
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
     test[0] = 42;
@@ -22,9 +22,9 @@ int main() {
     test2[1] = 23;
     show_alloc_mem();
     debug_hexa(test - 7, 40);
-    free(test1);
-    show_alloc_mem();
-    debug_hexa(test - 7, 40);
+    //free(test1);
+    //show_alloc_mem();
+    //debug_hexa(test - 7, 40);
     void *new_pointer = realloc(test, 1 * sizeof(size_t));
     ft_printf("new pointer is now : %p\n", new_pointer);
     debug_hexa((size_t *)new_pointer - 7, 40);

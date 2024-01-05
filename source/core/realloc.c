@@ -98,7 +98,8 @@ void	*realloc(void *ptr, size_t size) {
 			return (red_zone((void *)(working_pointer.as_char + sizeof(size_t)), padded(size))); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
-
+			ft_printf("fith case \n");
+			
 		return NULL;
 		}
 		else {// nothing to be done
