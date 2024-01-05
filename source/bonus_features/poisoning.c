@@ -22,5 +22,6 @@ void	*red_zone(void *block, size_t size_allocated) {
 		return block;
 	poison_block(block, RED_ZONE_SIZE, RED_ZONE_COLOR);
 	poison_block((void *)((char *)block + size_allocated + RED_ZONE_SIZE), RED_ZONE_SIZE, RED_ZONE_COLOR);
+	
 	return ((void *)((char *)block + RED_ZONE_SIZE));
 }

@@ -46,6 +46,7 @@ void	*realloc(void *ptr, size_t size) {
 	if (need_to_be_moved || size > data_size) { // need to check if a free space is next to the block and big enought else send back to malloc
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
+		 	ft_printf("in realloc first case\n");
 			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
 			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove the right free block from the list
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
@@ -53,8 +54,10 @@ void	*realloc(void *ptr, size_t size) {
 			working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go back to the beginning
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // set the left size to the size of the two block as free block
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, padded(size));
+			return (ptr);
 		}
-		else { // call malloc then copy if need to be moved 
+		else { // call malloc then copy if need to be moved
+			ft_printf("in realloc second case\n");
 			void	*new_pointer = malloc(size);
 			ft_memcpy(new_pointer, ptr, data_size); // copy the old content
 			ft_printf("just before debug in realloc new_pointer is %p and red_size is %d\n", new_pointer, RED_ZONE_SIZE);
@@ -64,25 +67,42 @@ void	*realloc(void *ptr, size_t size) {
 		}
 	}
 	else { // the size will be shrinked
-		return NULL;
 		
+		ft_printf("in realloc third case\n");
 		int should_be_split = data_size - padded(size) >= MINIMUM_FREE_BLOCK_SIZE; // if there is enough space to put a new free_block
 		size_t	left_over = data_size - padded(size);
+		ft_printf("left_over is %d\n", left_over);
 		working_pointer.as_char += left_block_size; // move the wp to the next block to see if it's a free block
 		int	has_a_free_block_behind = !(*working_pointer.as_sizeT & 1); // self explenatory
 		size_t	free_block_size = 0;
 
 		if (has_a_free_block_behind) {// free block behind can be split and merge to the free block
-			free_block_size = *working_pointer.as_sizeT & -2;
-			remove_block_from_t_list((t_list *)(working_pointer.));
-			working_pointer.as_char -= (left_over); // go back to the now new beguinning of the block
-			*working_pointer.as_sizeT = free_block_size + left_over;
+		ft_printf("in realloc fourth case\n");
+			free_block_size = *working_pointer.as_sizeT & -2; // store the size of the free block
+			ft_printf("realloc found free_block size : %d\n", free_block_size);
+			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove it from the list
+			working_pointer.as_char -= (left_over); // go back to the now new beguinning of the freeblock
+			*working_pointer.as_sizeT = free_block_size + left_over; // put the now bigger size in it
+			ft_printf("what is writen is %d\n", *working_pointer.as_sizeT);
+			working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // move to the end of the free block
+			*working_pointer.as_sizeT = free_block_size + left_over; // modify the size of the block
+			ft_printf("new_free_block size : %d\n", free_block_size + left_over);
+			working_pointer.as_char -= (*working_pointer.as_sizeT - 2 * sizeof(size_t)); // go back to the t_list part
+			add_block_to_t_list(working_pointer.as_Tlist, &(block_zone->free)); // readd the block to the list of free block
+			working_pointer.as_sizeT -= 2; // move to the now end of the malloced block
+			*working_pointer.as_sizeT = padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new block size
+			working_pointer.as_char -= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t)); // go to the begginning of the block
+			*working_pointer.as_sizeT = padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new block size
+			ft_printf("HERE\\\\\\\\\\\\\\\\\\\\\\\n");
+			return (red_zone((void *)(working_pointer.as_char + sizeof(size_t)), padded(size))); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
 
+		return NULL;
 		}
 		else {// nothing to be done
 
+		return NULL;
 		}
 	}
 	return NULL;

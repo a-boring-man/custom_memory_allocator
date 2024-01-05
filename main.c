@@ -22,17 +22,18 @@ int main() {
     test2[1] = 23;
     show_alloc_mem();
     debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    void *new_pointer = realloc(test, 30 * sizeof(size_t));
+    free(test1);
     show_alloc_mem();
     debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    debug_hexa((size_t *)new_pointer, 40);
+    void *new_pointer = realloc(test, 1 * sizeof(size_t));
+    ft_printf("new pointer is now : %p\n", new_pointer);
+    debug_hexa((size_t *)new_pointer - 7, 40);
+    show_alloc_mem();
     ft_printf("first_free\n");
+    free(test2);
     //free(test);
     show_alloc_mem();
     debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
     ft_printf("second and third_free\n");
-    free(test1);
-    free(test2);
-    show_alloc_mem();
     debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
 }
