@@ -59,7 +59,7 @@ void	*realloc(void *ptr, size_t size) {
 		else { // call malloc then copy if need to be moved
 			ft_printf("in realloc second case\n");
 			void	*new_pointer = malloc(size);
-			ft_memcpy(new_pointer, ptr, data_size); // copy the old content
+			ft_memcpy(new_pointer, ptr, min(data_size, padded(size))); // copy the old content
 			ft_printf("just before debug in realloc new_pointer is %p and red_size is %d\n", new_pointer, RED_ZONE_SIZE);
 			debug_hexa((size_t *)new_pointer - 7, 50);
 			free(ptr);
@@ -88,6 +88,7 @@ void	*realloc(void *ptr, size_t size) {
 			*working_pointer.as_sizeT = free_block_size + left_over; // modify the size of the block
 			ft_printf("new_free_block size : %d\n", free_block_size + left_over);
 			working_pointer.as_char -= (*working_pointer.as_sizeT - 2 * sizeof(size_t)); // go back to the t_list part
+			debug_hexa(working_pointer.as_void, 2);
 			add_block_to_t_list(working_pointer.as_Tlist, &(block_zone->free)); // readd the block to the list of free block
 			working_pointer.as_sizeT -= 2; // move to the now end of the malloced block
 			*working_pointer.as_sizeT = padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new block size

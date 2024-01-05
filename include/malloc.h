@@ -195,6 +195,8 @@ void	remove_page_if(t_list **list_head, int (*condition_function)(void *));
 
 // -------------helper function-----------------
 
+size_t	min(size_t a, size_t b);
+
 /**
  * @brief give back a rounded value to the nearest rounding
  * 

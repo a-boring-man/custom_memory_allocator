@@ -33,6 +33,8 @@
 // }
 
 static void	add_block_to_t_list_first(t_list *new_block, t_list **list_head) {
+	new_block->next = new_block;
+	new_block->previous = new_block;
 	if (*list_head == NULL) {
 		*list_head = new_block;
 	}
