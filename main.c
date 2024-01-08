@@ -25,7 +25,7 @@ int main() {
     //free(test1);
     //show_alloc_mem();
     //debug_hexa(test - 7, 40);
-    void *new_pointer = realloc(test, 1 * sizeof(size_t));
+    void *new_pointer = realloc(test, 6 * sizeof(size_t));
     ft_printf("new pointer is now : %p\n", new_pointer);
     debug_hexa((size_t *)new_pointer - 7, 40);
     show_alloc_mem();

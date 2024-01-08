@@ -98,7 +98,7 @@ void	*realloc(void *ptr, size_t size) {
 			return (red_zone((void *)(working_pointer.as_char + sizeof(size_t)), padded(size))); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
-			ft_printf("fith case \n");
+			ft_printf("in realloc fith case \n");
 			working_pointer.as_sizeT -= 1; // move back to the end of the allocated block
 			*working_pointer.as_sizeT = left_over; // put the new free block size size
 			working_pointer.as_char -= (left_over - sizeof(size_t)); // go back to the now begginning of the free block
@@ -110,9 +110,9 @@ void	*realloc(void *ptr, size_t size) {
 			*working_pointer.as_sizeT = left_block_size - left_over + 1; // put the new size
 			return (red_zone((void *)(working_pointer.as_sizeT + 1), padded(size)));
 		}
-		else {// nothing to be done
+		else {// block should be shrinked but no free block to the right and not shrink enought to allow a free block to appear
 
-		return NULL;
+			return (ptr);
 		}
 	}
 	return NULL;
