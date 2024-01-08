@@ -37,6 +37,7 @@ static void	add_block_to_t_list_first(t_list *new_block, t_list **list_head) {
 	new_block->previous = new_block;
 	if (*list_head == NULL) {
 		*list_head = new_block;
+		ft_printf("list was null\n");
 	}
 	else {
 		t_list	*tmp = (*list_head)->previous;

@@ -199,6 +199,8 @@ void	remove_block_from_t_list(t_list *block, t_list **head);
  */
 void	remove_page_if(t_list **list_head, int (*condition_function)(void *));
 
+void	printf_t_list(t_list *list_head); // todo
+
 // -------------helper function-----------------
 
 size_t	min(size_t a, size_t b);

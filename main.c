@@ -5,7 +5,7 @@ int main() {
     size_t *test1;
     size_t *test2;
 
-    test = malloc(8 * sizeof(size_t));
+    test = malloc(50000 * sizeof(size_t));
     //show_alloc_mem();
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
     test1 = malloc(8 * sizeof(size_t));
@@ -33,12 +33,12 @@ int main() {
     free(test2);
     //free(test);
     show_alloc_mem();
-    debug_hexa(test - 7, 40);
+    debug_hexa(new_pointer - 7, 40);
     ft_printf("second and third_free\n");
     free(test1);
     show_alloc_mem();
-    debug_hexa(test - 7, 40);
-    free(test);
+    debug_hexa(new_pointer - 7, 40);
+    free(new_pointer);
     show_alloc_mem();
     //debug_hexa(test -7, 40);
 }

@@ -20,3 +20,23 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
         }
 	}
 }
+
+void    printf_t_list(t_list *list_head) {
+    t_list *current = list_head;
+    size_t element_nbr = 0;
+
+    if (current == NULL) {
+        ft_printf("t_list contain %d elements\n", element_nbr);
+        return;
+    }
+    while (current->next != list_head) {
+        element_nbr++;
+        ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
+        current = current->next;
+        debug_hexa((void *)((size_t *)current -1), 2500);
+    }
+    element_nbr++;
+    ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
+    debug_hexa((void *)((size_t *)current -1), 2500);
+    ft_printf("the list contain %d elements\n", element_nbr);
+}

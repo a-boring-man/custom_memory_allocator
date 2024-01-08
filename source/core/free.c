@@ -42,6 +42,9 @@ void	free(void *ptr) {
 	}
 
 	block_size = *(size_t *)((char *)ptr - (sizeof(size_t) + RED_ZONE_SIZE)) & -2;
+	if (!block_size) {
+		return;
+	}
 	data_size = block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	ft_printf("wanting to free the block at : -%p- of size : -%u- and of true size : -%u-\n", ptr, block_size, data_size);
 	t_zone	*zone = choose_the_right_page(data_size);

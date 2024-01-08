@@ -39,7 +39,7 @@ HEADER_EXT := .h
 CPPFLAGS := #-std=c++98 #-pedantic
 
 #update if needed
-CFLAGS = -Wall -Wextra -Werror -MD -O2 -I$(DIR_INC) -g3 -fPIC#-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC#-fsanitize=address
 DIR_SRC := source#.
 SUB_DIR_LST := core utils bonus_features memory t_list
 
@@ -62,7 +62,7 @@ $(NAME) : $(OBJ)
 	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -DRED_ZONE_DEBUG=1 -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -DRED_ZONE_DEBUG=1 -DFREE_DELAY=10000 -o $@ -c $<
 
 $(SUB_DIR) :
 	$(MD) $@

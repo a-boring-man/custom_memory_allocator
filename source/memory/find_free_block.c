@@ -16,12 +16,15 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	if (list_head == NULL || (list_head->next == zone->free && *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)) { // no block was found need to create a new page
 		t_memory_pointer	new_page;
 	
-	//ft_printf("must allocate a new page\n");
+	ft_printf("must allocate a new page\n");
 		new_page.as_void = create_page(zone, size_to_be_alloc); 
 		format_new_page(new_page.as_void, determine_page_size(zone, size_to_be_alloc));
-	//ft_printf("new page was created and formated\n");
-		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (t_list **)(&(zone->page)));
+	ft_printf("new page was created and formated\n");
+	debug_hexa(new_page.as_void, 40);
+		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), &(zone->page));
+	debug_hexa(new_page.as_void, 40);
 		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), (t_list **)(&(zone->free)));
+		printf_t_list(zone->page);
 	//ft_printf("the page was added to page t_list and the free block inside to the free t_list zone->free : -%p- and zone->page : -%p-\n", zone->free, zone->page);
 		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), padded(size_to_be_alloc), zone));
 	}
