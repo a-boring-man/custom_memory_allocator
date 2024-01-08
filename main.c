@@ -40,5 +40,5 @@ int main() {
     debug_hexa(test - 7, 40);
     free(test);
     show_alloc_mem();
-    debug_hexa(test -7, 40);
+    //debug_hexa(test -7, 40);
 }
