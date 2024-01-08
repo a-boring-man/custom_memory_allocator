@@ -32,8 +32,8 @@ void    printf_t_list(t_list *list_head) {
     while (current->next != list_head) {
         element_nbr++;
         ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
-        current = current->next;
         debug_hexa((void *)((size_t *)current -1), 2500);
+        current = current->next;
     }
     element_nbr++;
     ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
