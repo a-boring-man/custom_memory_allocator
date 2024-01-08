@@ -16,9 +16,9 @@ int main() {
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
     test[0] = 42;
     test[1] = 67;
-    test1[0] = 8942;
-    test1[1] = 8942;
-    test2[0] = 8942;
+    test1[0] = 8941;
+    test1[1] = 8941;
+    test2[0] = 8941;
     test2[1] = 23;
     show_alloc_mem();
     debug_hexa(test - 7, 40);
@@ -35,7 +35,10 @@ int main() {
     show_alloc_mem();
     debug_hexa(test - 7, 40);
     ft_printf("second and third_free\n");
-    free(test);
+    free(test1);
     show_alloc_mem();
     debug_hexa(test - 7, 40);
+    free(test);
+    show_alloc_mem();
+    debug_hexa(test -7, 40);
 }

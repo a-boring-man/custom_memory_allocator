@@ -99,8 +99,16 @@ void	*realloc(void *ptr, size_t size) {
 		}
 		else if (should_be_split) {//can be split
 			ft_printf("fith case \n");
-			
-		return NULL;
+			working_pointer.as_sizeT -= 1; // move back to the end of the allocated block
+			*working_pointer.as_sizeT = left_over; // put the new free block size size
+			working_pointer.as_char -= (left_over - sizeof(size_t)); // go back to the now begginning of the free block
+			*working_pointer.as_sizeT = left_over; // put the size of the new freeblock
+			add_block_to_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free));
+			working_pointer.as_sizeT -= 1; // move to the now end of the allocated block
+			*working_pointer.as_sizeT = left_block_size - left_over + 1; // put the new size
+			working_pointer.as_char -= ((*working_pointer.as_sizeT & -2) - sizeof(size_t)); // move back to the beginning
+			*working_pointer.as_sizeT = left_block_size - left_over + 1; // put the new size
+			return (red_zone((void *)(working_pointer.as_sizeT + 1), padded(size)));
 		}
 		else {// nothing to be done
 
