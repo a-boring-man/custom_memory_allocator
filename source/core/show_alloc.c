@@ -43,12 +43,12 @@ void	show_alloc_mem() {
 		current_page = grimoire[grimoire_page].page;
 		while (current_page != NULL && current_page->next != grimoire[grimoire_page].page) {
 			ft_printf("page : %d\n", page++);
-			display_page(grimoire[grimoire_page].page);
-			
+			display_page(current_page);
+			current_page = current_page->next;
 		}
-		if (grimoire[grimoire_page].page != NULL) {
+		if (current_page != NULL) {
 			ft_printf("page : %d\n", page++);
-			display_page(grimoire[grimoire_page].page);
+			display_page(current_page);
 		}
 		grimoire_page += 1;
 	}
