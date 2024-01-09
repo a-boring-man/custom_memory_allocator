@@ -23,12 +23,12 @@ static int check_if_page_is_empty(void *page) {
 	return (!(*working_pointer.as_sizeT & 1) && (page_size == (*working_pointer.as_sizeT & -2) + PAGE_OVERHEAD || has_only_free_block)); // return true if the first block is not malloc AND either the hol page is a free block or composed of free block only
 }
 
-static void check_for_unmap_page() {
+static void check_for_unmap_page(t_zone *zone) {
 	for (int i = 0; i < 11; i++){
 		if (grimoire[i].page == NULL) {
 			continue;
 		}
-		remove_page_if(&(grimoire[i].page), check_if_page_is_empty);
+		remove_page_if(&(grimoire[i].page), check_if_page_is_empty, zone);
 	}
 }
 
@@ -47,13 +47,15 @@ void	free(void *ptr) {
 	}
 	data_size = block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	ft_printf("wanting to free the block at : -%p- of size : -%u- and of true size : -%u-\n", ptr, block_size, data_size);
+	debug_hexa((void *)((size_t *)ptr - 4 - RED_ZONE_SIZE / sizeof(size_t)), (block_size / sizeof(size_t)) + 2 + RED_ZONE_SIZE);
 	t_zone	*zone = choose_the_right_page(data_size);
 	
 	
 	mark_block_as_free(ptr, zone);
+	printf_t_list(zone->free);
 	coalescing(ptr, zone);
 	if (free_page_counter-- == 0) { // free all empty page once in a while
-		check_for_unmap_page();
+		check_for_unmap_page(zone);
 		free_page_counter = FREE_DELAY;
 	}
 	

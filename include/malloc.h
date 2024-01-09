@@ -197,7 +197,7 @@ void	remove_block_from_t_list(t_list *block, t_list **head);
  * @param list_head the address of the beginning of the list
  * @param condition_function in that specifique case a function that determini if the page is only composed of on big free block may be improved to also recognize a case where we don't coalesc block together
  */
-void	remove_page_if(t_list **list_head, int (*condition_function)(void *));
+void	remove_page_if(t_list **list_head, int (*condition_function)(void *), t_zone *zone);
 
 void	printf_t_list(t_list *list_head); // todo
 

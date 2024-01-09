@@ -63,7 +63,7 @@ static void	format_free_space(void *new_page, size_t free_block_size) {
 	working_pointer.as_char += free_block_size - 2 * sizeof(size_t); // move to the end of the free block
 	*(working_pointer.as_sizeT) = free_block_size;
 	//ft_printf("free space end : -%p-\n", working_pointer.as_char);
-	debug_hexa((void *)((char *)new_page - PAGE_START_OVERHEAD), (*(size_t *)((char *)new_page - PAGE_START_OVERHEAD)) / sizeof(size_t));
+	//debug_hexa((void *)((char *)new_page - PAGE_START_OVERHEAD), (*(size_t *)((char *)new_page - PAGE_START_OVERHEAD)) / sizeof(size_t));
 	poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), 0xcc);
 } 
 

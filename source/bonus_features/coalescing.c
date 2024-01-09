@@ -35,6 +35,7 @@ static	void	coalescing_right(void *block_ptr, t_zone *zone) {
 		return ;
 	}
 	right_block_size = *working_pointer.as_sizeT; // store the right part
+	ft_printf("coalescing right block size %d\n", right_block_size);
 	working_pointer.as_sizeT += 1; // move to the right block t_list part
 	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the right free block from the list
 	working_pointer.as_sizeT -= 1; // move back to the size of the right block
@@ -43,8 +44,13 @@ static	void	coalescing_right(void *block_ptr, t_zone *zone) {
 	working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // move to the begginning of the left block
 	*working_pointer.as_sizeT += right_block_size; // change it's value to be the sum of the two block lenght
 	working_pointer.as_sizeT += 1; // move to the t_list part to change the free list accordingly
+	ft_printf("before debug in coalescing right\n");
+	//debug_hexa((void *)(working_pointer.as_sizeT - 5), ((*(working_pointer.as_sizeT - 1)) / sizeof(size_t)) + 5);
 	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
+	ft_printf("and list_head is %p\n", zone->free);
 	add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
+	ft_printf("and list_head is %p\n", zone->free);
+	//debug_hexa((void *)((size_t *)(zone->free) - 5), 5 + (*((size_t *)(zone->free) - 1) / sizeof(size_t)));
 }
 
 void	coalescing(void *ptr, t_zone *zone) {
@@ -57,4 +63,5 @@ void	coalescing(void *ptr, t_zone *zone) {
 	ft_printf("passing coalescing left working_ptr addres is : -%p-\n", working_pointer.as_void);
 	coalescing_right(working_pointer.as_void, zone);
 	ft_printf("after coalescing right working_ptr addres is : -%p-\n", working_pointer.as_void);
+	//debug_hexa((void *)((size_t *)(zone->free) - 5), 5 + (*((size_t *)(zone->free) - 1) / sizeof(size_t)));
 }
