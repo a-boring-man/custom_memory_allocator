@@ -5,10 +5,14 @@ void	*malloc(size_t size) {
 		return NULL;
 	}
 	void	*return_ptr;
-	//show_alloc_mem();
 	ft_printf("my_malloc %u\n red_zone_size = %d\n", size, RED_ZONE_SIZE);
 	t_zone	*zone = choose_the_right_page(size);
+	//show_alloc_mem();
 	return_ptr = first_fit(size, zone);
+	//show_alloc_mem();
+	
+	int fd = open("./log", O_APPEND | O_WRONLY);
+	ft_dprintf(fd, "malloc : -%p-\n", return_ptr);
 	return (return_ptr);
 	//void	*free_space = first_fit(zone, size);
 	//void	*free_space = next_fit(zone, size);

@@ -18,6 +18,7 @@ static	void	coalescing_left(void **block_ptr, t_zone *zone) { // return the left
 	*working_pointer.as_sizeT += *((size_t *)(*block_ptr)); // change the first marker to the now true size of the block
 	working_pointer.as_sizeT += 1; // put the pointer to the t_list part
 	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
+	ft_printf("in coalescing left\n");
 	add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
 	working_pointer.as_sizeT -= 1;
 	*block_ptr = working_pointer.as_void; // srt the block address to the very begginning of the coalesced block

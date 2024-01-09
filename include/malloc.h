@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "ft_printf.h"
+#include <fcntl.h>
 
 // ------------struct-------------
 

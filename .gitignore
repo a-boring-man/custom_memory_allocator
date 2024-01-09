@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 printf*
+.nfs*
 
 # Object files
 *.o

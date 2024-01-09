@@ -7,8 +7,8 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	// whyle free list is not empty and free block size <= size_to_be_allocated continue
 	ft_printf("ICI ! list_head is %p\n", list_head);
 	//show_alloc_mem();
-	//if (list_head != NULL)
-		//debug_hexa((void *)((size_t *)list_head), (*((size_t *)list_head - 1) / sizeof(size_t)));
+	// if (list_head != NULL)
+	// 	debug_hexa((void *)((size_t *)list_head - 5), 5);//(*((size_t *)list_head - 1) / sizeof(size_t)));
 	while (list_head != NULL \
 		&& list_head->next != zone->free \
 		&& *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)

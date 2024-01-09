@@ -40,6 +40,9 @@ void	free(void *ptr) {
 	size_t	data_size;
 	static int free_page_counter = FREE_DELAY; // the number of free before a page cleanup
 	
+	int fd = open("./log", O_APPEND | O_WRONLY);
+	ft_dprintf(fd, "free : -%p-\n", ptr);
+	ft_printf("in free ptr equal %p\n", ptr);
 	if (ptr == NULL) {
 		return;
 	}
@@ -50,7 +53,7 @@ void	free(void *ptr) {
 	}
 	data_size = block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	ft_printf("wanting to free the block at : -%p- of size : -%u- and of true size : -%u-\n", ptr, block_size, data_size);
-	debug_hexa((void *)((size_t *)ptr - 4 - RED_ZONE_SIZE / sizeof(size_t)), (block_size / sizeof(size_t)) + 2 + RED_ZONE_SIZE);
+	//debug_hexa((void *)((size_t *)ptr - 4 - RED_ZONE_SIZE / sizeof(size_t)), (block_size / sizeof(size_t)) + 2 + RED_ZONE_SIZE);
 	t_zone	*zone = choose_the_right_page(data_size);
 	
 	
