@@ -7,21 +7,30 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
     }
     t_list  *ptr = *list_head;
 
-    while (*list_head != ptr->next) { // for all element
+    while (ptr != NULL && *list_head != ptr->next) { // for all element
+    ft_printf("in a while loop in ummap\n");
         if (condition_function != NULL && condition_function(ptr)) {
             remove_block_from_t_list(ptr, &(zone->page));
             remove_block_from_t_list((t_list *)((char *)ptr + PAGE_START_OVERHEAD), &(zone->free)); // move to the t_list part of the free block
+            ft_printf("in the if part\n");
 			munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
-
+            ptr = *list_head;
+            ft_printf("in the if part in the loop and ptr next is %p\n", ptr->next);
+            continue;
         }
+        ft_printf("juste before incrementinf ptr\n");
+        ptr = ptr->next;
+        ft_printf("juste after incrementinf ptr\n");
     }
-	if (*list_head == ptr->next) { // for the last element
+    ft_printf("escaping the while loop\n");
+	if (ptr != NULL && *list_head == ptr->next) { // for the last element
         if (condition_function != NULL && condition_function(ptr)) {
             remove_block_from_t_list(ptr, &(zone->page));
             remove_block_from_t_list((t_list *)((char *)ptr + PAGE_START_OVERHEAD), &(zone->free)); // move to the t_list part of the free block
 			munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
         }
 	}
+    ft_printf("exiting remove page if\n");
 }
 
 void    printf_t_list(t_list *list_head) {

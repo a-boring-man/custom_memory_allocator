@@ -15,11 +15,13 @@ static int check_if_page_is_empty(void *page) {
 	size_t	page_size;
 	size_t	has_only_free_block = 0;
 
+	ft_printf("in check\n");
 	working_pointer.as_void = page;
 	working_pointer.as_sizeT -= 1; // move the pointer to the beginning of the page
 	page_size = *working_pointer.as_sizeT; // store page size
 	working_pointer.as_char += PAGE_START_OVERHEAD;
 	has_only_free_block = check_if_only_contain_free_block(working_pointer.as_void);
+	ft_printf("just before exiting check if page empty\n");
 	return (!(*working_pointer.as_sizeT & 1) && (page_size == (*working_pointer.as_sizeT & -2) + PAGE_OVERHEAD || has_only_free_block)); // return true if the first block is not malloc AND either the hol page is a free block or composed of free block only
 }
 
@@ -30,6 +32,7 @@ static void check_for_unmap_page(t_zone *zone) {
 		}
 		remove_page_if(&(grimoire[i].page), check_if_page_is_empty, zone);
 	}
+	ft_printf("exiting check_for\n");
 }
 
 void	free(void *ptr) {
