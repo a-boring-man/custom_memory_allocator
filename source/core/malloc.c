@@ -1,7 +1,9 @@
 #include "malloc.h"
 
 void	*malloc(size_t size) {
+	pthread_mutex_lock(&mutex);
 	if (size == 0) {
+	pthread_mutex_unlock(&mutex);
 		return NULL;
 	}
 	void	*return_ptr;
@@ -13,6 +15,7 @@ void	*malloc(size_t size) {
 	
 	int fd = open("./log", O_APPEND | O_WRONLY);
 	ft_dprintf(fd, "malloc : -%p-\n", return_ptr);
+	pthread_mutex_unlock(&mutex);
 	return (return_ptr);
 	//void	*free_space = first_fit(zone, size);
 	//void	*free_space = next_fit(zone, size);

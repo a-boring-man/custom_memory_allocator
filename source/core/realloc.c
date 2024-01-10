@@ -17,12 +17,15 @@ void	*ft_memcpy(void *to, void *from, size_t size)
 }
 
 void	*realloc(void *ptr, size_t size) {
+	pthread_mutex_lock(&mutex);
 	int fd = open("./log", O_APPEND | O_WRONLY);
 	ft_dprintf(fd, "realloc enter : -%p-\n", ptr);
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
+	pthread_mutex_unlock(&mutex);
 		return (malloc(size));
 	}
 	if (size == 0) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
+	pthread_mutex_unlock(&mutex);
 		free(ptr);
 		return NULL;
 	}
@@ -39,6 +42,7 @@ void	*realloc(void *ptr, size_t size) {
 	ft_printf(" the data size is : -%d-\n", data_size);
 	if (padded(size) == data_size) {
 		ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
+	pthread_mutex_unlock(&mutex);
 		return ptr;
 	}
 
@@ -58,6 +62,7 @@ void	*realloc(void *ptr, size_t size) {
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // set the left size to the size of the two block as free block
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, padded(size));
 		ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
+	pthread_mutex_unlock(&mutex);
 			return (ptr);
 		}
 		else { // call malloc then copy if need to be moved
@@ -68,6 +73,7 @@ void	*realloc(void *ptr, size_t size) {
 			//debug_hexa((size_t *)new_pointer - 7, 50);
 			free(ptr);
 		ft_dprintf(fd, "realloc exit : -%p-\n", new_pointer);
+	pthread_mutex_unlock(&mutex);
 			return new_pointer;
 		}
 	}
@@ -101,7 +107,9 @@ void	*realloc(void *ptr, size_t size) {
 			*working_pointer.as_sizeT = padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE + 1; // write the new block size
 			ft_printf("HERE\\\\\\\\\\\\\\\\\\\\\\\n");
 		ft_dprintf(fd, "realloc exit : -%p-\n", working_pointer.as_char + sizeof(size_t) + RED_ZONE_SIZE);
-			return (red_zone((void *)(working_pointer.as_char + sizeof(size_t)), padded(size))); // re redzone the block
+			void *return_pointer = red_zone((void *)(working_pointer.as_char + sizeof(size_t)), padded(size));
+	pthread_mutex_unlock(&mutex);
+			return (return_pointer); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
 			ft_printf("in realloc fith case \n");
@@ -115,11 +123,14 @@ void	*realloc(void *ptr, size_t size) {
 			working_pointer.as_char -= ((*working_pointer.as_sizeT & -2) - sizeof(size_t)); // move back to the beginning
 			*working_pointer.as_sizeT = left_block_size - left_over + 1; // put the new size
 		ft_dprintf(fd, "realloc exit : -%p-\n", working_pointer.as_char + sizeof(size_t) + RED_ZONE_SIZE);
-			return (red_zone((void *)(working_pointer.as_sizeT + 1), padded(size)));
+		void *return_pointer = red_zone((void *)(working_pointer.as_sizeT + 1), padded(size));
+	pthread_mutex_unlock(&mutex);
+			return (return_pointer);
 		}
 		else {// block should be shrinked but no free block to the right and not shrink enought to allow a free block to appear
 
 		ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
+	pthread_mutex_unlock(&mutex);
 			return (ptr);
 		}
 	}

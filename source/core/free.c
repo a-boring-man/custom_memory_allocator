@@ -36,6 +36,7 @@ static void check_for_unmap_page(t_zone *zone) {
 }
 
 void	free(void *ptr) {
+	pthread_mutex_lock(&mutex);
 	size_t	block_size;
 	size_t	data_size;
 	static int free_page_counter = FREE_DELAY; // the number of free before a page cleanup
@@ -44,11 +45,13 @@ void	free(void *ptr) {
 	ft_dprintf(fd, "free : -%p-\n", ptr);
 	ft_printf("in free ptr equal %p\n", ptr);
 	if (ptr == NULL) {
+	pthread_mutex_unlock(&mutex);
 		return;
 	}
 
 	block_size = *(size_t *)((char *)ptr - (sizeof(size_t) + RED_ZONE_SIZE)) & -2;
 	if (!block_size) {
+	pthread_mutex_unlock(&mutex);
 		return;
 	}
 	data_size = block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
@@ -64,6 +67,7 @@ void	free(void *ptr) {
 		check_for_unmap_page(zone);
 		free_page_counter = FREE_DELAY;
 	}
+	pthread_mutex_unlock(&mutex);
 	
 	ft_printf("free_page_counter ||||||||||||||||||||||: -%d-\n", free_page_counter);
 }

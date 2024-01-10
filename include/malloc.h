@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include "ft_printf.h"
 #include <fcntl.h>
+#include <pthread.h>
 
 // ------------struct-------------
 
@@ -55,6 +56,7 @@ typedef union u_memory_pointer {
 // -------------global allocation variable-------------
 
 extern t_zone grimoire[11];
+extern pthread_mutex_t	mutex; 
 
 // -------------mandatory function---------------
 

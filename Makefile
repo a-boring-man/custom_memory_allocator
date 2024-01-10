@@ -18,7 +18,7 @@ endif
 LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc \
 			\
 			bonus_features/poisoning bonus_features/find_free_block_bonus_algo \
-			bonus_features/coalescing \
+			bonus_features/coalescing bonus_features/mutex \
 			\
 			memory/create_page memory/format_new_page memory/mark_allocated \
 			memory/find_free_block memory/mark_free \
