@@ -25,7 +25,7 @@ LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc \
 			\
 			t_list/add_block_to_t_list t_list/remove_block_from_t_list t_list/apply_to_all_element \
 			\
-			utils/ceilling utils/page_size utils/page_selector \
+			utils/ceilling utils/page_size utils/page_selector utils/pointer_verification \
 			\
 			ft_printf
 

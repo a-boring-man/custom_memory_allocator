@@ -1,6 +1,24 @@
 #include "malloc.h"
 #include <sys/mman.h>
 
+// will traverse the list of page and applied is in the page if yes it return the page else it return NULL
+t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void *ptr, t_list *page), void *ptr) {
+    t_list *current = list_head;
+    if (list_head == NULL) { // list is empty
+        return NULL;
+    }
+    while (current->next != list_head) { // all element execpt last
+        if (condition_function(ptr, current)) { // if pointer is in page
+            return current;
+        }
+        current = current->next;
+    }
+    if (condition_function(ptr, current)) { // check for the last element
+        return current;
+    }
+    return NULL;
+}
+
 void    remove_page_if(t_list **list_head, int (*condition_function)(void *page), t_zone *zone) {
     if (unlikely(*list_head == NULL)) { // useless protection should never occur but leave it anyway
         return;

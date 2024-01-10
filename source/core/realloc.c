@@ -24,7 +24,7 @@ void	*realloc(void *ptr, size_t size) {
 	pthread_mutex_unlock(&mutex);
 		return (malloc(size));
 	}
-	if (size == 0) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
+	if (size == 0 || !is_a_valid_address(ptr)) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 	pthread_mutex_unlock(&mutex);
 		free(ptr);
 		return NULL;

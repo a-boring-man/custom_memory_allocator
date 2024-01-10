@@ -204,6 +204,8 @@ void	remove_page_if(t_list **list_head, int (*condition_function)(void *), t_zon
 
 void	printf_t_list(t_list *list_head); // todo
 
+t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void *ptr, t_list *page), void *ptr);
+
 // -------------helper function-----------------
 
 size_t	min(size_t a, size_t b);
@@ -233,6 +235,8 @@ size_t	padded(size_t size);
  * @return size_t 
  */
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
+
+int is_a_valid_address(void *ptr);
 
 // -----------------------------------------
 

@@ -49,6 +49,10 @@ void	free(void *ptr) {
 		return;
 	}
 
+	if (!is_a_valid_address(ptr)) { // check if the pointer is a valid pointer
+		ft_printf("!!!!!!victory is mine!!!!!!!\n");
+		return;
+	}
 	block_size = *(size_t *)((char *)ptr - (sizeof(size_t) + RED_ZONE_SIZE)) & -2;
 	if (!block_size) {
 	pthread_mutex_unlock(&mutex);
