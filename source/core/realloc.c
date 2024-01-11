@@ -5,7 +5,6 @@ void	*ft_memcpy(void *to, void *from, size_t size)
 	size_t	i;
 
 	i = 0;
-	ft_printf("my memcpy \n");
 	if (!to && ! from)
 		return (NULL);
 	while (i < size)
@@ -17,11 +16,20 @@ void	*ft_memcpy(void *to, void *from, size_t size)
 }
 
 void	*realloc(void *ptr, size_t size) {
-	pthread_mutex_lock(&mutex);
-	int fd = open("./log", O_APPEND | O_WRONLY);
-	ft_dprintf(fd, "realloc enter : -%p-\n", ptr);
+	# ifdef MUTEX
+		pthread_mutex_lock(&mutex);
+	# endif
+
+	# ifdef LOG
+		int fd = open("./log", O_APPEND | O_WRONLY);
+		ft_dprintf(fd, "realloc enter : -%p-\n", ptr);
+		close(fd);
+	# endif
+
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
-	pthread_mutex_unlock(&mutex);
+		# ifdef MUTEX
+			pthread_mutex_unlock(&mutex);
+		# endif
 		return (malloc(size));
 	}
 	if (size == 0 || !is_a_valid_address(ptr)) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned

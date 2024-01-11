@@ -8,7 +8,9 @@ void	*malloc(size_t size) {
 	void	*return_ptr;
 
 	if (size == 0) {
-		pthread_mutex_unlock(&mutex);
+		# ifdef MUTEX
+			pthread_mutex_unlock(&mutex);
+		# endif
 		return NULL;
 	}
 
