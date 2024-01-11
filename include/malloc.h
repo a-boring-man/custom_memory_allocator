@@ -20,7 +20,6 @@ typedef struct s_zone {
 	size_t	max_size;
 	t_list	*free;
 	t_list	*page;
-	t_list	*next;
 }	t_zone;
 
 typedef union u_memory_pointer {
@@ -36,6 +35,8 @@ typedef union u_memory_pointer {
 //PRINTF	//for all the printf on stderr
 //MUTEX	//for multithreading
 //POISON_FREE	//for poisonning free block
+//CHECK_FREE	// for checking if a pointer passed to free must be free
+//COALESCING	// for coalescing
 
 # ifdef RED_ZONE_DEBUG
 	#define RED_ZONE_SIZE (2 * sizeof(size_t))
@@ -44,7 +45,7 @@ typedef union u_memory_pointer {
 # endif
 
 # ifndef FREE_DELAY
-	#define FREE_DELAY 0
+	# define FREE_DELAY 0
 # elif FREE_DELAY < 0
 	# define FREE_DELAY 0
 # endif
@@ -109,15 +110,6 @@ t_zone	*choose_the_right_page(size_t size);
  * @return void* a pointer to the begginning of the allocated space ready to be writen on
  */
 void	*best_fit(size_t size_to_be_alloc, t_zone *zone);
-
-/**
- * @brief always chosse the next free space in memory, supper fast but lead to lot of splinter in the begginning of the address space
- * 
- * @param size_to_be_alloc the raw size to be allocated into memory
- * @param zone the correct grimoir t_zone for this allocation size
- * @return void* a pointer to the begginning of the allocated space ready to be writen on
- */
-void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
 
 /**
  * @brief find the first free block big enough to accept the size requested

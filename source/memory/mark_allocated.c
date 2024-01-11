@@ -63,14 +63,11 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	}
 	else { // if it can only contain the payload
 		remove_block_from_t_list(block, &(zone->free));
-		zone->next = NULL;
 		*(working_pointer.as_sizeT) += 1;
 		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
 		*(working_pointer.as_sizeT) += 1;
-	ft_printf("end of marked alloc\n");
 		return red_zone(block, size_to_be_allocated);
 	}
-	ft_printf("end of marked alloc\n");
 }
 
 void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc padded. here i already remove the free block from the list
