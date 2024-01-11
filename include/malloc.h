@@ -32,10 +32,10 @@ typedef union u_memory_pointer {
 
 // -------------usefull define--------------
 
-LOG		//for logging the allocation and free
-PRINTF	//for all the printf on stderr
-MUTEX	//for multithreading
-POISON_FREE	//for poisonning free block
+//LOG		//for logging the allocation and free
+//PRINTF	//for all the printf on stderr
+//MUTEX	//for multithreading
+//POISON_FREE	//for poisonning free block
 
 # ifdef RED_ZONE_DEBUG
 	#define RED_ZONE_SIZE (2 * sizeof(size_t))

@@ -27,7 +27,7 @@ void	*malloc(size_t size) {
 	
 	# ifdef MUTEX
 		pthread_mutex_unlock(&mutex);
-	# endif MUTEX
+	# endif
 	
 	return (return_ptr);
 }

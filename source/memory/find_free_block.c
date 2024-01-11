@@ -13,7 +13,7 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	if (list_head == NULL || (list_head->next == zone->free && *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)) { // no block was found need to create a new page
 		# ifdef PRINTF
 			ft_dprintf(2, "must allocate a new page\n");
-		# endif PRINTF
+		# endif
 	
 		t_memory_pointer	new_page;
 
@@ -31,11 +31,11 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 void	*find_free_block(size_t size_to_be_alloc, t_zone *zone) { // select the correct algorithme
 	# ifdef BEST_FIT
 		return(best_fit(size_to_be_alloc, zone));
-	# endif BEST_FIT
+	# endif
 
 	# ifdef NEXT_FIT
 		return(next_fit(size_to_be_alloc, zone));
-	# endif NEXT_FIT
+	# endif
 
 	return(first_fit(size_to_be_alloc, zone));
 }

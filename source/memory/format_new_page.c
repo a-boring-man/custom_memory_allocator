@@ -63,7 +63,7 @@ static void	format_free_space(void *new_page, size_t free_block_size) {
 	
 	# ifdef POISON_FREE
 		poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), FREE_COLOR);
-	# endif POISON_FREE
+	# endif
 } 
 
 void	format_new_page(void *new_page, size_t page_size) {
