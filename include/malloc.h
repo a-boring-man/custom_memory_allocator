@@ -32,6 +32,10 @@ typedef union u_memory_pointer {
 
 // -------------usefull define--------------
 
+LOG		//for logging the allocation and free
+PRINTF	//for all the printf on stderr
+MUTEX	//for multithreading
+
 # ifdef RED_ZONE_DEBUG
 	#define RED_ZONE_SIZE (2 * sizeof(size_t))
 # else
@@ -121,6 +125,8 @@ void	*next_fit(size_t size_to_be_alloc, t_zone *zone);
  * @return void* a pointer to the begginning of the allocated space ready to be writen on
  */
 void	*first_fit(size_t size_to_be_alloc, t_zone *zone);
+
+void	*find_free_block(size_t size_to_be_alloc, t_zone *zone); // todo
 
 /**
  * @brief a bonus function that help reduce splinter at the beginning of memory by coalescing freeblock together
