@@ -15,7 +15,9 @@ void	*malloc(size_t size) {
 	
 	int fd = open("./log", O_APPEND | O_WRONLY);
 	ft_dprintf(fd, "malloc : -%p-\n", return_ptr);
+	close(fd);
 	pthread_mutex_unlock(&mutex);
+	//ft_printf("after mutex\n");
 	return (return_ptr);
 	//void	*free_space = first_fit(zone, size);
 	//void	*free_space = next_fit(zone, size);

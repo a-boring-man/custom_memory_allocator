@@ -43,6 +43,7 @@ void	free(void *ptr) {
 	
 	int fd = open("./log", O_APPEND | O_WRONLY);
 	ft_dprintf(fd, "free : -%p-\n", ptr);
+	close(fd);
 	ft_printf("in free ptr equal %p\n", ptr);
 	if (ptr == NULL) {
 	pthread_mutex_unlock(&mutex);
@@ -51,6 +52,8 @@ void	free(void *ptr) {
 
 	if (!is_a_valid_address(ptr)) { // check if the pointer is a valid pointer
 		ft_printf("!!!!!!victory is mine!!!!!!!\n");
+		//show_alloc_mem();
+	pthread_mutex_unlock(&mutex);
 		return;
 	}
 	block_size = *(size_t *)((char *)ptr - (sizeof(size_t) + RED_ZONE_SIZE)) & -2;
@@ -65,7 +68,7 @@ void	free(void *ptr) {
 	
 	
 	mark_block_as_free(ptr, zone);
-	printf_t_list(zone->free);
+	//printf_t_list(zone->free);
 	coalescing(ptr, zone);
 	if (free_page_counter-- == 0) { // free all empty page once in a while
 		check_for_unmap_page(zone);

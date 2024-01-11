@@ -68,6 +68,7 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 		add_block_to_t_list(working_pointer.as_Tlist, &(zone->free));
 		working_pointer.as_char += left_over - 2 * sizeof(size_t); // move to the end
 		*working_pointer.as_sizeT = left_over;
+	//ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 
 
 
@@ -107,7 +108,6 @@ void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated, t_zone
 	// 	ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 	// 	*(working_pointer.as_Tlist) = copy; // copt the t_list
 	// 	ft_printf("EEEEEEEEEEEEE size to be allocated : -%d-\n", size_to_be_allocated);
-	// 	ft_printf("FFFFFFFFFFFF working_pointer.as_void: -%p-\n", working_pointer.as_void);
 	// 	zone->next = working_pointer.as_Tlist;
 	// 	if (!is_alone) {
 	// 		(working_pointer.as_Tlist)->next->previous = working_pointer.as_Tlist;

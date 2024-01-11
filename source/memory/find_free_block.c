@@ -5,7 +5,7 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 
 	//ft_printf("entering first fit\n");
 	// whyle free list is not empty and free block size <= size_to_be_allocated continue
-	ft_printf("ICI ! list_head is %p\n", list_head);
+	//ft_printf("ICI ! list_head is %p\n", list_head);
 	//show_alloc_mem();
 	// if (list_head != NULL)
 	// 	debug_hexa((void *)((size_t *)list_head - 5), 5);//(*((size_t *)list_head - 1) / sizeof(size_t)));
@@ -13,11 +13,12 @@ void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		&& list_head->next != zone->free \
 		&& *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)
 	{
-		ft_printf("in thw while loop\n");
+		//ft_printf("in thw while loop\n");
 	//ft_printf("has not segfault before checking the size, list_head_next == : -%p- and zone->free = : -%p-\n", list_head->next, zone->free);
 		list_head = list_head->next;
 	//ft_printf("has not segfault after jumping to the next element list_head : -%p-\n", list_head);
 	}
+	//ft_printf("after the while loop\n");
 	if (list_head == NULL || (list_head->next == zone->free && *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)) { // no block was found need to create a new page
 		t_memory_pointer	new_page;
 	

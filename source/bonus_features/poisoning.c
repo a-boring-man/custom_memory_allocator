@@ -22,6 +22,7 @@ void	*red_zone(void *block, size_t size_allocated) {
 		return block;
 	poison_block(block, RED_ZONE_SIZE, RED_ZONE_COLOR);
 	poison_block((void *)((char *)block + size_allocated + RED_ZONE_SIZE), RED_ZONE_SIZE, RED_ZONE_COLOR);
-	
+	ft_printf("end of redzone returning : %p\n", (void *)((char *)block + RED_ZONE_SIZE));
+	debug_hexa((void *)((char *)block - sizeof(size_t)), (size_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE) /  sizeof(size_t));
 	return ((void *)((char *)block + RED_ZONE_SIZE));
 }

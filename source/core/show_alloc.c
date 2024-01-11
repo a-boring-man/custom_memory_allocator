@@ -32,7 +32,7 @@ static void display_page(void *page) {
 }
 
 void	show_alloc_mem() {
-	pthread_mutex_lock(&mutex);
+	//pthread_mutex_lock(&mutex);
 	size_t	grimoire_page = 0;
 	size_t	page;
 	t_list	*current_page;
@@ -54,5 +54,5 @@ void	show_alloc_mem() {
 		grimoire_page += 1;
 	}
 	ft_printf("\n");
-	pthread_mutex_unlock(&mutex);
+	//pthread_mutex_unlock(&mutex);
 }
