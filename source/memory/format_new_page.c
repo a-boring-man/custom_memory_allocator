@@ -54,24 +54,22 @@ static void	format_free_space(void *new_page, size_t free_block_size) {
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = new_page;
 	
-	//ft_printf("page begginning in format free block : -%p-\n", new_page);
-	//ft_printf("free block size : -%d-\n", free_block_size);
 	*(working_pointer.as_sizeT) = free_block_size;
 	working_pointer.as_sizeT += 1;
 	(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
 	(working_pointer.as_Tlist)->previous = working_pointer.as_Tlist;
 	working_pointer.as_char += free_block_size - 2 * sizeof(size_t); // move to the end of the free block
 	*(working_pointer.as_sizeT) = free_block_size;
-	//ft_printf("free space end : -%p-\n", working_pointer.as_char);
-	//debug_hexa((void *)((char *)new_page - PAGE_START_OVERHEAD), (*(size_t *)((char *)new_page - PAGE_START_OVERHEAD)) / sizeof(size_t));
-	poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), 0xcc);
+	
+	# ifdef POISON_FREE
+		poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), FREE_COLOR);
+	# endif POISON_FREE
 } 
 
 void	format_new_page(void *new_page, size_t page_size) {
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = new_page;
 	
-	//ft_printf("new page starting address : -%p-\n", new_page);
 	*(working_pointer.as_sizeT) = page_size;
 	working_pointer.as_sizeT += 1;
 	(working_pointer.as_Tlist)->next = working_pointer.as_Tlist;
@@ -80,6 +78,5 @@ void	format_new_page(void *new_page, size_t page_size) {
 	*(working_pointer.as_sizeT) = 1;
 	working_pointer.as_char += page_size - 2 * sizeof(size_t) - sizeof(t_list);
 	*(working_pointer.as_sizeT) = 1;
-	//ft_printf("page end : -%p-\n", working_pointer.as_char);
 	format_free_space((char *)new_page + PAGE_START_OVERHEAD, page_size - (PAGE_OVERHEAD));
 }

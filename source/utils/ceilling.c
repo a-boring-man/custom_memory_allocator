@@ -1,7 +1,6 @@
-
 #include "malloc.h"
 
-size_t ceilling_unsigned(size_t x, size_t rounding) {
+size_t	ceilling_unsigned(size_t x, size_t rounding) {
 
 	size_t	division = x / rounding;
 	size_t	modulo = x % rounding;
