@@ -1,2 +1,2 @@
 #!/bin/sh
-LD_PRELOAD=$(pwd)/libft_malloc.so
+LD_PRELOAD=$(PWD)/libft_malloc.so

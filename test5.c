@@ -1,4 +1,5 @@
-#include <stdlib.h>
+# include <stdlib.h>
+# include "./include/malloc.h"
 
 int main()
 {

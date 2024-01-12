@@ -38,28 +38,36 @@ typedef union u_memory_pointer {
 //CHECK_FREE	// for checking if a pointer passed to free must be free
 //COALESCING	// for coalescing
 
-# ifdef LOG_FT
-	# if LOG_FT != 0
-		# define LOG
-	# endif
+# if MUTEX_FT == 1
+# pragma message "MUTEX is defined"
 # endif
 
-# ifdef MUTEX_FT
-	# if MUTEX_FT != 0
-		# define MUTEX
-	# endif
+# if MUTEX_FT == 1
+	# define MUTEX
 # endif
 
-# ifdef COALESCING_FT
-	# if COALESCING_FT != 0
-		# define COALESCING
-	# endif
+# if COALESCING_FT == 1
+# pragma message "COALESCING is defined"
 # endif
 
-# ifdef CHECK_FREE_FT
-	# if CHECK_FREE_FT != 0
-		# define CHECK_FREE
-	# endif
+# if COALESCING_FT == 1
+	# define COALESCING
+# endif
+
+# if LOG_FT == 1
+# pragma message "LOG_FT is defined"
+# endif
+
+# if LOG_FT == 1
+	# define LOG
+# endif
+
+# if CHECK_FREE_FT == 1
+# pragma message "CHECK_FREE is defined"
+# endif
+
+# if CHECK_FREE_FT == 1
+	# define CHECK_FREE
 # endif
 
 # if POISON_FREE_FT == 1
@@ -121,6 +129,7 @@ void	free(void *ptr);
 void	*malloc(size_t size);
 void	*realloc(void *ptr, size_t size);
 void	show_alloc_mem();
+void	show_alloc_mem_ex();
 
 // -------------bonus function-------------
 

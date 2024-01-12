@@ -5,7 +5,7 @@ int main() {
     size_t *test1;
     size_t *test2;
 
-    test = malloc(50000 * sizeof(size_t));
+    test = malloc(500 * sizeof(size_t));
     //show_alloc_mem();
     //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
     test1 = malloc(8 * sizeof(size_t));
@@ -20,7 +20,8 @@ int main() {
     test1[1] = 8941;
     test2[0] = 8941;
     test2[1] = 23;
-    show_alloc_mem();
+    //show_alloc_mem();
+    show_alloc_mem_ex();
     // debug_hexa(test - 7, 40);
     //free(test1);
     //show_alloc_mem();
@@ -39,6 +40,6 @@ int main() {
     // show_alloc_mem();
     // debug_hexa(new_pointer - 7, 40);
     free(new_pointer);
-    show_alloc_mem();
+    show_alloc_mem_ex();
     //debug_hexa(test -7, 40);
 }
