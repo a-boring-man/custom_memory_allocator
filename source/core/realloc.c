@@ -22,7 +22,7 @@ void	*realloc(void *ptr, size_t size) {
 
 	# ifdef LOG
 		int fd = open("./log", O_APPEND | O_WRONLY);
-		ft_dprintf(fd, "realloc enter : -%p-\n", ptr);
+		ft_dprintf(fd, "realloc enter : -%p- with size : -%d-\n", ptr, size);
 		close(fd);
 	# endif
 
@@ -30,11 +30,21 @@ void	*realloc(void *ptr, size_t size) {
 		# ifdef MUTEX
 			pthread_mutex_unlock(&mutex);
 		# endif
+		# ifdef LOG
+			int fd = open("./log", O_APPEND | O_WRONLY);
+			ft_dprintf(fd, "realloc exit because of null pointer calling malloc : -%p-\n", ptr);
+			close(fd);
+		# endif
 		return (malloc(size));
 	}
 	if (size == 0 || !is_a_valid_address(ptr)) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 		# ifdef MUTEX
 			pthread_mutex_unlock(&mutex);
+		# endif
+		# ifdef LOG
+			int fd = open("./log", O_APPEND | O_WRONLY);
+			ft_dprintf(fd, "realloc exit because of size 0 or invalid pointer calling free : -%p-\n", ptr);
+			close(fd);
 		# endif
 		free(ptr);
 		return NULL;

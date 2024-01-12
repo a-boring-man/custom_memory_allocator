@@ -57,6 +57,13 @@ void	free(void *ptr) {
 
 	# ifdef CHECK_FREE
 		if (!is_a_valid_address(ptr)) { // check if the pointer is a valid pointer
+		
+			# ifdef LOG
+				int fd = open("./log", O_APPEND | O_WRONLY);
+				ft_dprintf(fd, "free invalid pointer : -%p-\n", ptr);
+				close(fd);
+			# endif
+
 			# ifdef PRINTF
 				ft_dprintf(2, "wanting to free a pointer that is not valid\n");
 			# endif

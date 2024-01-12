@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2024/01/12 13:49:03 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/12 14:21:56 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ else
 endif
 
 ifeq ($(CHECK_FREE),)
-	CHECK_FREE_FT := 0
-else
 	CHECK_FREE_FT := 1
+else
+	CHECK_FREE_FT := 0
 endif
 
 ifeq ($(LOG),)
@@ -117,7 +117,7 @@ all : $(NAME)
 	@echo "POISON_FREE_FT IS $(POISON_FREE_FT)"
 	@echo "CHECK_FREE_FT IS $(CHECK_FREE_FT)"
 	@echo "LOG_FT IS $(LOG_FT)"
-	@echo "MUTEX_FT IS $(MUTEX)"
+	@echo "MUTEX_FT IS $(MUTEX_FT)"
 	@echo "COALESCING_FT IS $(COALESCING_FT)"
 
 $(NAME) : $(OBJ)
