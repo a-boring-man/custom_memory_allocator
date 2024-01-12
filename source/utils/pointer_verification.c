@@ -20,7 +20,8 @@ int is_in_the_page(void *ptr, t_list *page) {
     t_memory_pointer    working_pointer;
     working_pointer.as_Tlist = page;
 
-    void *page_start = (void *)(working_pointer.as_char - sizeof(size_t)); // go to the beguinning of the page to get the page size
+    working_pointer.as_sizeT -= 1; // go to the size of the page
+    void *page_start = working_pointer.as_void; // go to the beguinning of the page to get the page size
     working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // move the pointer to the end of the page
     void *page_end = working_pointer.as_void;
     if (ptr > page_start && ptr < page_end) {

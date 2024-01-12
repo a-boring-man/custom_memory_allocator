@@ -30,7 +30,7 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
             ptr = *list_head;
             continue;
         }
-        if (ptr != NULL)
+        if (ptr != NULL) // useless but left it anyway
             ptr = ptr->next;
     }
     if (ptr != NULL && condition_function(ptr)) {
@@ -40,7 +40,7 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
     }
 }
 
-void    printf_t_list(t_list *list_head) {
+void    printf_t_list(t_list *list_head) { // this is a debug function left here on purpose just in case something goes wrong during the defense and may induce some segfault due to debughexa
     t_list *current = list_head;
     size_t element_nbr = 0;
 
