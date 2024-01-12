@@ -6,12 +6,49 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2023/12/14 09:35:29 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/12 12:56:50 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 ifeq ($(HOSTTYPE),)
 	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
+
+ifeq ($(DEBUG),)
+	DEBUG_FT := 0
+else
+	DEBUG_FT := 1
+endif
+
+ifeq ($(PRINTF),)
+	PRINTF_FT := 0
+else
+	PRINTF_FT := 1
+endif
+
+ifeq ($(FREE_DELAY),)
+	FREE_DELAY_FT := 0
+else
+	FREE_DELAY_FT := $(FREE_DELAY)
+endif
+
+ifeq ($(POISON_FREE),)
+	POISON_FREE_FT := 0
+else
+	POISON_FREE_FT := 1
+endif
+
+ifeq ($(LOG),)
+	LOG_FT := 0
+endif
+ifeq ($(MUTEX),)
+	MUTEX_FT := 0
+endif
+ifeq ($(CHECK_FREE),)
+	CHECK_FREE_FT := 0
+endif
+ifeq ($(COALESCING),)
+	COALESCING_FT := 0
 endif
 
 #update on every project
@@ -39,7 +76,11 @@ HEADER_EXT := .h
 CPPFLAGS := #-std=c++98 #-pedantic
 
 #update if needed
-CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC#-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC \
+	-DDEBUG_FT=$(DEBUG_FT) \
+	-DPRINTF_FT=$(PRINTF_FT) \
+	-DFREE_DELAY_FT=$(FREE_DELAY_FT) \
+	-DPOISON_FREE_FT=$(POISON_FREE_FT) 
 DIR_SRC := source#.
 SUB_DIR_LST := core utils bonus_features memory t_list
 
@@ -55,6 +96,10 @@ DEP=$(addprefix $(DIR_OBJ)/,$(addsuffix .d,$(LST_SRC)))
 SUB_DIR=$(addprefix $(DIR_OBJ)/,$(SUB_DIR_LST))
 
 all : $(NAME)
+	@echo "DEBUG_FT IS $(DEBUG_FT)"
+	@echo "PRINTF_FT IS $(PRINTF_FT)"
+	@echo "FREE_DELAY_FT IS $(FREE_DELAY_FT)"
+	@echo "POISON_FREE_FT IS $(POISON_FREE_FT)"
 
 $(NAME) : $(OBJ)
 	$(CC) -shared $^ -o $@
@@ -62,7 +107,7 @@ $(NAME) : $(OBJ)
 	ln -s $(NAME) $(LINKNAME)
 
 $(DIR_OBJ)/%.o : $(DIR_SRC)/%$(FILE_EXT) Makefile | $(SUB_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -DRED_ZONE_DEBUG=1 -DFREE_DELAY=0 -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -DLOG_FT -DMUTEX_FT -DCHECK_FREE_FT -DCOALESCING_FT -o $@ -c $<
 
 $(SUB_DIR) :
 	$(MD) $@

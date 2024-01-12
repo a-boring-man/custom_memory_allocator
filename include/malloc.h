@@ -38,16 +38,66 @@ typedef union u_memory_pointer {
 //CHECK_FREE	// for checking if a pointer passed to free must be free
 //COALESCING	// for coalescing
 
-# ifdef RED_ZONE_DEBUG
+# ifdef LOG_FT
+	# if LOG_FT != 0
+		# define LOG
+	# endif
+# endif
+
+# ifdef MUTEX_FT
+	# if MUTEX_FT != 0
+		# define MUTEX
+	# endif
+# endif
+
+# ifdef COALESCING_FT
+	# if COALESCING_FT != 0
+		# define COALESCING
+	# endif
+# endif
+
+# ifdef CHECK_FREE_FT
+	# if CHECK_FREE_FT != 0
+		# define CHECK_FREE
+	# endif
+# endif
+
+# if POISON_FREE_FT == 1
+# pragma message "POISON_FREE is defined"
+# endif
+
+# if POISON_FREE_FT == 1
+	# define POISON_FREE
+# endif
+
+# if PRINTF_FT == 1
+# pragma message "PRINTF is defined"
+# endif
+
+# if PRINTF_FT == 1
+	# define PRINTF
+# endif
+
+# if DEBUG_FT == 1
+# pragma message "DEBUG is defined"
+# endif
+
+# if DEBUG_FT == 1
 	#define RED_ZONE_SIZE (2 * sizeof(size_t))
 # else
 	#define RED_ZONE_SIZE 0
 # endif
 
-# ifndef FREE_DELAY
+# if FREE_DELAY_FT != 0
+# pragma message "FREE_DELAY is defined"
+# endif
+
+# ifndef FREE_DELAY_FT
 	# define FREE_DELAY 0
-# elif FREE_DELAY < 0
+# elif FREE_DELAY_FT < 0
 	# define FREE_DELAY 0
+# else
+	# define FREE_DELAY FREE_DELAY_FT
 # endif
 
 # define MAX_SIZET (~(size_t)0)

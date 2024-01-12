@@ -82,6 +82,10 @@ void	free(void *ptr) {
 		coalescing(ptr, zone);
 	# endif
 
+
+	# ifdef PRINTF
+		ft_dprintf(2, "next clean in %d\n", free_page_counter);
+	# endif
 	if (free_page_counter-- == 0) { // free all empty page once in a while
 		check_for_unmap_page(zone);
 		free_page_counter = FREE_DELAY;
