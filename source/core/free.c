@@ -25,11 +25,12 @@ static int check_if_page_is_empty(void *page) {
 }
 
 static void check_for_unmap_page(t_zone *zone) {
+	(void)zone;
 	for (int i = 0; i < 11; i++){
 		if (grimoire[i].page == NULL) {
 			continue;
 		}
-		remove_page_if(&(grimoire[i].page), check_if_page_is_empty, zone);
+		remove_page_if(&(grimoire[i].page), check_if_page_is_empty, &(grimoire[i]));
 	}
 }
 

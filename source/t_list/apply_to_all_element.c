@@ -1,6 +1,22 @@
 #include "malloc.h"
 #include <sys/mman.h>
 
+void	free_everything() {
+	for (int i = 0; i < 11; i++) {
+		t_list *current_page = grimoire[i].page;
+		while (current_page != NULL) {
+			t_list *next = current_page->next;
+			remove_block_from_t_list(current_page, &(grimoire[i].page));
+			munmap((void *)((size_t *)(current_page) - 1), *((size_t *)(current_page) - 1));
+			if (current_page != next)
+				current_page = next;
+			else
+				current_page = grimoire[i].page; // so NULL
+		}
+		grimoire[i].free = NULL;
+	}
+}
+
 // will traverse the list of page and applied is in the page if yes it return the page else it return NULL
 t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void *ptr, t_list *page), void *ptr) {
     t_list *current = list_head;
@@ -37,7 +53,7 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
         if (condition_function(ptr)) {
 			remove_all_free_block_inside_page(&(zone->free), ptr);
             remove_block_from_t_list(ptr, &(zone->page));
-			munmap((size_t *)ptr - 1, *((size_t *)ptr)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
+			munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
             ptr = *list_head;
             continue;
         }
@@ -47,7 +63,7 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
     if (ptr != NULL && condition_function(ptr)) {
 		remove_all_free_block_inside_page(&(zone->free), ptr);
         remove_block_from_t_list(ptr, &(zone->page));
-	    munmap((size_t *)ptr - 1, *((size_t *)ptr)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
+	    munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
     }
 }
 

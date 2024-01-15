@@ -32,7 +32,34 @@ int main() {
     }
     ft_printf("printing memory\n");
     show_alloc_mem();
-    //show_alloc_mem_ex();
     ft_printf("\n");
 
+    ft_printf("----------------testing 100 allocation for each----------------\n");
+    for (int i = 49; i < 9000; i = i * 1.5) {
+        for (int j = 0; j < 100; j++) {
+            char *lol = malloc(i);
+            lol[0] = 'a';
+        }
+    }
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
+    
+    ft_printf("----------------testing free everything----------------\n");
+    free_everything();
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
+
+    ft_printf("----------------testing 100 allocation for each  size and freeing just after----------------\n");
+    for (int i = 49; i < 9000; i = i * 1.5) {
+        for (int j = 0; j < 100; j++) {
+            char *lol = malloc(i);
+            lol[0] = 'a';
+            free(lol);
+        }
+    }
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
 }
