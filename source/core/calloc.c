@@ -34,7 +34,8 @@ void    *calloc(size_t nmemb, size_t size) {
         pthread_mutex_lock(&mutex);
     # endif
 
-    ft_memset(ptr, '0', nmemb * size);
+	if (ptr != NULL)
+    	ft_memset(ptr, 0, nmemb * size);
 
     # ifdef LOG
 	    fd = open("./log", O_APPEND | O_WRONLY);
@@ -47,6 +48,7 @@ void    *calloc(size_t nmemb, size_t size) {
     # endif
 
 	# ifdef PRINTF
+		// show_alloc_mem_ex();
 	# endif
 
     return ptr;
