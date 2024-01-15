@@ -1,0 +1,180 @@
+---------------------- STARTING TEST -------------------
+printing memory prior of doing anything
+
+64 bytes or less : 
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+64 bytes or less : 
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+calling one malloc to see i we need to populated them
+printing memory
+
+64 bytes or less : 
+page : 0
+allocated from : -0x7f8fef28a020- to -0x7f8fef28a050- : 48 bytes
+free from : -0x7f8fef28a050- to -0x7f8fef28bff8- : 8104 bytes
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+64 bytes or less : 
+page : 0
+allocated from : -0x7f8fef28a020- to -0x7f8fef28a050- : 48 bytes
+31 0 0 0 0 31 
+free from : -0x7f8fef28a050- to -0x7f8fef28bff8- : 8104 bytes
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+----------------testing free----------------
+printing memory
+
+64 bytes or less : 
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+64 bytes or less : 
+96 bytes or less : 
+128 bytes or less : 
+192 bytes or less : 
+256 bytes or less : 
+512 bytes or less : 
+1024 bytes or less : 
+2048 bytes or less : 
+4096 bytes or less : 
+8192 bytes or less : 
+0 bytes or less : 
+
+
+----------------testing different size of malloc----------------
+lol i is 49
+lol i is 73
+lol i is 109
+lol i is 163
+lol i is 244
+lol i is 366
+lol i is 549
+lol i is 823
+lol i is 1234
+lol i is 1851
+lol i is 2776
+lol i is 4164
+lol i is 6246
+lol i is 9369
+lol i is 14053
+lol i is 21079
+lol i is 31618
+lol i is 47427
+lol i is 71140
+printing memory
+
+64 bytes or less : 
+page : 0
+allocated from : -0x7f8fef288020- to -0x7f8fef288068- : 72 bytes
+free from : -0x7f8fef288068- to -0x7f8fef289ff8- : 8080 bytes
+96 bytes or less : 
+page : 0
+allocated from : -0x7f8fef285020- to -0x7f8fef285080- : 96 bytes
+free from : -0x7f8fef285080- to -0x7f8fef287ff8- : 12152 bytes
+128 bytes or less : 
+page : 0
+allocated from : -0x7f8fef281020- to -0x7f8fef2810a0- : 128 bytes
+free from : -0x7f8fef2810a0- to -0x7f8fef284ff8- : 16216 bytes
+192 bytes or less : 
+page : 0
+allocated from : -0x7f8fef27b020- to -0x7f8fef27b0d8- : 184 bytes
+free from : -0x7f8fef27b0d8- to -0x7f8fef280ff8- : 24352 bytes
+256 bytes or less : 
+page : 0
+allocated from : -0x7f8fef077020- to -0x7f8fef077128- : 264 bytes
+free from : -0x7f8fef077128- to -0x7f8fef07eff8- : 32464 bytes
+512 bytes or less : 
+page : 0
+allocated from : -0x7f8fef067020- to -0x7f8fef0671a0- : 384 bytes
+free from : -0x7f8fef0671a0- to -0x7f8fef076ff8- : 65112 bytes
+1024 bytes or less : 
+page : 0
+allocated from : -0x7f8fef047020- to -0x7f8fef047258- : 568 bytes
+allocated from : -0x7f8fef047258- to -0x7f8fef0475a0- : 840 bytes
+free from : -0x7f8fef0475a0- to -0x7f8fef066ff8- : 129624 bytes
+2048 bytes or less : 
+page : 0
+allocated from : -0x7f8fef007020- to -0x7f8fef007508- : 1256 bytes
+allocated from : -0x7f8fef007508- to -0x7f8fef007c58- : 1872 bytes
+free from : -0x7f8fef007c58- to -0x7f8fef046ff8- : 258976 bytes
+4096 bytes or less : 
+page : 0
+allocated from : -0x7f8feef87020- to -0x7f8feef87b08- : 2792 bytes
+free from : -0x7f8feef87b08- to -0x7f8fef006ff8- : 521456 bytes
+8192 bytes or less : 
+page : 0
+allocated from : -0x7f8feee87020- to -0x7f8feee88078- : 4184 bytes
+allocated from : -0x7f8feee88078- to -0x7f8feee898f0- : 6264 bytes
+free from : -0x7f8feee898f0- to -0x7f8feef86ff8- : 1038088 bytes
+0 bytes or less : 
+page : 0
+allocated from : -0x7f8feee5b020- to -0x7f8feee6c618- : 71160 bytes
+free from : -0x7f8feee6c618- to -0x7f8feee6cff8- : 2528 bytes
+page : 1
+allocated from : -0x7f8feee6d020- to -0x7f8feee78978- : 47448 bytes
+free from : -0x7f8feee78978- to -0x7f8feee78ff8- : 1664 bytes
+page : 2
+allocated from : -0x7f8feee79020- to -0x7f8feee80bb8- : 31640 bytes
+free from : -0x7f8feee80bb8- to -0x7f8feee80ff8- : 1088 bytes
+page : 3
+allocated from : -0x7f8feee81020- to -0x7f8feee86288- : 21096 bytes
+free from : -0x7f8feee86288- to -0x7f8feee86ff8- : 3440 bytes
+page : 4
+allocated from : -0x7f8fef274020- to -0x7f8fef277718- : 14072 bytes
+free from : -0x7f8fef277718- to -0x7f8fef277ff8- : 2272 bytes
+page : 5
+allocated from : -0x7f8fef278020- to -0x7f8fef27a4d0- : 9392 bytes
+free from : -0x7f8fef27a4d0- to -0x7f8fef27aff8- : 2856 bytes
+
+

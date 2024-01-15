@@ -19,12 +19,23 @@ t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void
     return NULL;
 }
 
+void    remove_all_free_block_inside_page(t_list **free_list, t_list *page) {
+	t_memory_pointer	working_pointer;
+	working_pointer.as_Tlist = page;
+	
+	working_pointer.as_char += sizeof(t_list) + sizeof(size_t); // set the pointer to the first block on the page
+	while (*working_pointer.as_sizeT != 1) { // go through all the block inside the page until the end
+		remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), free_list); // remove the block
+		working_pointer.as_char += *working_pointer.as_sizeT;
+	}
+}
+
 void    remove_page_if(t_list **list_head, int (*condition_function)(void *page), t_zone *zone) {
     t_list  *ptr = *list_head;
 
     while (ptr != NULL && *list_head != ptr->next) { // for all element execpt the last
         if (condition_function(ptr)) {
-            remove_block_from_t_list((t_list *)((char *)ptr + PAGE_START_OVERHEAD), &(zone->free)); // move to the t_list part of the free block
+			remove_all_free_block_inside_page(&(zone->free), ptr);
             remove_block_from_t_list(ptr, &(zone->page));
 			munmap((size_t *)ptr - 1, *((size_t *)ptr)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
             ptr = *list_head;
@@ -34,8 +45,8 @@ void    remove_page_if(t_list **list_head, int (*condition_function)(void *page)
             ptr = ptr->next;
     }
     if (ptr != NULL && condition_function(ptr)) {
+		remove_all_free_block_inside_page(&(zone->free), ptr);
         remove_block_from_t_list(ptr, &(zone->page));
-        remove_block_from_t_list((t_list *)((char *)ptr + PAGE_START_OVERHEAD), &(zone->free)); // move to the t_list part of the free block
 	    munmap((size_t *)ptr - 1, *((size_t *)ptr)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
     }
 }

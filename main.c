@@ -1,45 +1,38 @@
 # include "./include/malloc.h"
+# include "./include/ft_printf.h"
 
 int main() {
     size_t *test;
-    size_t *test1;
-    size_t *test2;
 
-    test = malloc(500 * sizeof(size_t));
-    //show_alloc_mem();
-    //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    test1 = malloc(8 * sizeof(size_t));
-    //show_alloc_mem();
-    //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    test2 = malloc(8 * sizeof(size_t));
-    //show_alloc_mem();
-    //debug_hexa(test - 5 - RED_ZONE_SIZE, 40);
-    test[0] = 42;
-    test[1] = 67;
-    test1[0] = 8941;
-    test1[1] = 8941;
-    test2[0] = 8941;
-    test2[1] = 23;
-    //show_alloc_mem();
+    ft_printf("---------------------- STARTING TEST -------------------\n");
+    ft_printf("printing memory prior of doing anything\n");
+    show_alloc_mem();
     show_alloc_mem_ex();
-    // debug_hexa(test - 7, 40);
-    //free(test1);
-    //show_alloc_mem();
-    //debug_hexa(test - 7, 40);
-    void *new_pointer = realloc(test, 6 * sizeof(size_t));
-    // ft_printf("new pointer is now : %p\n", new_pointer);
-    // debug_hexa((size_t *)new_pointer - 7, 40);
-    // show_alloc_mem();
-    // ft_printf("first_free\n");
-    free(test2);
-    //free(test);
-    // show_alloc_mem();
-    // debug_hexa(new_pointer - 7, 40);
-    // ft_printf("second and third_free\n");
-    free(test1);
-    // show_alloc_mem();
-    // debug_hexa(new_pointer - 7, 40);
-    free(new_pointer);
+    ft_printf("\n");
+
+    ft_printf("calling one malloc to see i we need to populated them\n");
+    test = malloc(4 * sizeof(size_t));
+    ft_printf("printing memory\n");
+    show_alloc_mem();
     show_alloc_mem_ex();
-    //debug_hexa(test -7, 40);
+    ft_printf("\n");
+
+    ft_printf("----------------testing free----------------\n");
+    free(test);
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    show_alloc_mem_ex();
+    ft_printf("\n");
+
+    ft_printf("----------------testing different size of malloc----------------\n");
+    for (int i = 49; i < 100000; i = i * 1.5) {
+        char *lol = malloc(i);
+        lol[0] = 'a';
+        ft_printf("lol i is %d\n", i);
+    }
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    //show_alloc_mem_ex();
+    ft_printf("\n");
+
 }

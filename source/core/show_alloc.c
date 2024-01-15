@@ -4,7 +4,7 @@ void	debug_hexa(void *memory_location, size_t size) {
 	size_t i = 0;
 	t_memory_pointer ptr;
 	ptr.as_void = memory_location;
-	ft_printf("pointer at : -%p-\n", memory_location);
+	//ft_printf("pointer at : -%p-\n", memory_location);
 
 	while (i < size) {
 		ft_printf("%x ", (*(ptr.as_sizeT)));

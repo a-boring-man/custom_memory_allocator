@@ -1,0 +1,39 @@
+my_malloc 32
+must allocate a new page
+wanting to free the block at : -0x7f8fef28a028- of size : -48- and of true size : -32-
+next clean in 0
+my_malloc 49
+must allocate a new page
+my_malloc 73
+must allocate a new page
+my_malloc 109
+must allocate a new page
+my_malloc 163
+must allocate a new page
+my_malloc 244
+must allocate a new page
+my_malloc 366
+must allocate a new page
+my_malloc 549
+must allocate a new page
+my_malloc 823
+my_malloc 1234
+must allocate a new page
+my_malloc 1851
+my_malloc 2776
+must allocate a new page
+my_malloc 4164
+must allocate a new page
+my_malloc 6246
+my_malloc 9369
+must allocate a new page
+my_malloc 14053
+must allocate a new page
+my_malloc 21079
+must allocate a new page
+my_malloc 31618
+must allocate a new page
+my_malloc 47427
+must allocate a new page
+my_malloc 71140
+must allocate a new page
