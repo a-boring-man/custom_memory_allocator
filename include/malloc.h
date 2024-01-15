@@ -127,6 +127,7 @@ extern pthread_mutex_t	mutex;
 
 void	free(void *ptr);
 void	*malloc(size_t size);
+void    *calloc(size_t nmemb, size_t size);
 void	*realloc(void *ptr, size_t size);
 void	show_alloc_mem();
 void	show_alloc_mem_ex();
@@ -296,6 +297,8 @@ size_t	padded(size_t size);
 size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc);
 
 int is_a_valid_address(void *ptr);
+
+void	*ft_memset(void *block, int c, size_t size);
 
 // -----------------------------------------
 

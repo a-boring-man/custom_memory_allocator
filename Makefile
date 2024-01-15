@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2024/01/12 14:21:56 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/15 10:41:54 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ else
 endif
 
 #update on every project
-LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc \
+LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc core/calloc \
 			\
 			bonus_features/poisoning bonus_features/find_free_block_bonus_algo \
 			bonus_features/coalescing bonus_features/mutex \

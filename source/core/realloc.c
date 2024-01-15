@@ -27,24 +27,47 @@ void	*realloc(void *ptr, size_t size) {
 	# endif
 
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
-		# ifdef MUTEX
-			pthread_mutex_unlock(&mutex);
-		# endif
 		# ifdef LOG
 			int fd = open("./log", O_APPEND | O_WRONLY);
 			ft_dprintf(fd, "realloc exit because of null pointer calling malloc : -%p-\n", ptr);
 			close(fd);
 		# endif
-		return (malloc(size));
-	}
-	if (size == 0 || !is_a_valid_address(ptr)) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 		# ifdef MUTEX
 			pthread_mutex_unlock(&mutex);
 		# endif
+		return (malloc(size));
+	}
+	if (!is_a_valid_address(ptr)) {
+		# ifdef LOG
+			int fd = open("./log", O_APPEND | O_WRONLY);
+			ft_dprintf(fd, "realloc receive un invalide pointer, calling malloc for size and not copying content : -%p-\n", ptr);
+			close(fd);
+		# endif
+		# ifdef MUTEX
+			pthread_mutex_unlock(&mutex);
+		# endif
+		void	*new_pointer = malloc(size);
+		# ifdef MUTEX
+			pthread_mutex_lock(&mutex);
+		# endif
+		# ifdef LOG
+			fd = open("./log", O_APPEND | O_WRONLY);
+			ft_dprintf(fd, "exiting realloc giving the new malloced pointer : -%p-\n", new_pointer);
+			close(fd);
+		# endif
+		# ifdef MUTEX
+			pthread_mutex_unlock(&mutex);
+		# endif
+		return (new_pointer);
+	}
+	if (size == 0) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 		# ifdef LOG
 			int fd = open("./log", O_APPEND | O_WRONLY);
 			ft_dprintf(fd, "realloc exit because of size 0 or invalid pointer calling free : -%p-\n", ptr);
 			close(fd);
+		# endif
+		# ifdef MUTEX
+			pthread_mutex_unlock(&mutex);
 		# endif
 		free(ptr);
 		return NULL;
@@ -56,7 +79,7 @@ void	*realloc(void *ptr, size_t size) {
 	working_pointer.as_char -= (sizeof(size_t) + RED_ZONE_SIZE); // put the working_pointer to the size of the block
 	
 	# ifdef PRINTF
-		ft_dprintf(2, "in realloc pointer is : -%p- and size : -%d-", ptr, size);
+		ft_dprintf(2, "in realloc pointer is : -%p- and size : -%d-\n", ptr, size);
 	# endif
 
 	size_t	left_block_size = *working_pointer.as_sizeT & -2;
@@ -80,8 +103,14 @@ void	*realloc(void *ptr, size_t size) {
 	int need_to_be_moved = block_zone != new_block_zone; // check to see if the content need to be moved
 
 	if (need_to_be_moved || size > data_size) { // need to check if a free space is next to the block and big enought else send back to malloc
+		# ifdef PRINTF
+			ft_dprintf(2, "need to be moved or greater size\n");
+		# endif
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free\n");
+			# endif
 			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
 			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove the right free block from the list
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
@@ -103,7 +132,16 @@ void	*realloc(void *ptr, size_t size) {
 			return (ptr);
 		}
 		else { // call malloc then copy if need to be moved
+			# ifdef PRINTF
+				ft_dprintf(2, "need to be moved\n");
+			# endif
+			# ifdef MUTEX
+				pthread_mutex_unlock(&mutex);
+			# endif
 			void	*new_pointer = malloc(size);
+			# ifdef MUTEX
+				pthread_mutex_lock(&mutex);
+			# endif
 			ft_memcpy(new_pointer, ptr, min(data_size, padded(size))); // copy the old content
 			
 			# ifdef LOG
@@ -121,6 +159,9 @@ void	*realloc(void *ptr, size_t size) {
 		}
 	}
 	else { // the size will be shrinked
+		# ifdef PRINTF
+			ft_dprintf(2, "doesn't need to be moved\n");
+		# endif
 		int should_be_split = data_size - padded(size) >= MINIMUM_FREE_BLOCK_SIZE; // if there is enough space to put a new free_block
 		size_t	left_over = data_size - padded(size);
 		working_pointer.as_char += left_block_size; // move the wp to the next block to see if it's a free block

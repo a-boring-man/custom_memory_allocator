@@ -23,12 +23,16 @@ void	*malloc(size_t size) {
 	
 	# ifdef LOG	
 		int fd = open("./log", O_APPEND | O_WRONLY);
-		ft_dprintf(fd, "malloc : -%p-\n", return_ptr);
+		ft_dprintf(fd, "malloc : -%p- size : -%d-\n", return_ptr, size);
 		close(fd);
 	# endif
 	
 	# ifdef MUTEX
 		pthread_mutex_unlock(&mutex);
+	# endif
+
+	# ifdef PRINTF
+		
 	# endif
 	
 	return (return_ptr);
