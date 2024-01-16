@@ -17,4 +17,7 @@ void	remove_block_from_t_list(t_list *block, t_list **head) {
 	}
 	block->next = NULL;
 	block->previous = NULL;
+	# ifdef POISON_FREE
+		poison_block((void *)block, sizeof(t_list), FREE_COLOR);
+	# endif
 }

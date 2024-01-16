@@ -19,6 +19,9 @@ void	*malloc(size_t size) {
 	# endif
 	
 	t_zone	*zone = choose_the_right_page(size);
+	if (size < 16) {
+		size = 16;
+	}
 	return_ptr = find_free_block(size, zone);
 	
 	# ifdef LOG	
@@ -27,12 +30,13 @@ void	*malloc(size_t size) {
 		close(fd);
 	# endif
 	
+	# ifdef PRINTF
+		ft_dprintf(2, "calling debug with ptr : %p and size %d : \n", (char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE);
+		debug_hexa((char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) / sizeof(size_t));
+	#	endif
+
 	# ifdef MUTEX
 		pthread_mutex_unlock(&mutex);
-	# endif
-
-	# ifdef PRINTF
-		
 	# endif
 	
 	return (return_ptr);

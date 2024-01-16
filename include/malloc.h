@@ -127,7 +127,7 @@ extern pthread_mutex_t	mutex;
 
 void	free(void *ptr);
 void	*malloc(size_t size);
-//void    *calloc(size_t nmemb, size_t size);
+void    *calloc(size_t nmemb, size_t size);
 void	*realloc(void *ptr, size_t size);
 void	show_alloc_mem();
 void	show_alloc_mem_ex();
@@ -269,6 +269,7 @@ t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void
 
 // -------------helper function-----------------
 
+size_t	max(size_t a, size_t b);
 size_t	min(size_t a, size_t b);
 
 /**

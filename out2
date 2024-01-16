@@ -1,0 +1,2494 @@
+my_malloc 5
+must allocate a new page
+calling debug with ptr : 0x7ffa2075d020 and size 32 : 
+wanting to free the block at : -0x7ffa2075d028- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 120
+must allocate a new page
+calling debug with ptr : 0x7ffa2075b020 and size 136 : 
+my_malloc 12
+must allocate a new page
+calling debug with ptr : 0x7ffa20759020 and size 32 : 
+my_malloc 776
+must allocate a new page
+calling debug with ptr : 0x7ffa20217020 and size 792 : 
+my_malloc 112
+calling debug with ptr : 0x7ffa2075b0a8 and size 128 : 
+my_malloc 1336
+must allocate a new page
+calling debug with ptr : 0x7ffa201d7020 and size 1352 : 
+my_malloc 216
+must allocate a new page
+calling debug with ptr : 0x7ffa20751020 and size 232 : 
+my_malloc 432
+must allocate a new page
+calling debug with ptr : 0x7ffa201c7020 and size 448 : 
+my_malloc 104
+calling debug with ptr : 0x7ffa2075b128 and size 120 : 
+my_malloc 88
+must allocate a new page
+calling debug with ptr : 0x7ffa2074e020 and size 104 : 
+my_malloc 120
+calling debug with ptr : 0x7ffa2075b1a0 and size 136 : 
+my_malloc 168
+must allocate a new page
+calling debug with ptr : 0x7ffa20748020 and size 184 : 
+my_malloc 104
+calling debug with ptr : 0x7ffa2075b228 and size 120 : 
+my_malloc 80
+calling debug with ptr : 0x7ffa2074e088 and size 96 : 
+my_malloc 192
+calling debug with ptr : 0x7ffa207480d8 and size 208 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759040 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759060 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759080 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207590a0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207590c0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207590e0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759100 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759120 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759140 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759160 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759180 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207591a0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207591c0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207591e0 and size 32 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa20759200 and size 48 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759230 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759250 and size 48 : 
+my_malloc 208
+calling debug with ptr : 0x7ffa20751108 and size 224 : 
+my_malloc 208
+calling debug with ptr : 0x7ffa207511e8 and size 224 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759280 and size 32 : 
+my_malloc 1264
+calling debug with ptr : 0x7ffa201d7568 and size 1280 : 
+wanting to free the block at : -0x7ffa201d7570- of size : -1280- and of true size : -1264-
+next clean in 0
+my_malloc 18
+calling debug with ptr : 0x7ffa207592a0 and size 40 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa207592c8 and size 40 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa207592f0 and size 32 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa20759310 and size 40 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa20759338 and size 32 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa20759358 and size 56 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa20759390 and size 32 : 
+my_malloc 8192
+must allocate a new page
+calling debug with ptr : 0x7ffa200c0020 and size 8208 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa207593b0 and size 32 : 
+my_malloc 4096
+must allocate a new page
+calling debug with ptr : 0x7ffa20040020 and size 4112 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa207593d0 and size 32 : 
+my_malloc 4096
+calling debug with ptr : 0x7ffa20041030 and size 4112 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207593f0 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa20759430 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa20759458 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759480 and size 48 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa207594b0 and size 32 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa207594d0 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759508 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa20759548 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa20759568 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759588 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa207595b8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207595d8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207595f8 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759638 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759658 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759678 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa207596a8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207596c8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207596e8 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20759728 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20759748 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759768 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa20759798 and size 32 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa207597b8 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207597e0 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa20759820 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa20759848 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759870 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa207598a0 and size 32 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa207598c0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207598e8 and size 64 : 
+my_malloc 6
+calling debug with ptr : 0x7ffa20759928 and size 32 : 
+my_malloc 6
+calling debug with ptr : 0x7ffa20759948 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759968 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa20759998 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa207599b8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa207599d8 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759a18 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa20759a38 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759a58 and size 48 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa20759a88 and size 40 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa20759ab0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759ad8 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa20759b18 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa20759b38 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759b58 and size 48 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa20759b88 and size 72 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa20759bd0 and size 80 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759c20 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa20759c60 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa20759c80 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759ca0 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa20759cd0 and size 32 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa20759cf0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759d18 and size 64 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa20759d58 and size 48 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa20759d88 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759db8 and size 48 : 
+my_malloc 43
+calling debug with ptr : 0x7ffa20759de8 and size 64 : 
+my_malloc 69
+calling debug with ptr : 0x7ffa2074e0e8 and size 88 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759e28 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759e68 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759e88 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759ea8 and size 48 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa20759ed8 and size 32 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa20759ef8 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759f28 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20759f68 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20759f88 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20759fa8 and size 48 : 
+my_malloc 38
+calling debug with ptr : 0x7ffa20759fd8 and size 56 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2075a010 and size 72 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a058 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2075a098 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2075a0b8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a0d8 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2075a108 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2075a128 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a150 and size 64 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2075a190 and size 48 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2075a1c0 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a1f0 and size 48 : 
+my_malloc 31
+calling debug with ptr : 0x7ffa2075a220 and size 48 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2075a250 and size 72 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a298 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2075a2d8 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2075a2f8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a318 and size 48 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2075a348 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2075a368 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a390 and size 64 : 
+my_malloc 30
+calling debug with ptr : 0x7ffa2075a3d0 and size 48 : 
+my_malloc 30
+calling debug with ptr : 0x7ffa2075a400 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a430 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2075a460 and size 32 : 
+my_malloc 37
+calling debug with ptr : 0x7ffa2075a480 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a4b8 and size 64 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2075a4f8 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2075a520 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a548 and size 48 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2075a578 and size 32 : 
+my_malloc 35
+calling debug with ptr : 0x7ffa2075a598 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a5d0 and size 64 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2075a610 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2075a638 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a660 and size 48 : 
+my_malloc 55
+calling debug with ptr : 0x7ffa2075a690 and size 72 : 
+my_malloc 76
+calling debug with ptr : 0x7ffa2074e140 and size 96 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a6d8 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2075a718 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2075a738 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a758 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2075a788 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2075a7a8 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a7d0 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2075a810 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2075a830 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a850 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2075a880 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2075a8a0 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a8c0 and size 64 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2075a900 and size 32 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2075a920 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075a940 and size 48 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2075a970 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2075a990 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075a9b0 and size 64 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2075a9f0 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2075aa10 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075aa30 and size 48 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2075aa60 and size 32 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2075aa80 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075aab0 and size 64 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2075aaf0 and size 40 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2075ab18 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075ab40 and size 48 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2075ab70 and size 32 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2075ab90 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075abb8 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2075abf8 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2075ac18 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075ac38 and size 48 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2075ac68 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2075ac88 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075acb0 and size 64 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2075acf0 and size 48 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2075ad20 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075ad50 and size 48 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2075ad80 and size 40 : 
+my_malloc 44
+calling debug with ptr : 0x7ffa2075ada8 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075ade8 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2075ae28 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2075ae48 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075ae68 and size 48 : 
+my_malloc 211
+calling debug with ptr : 0x7ffa207512c8 and size 232 : 
+my_malloc 216
+calling debug with ptr : 0x7ffa207513b0 and size 232 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075ae98 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2075aed8 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2075aef8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075af18 and size 48 : 
+my_malloc 92
+calling debug with ptr : 0x7ffa2074e1a0 and size 112 : 
+my_malloc 108
+calling debug with ptr : 0x7ffa2075b2a0 and size 128 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2075af48 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2075af88 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2075afa8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2075afc8 and size 48 : 
+my_malloc 3
+must allocate a new page
+calling debug with ptr : 0x7ffa2003e020 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003e040 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e060 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003e0a0 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003e0c0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e0e0 and size 48 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003e110 and size 56 : 
+my_malloc 47
+calling debug with ptr : 0x7ffa2003e148 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e188 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003e1c8 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003e1e8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e208 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003e238 and size 32 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003e258 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e280 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003e2c0 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003e2e8 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e310 and size 48 : 
+my_malloc 41
+calling debug with ptr : 0x7ffa2003e340 and size 64 : 
+my_malloc 58
+calling debug with ptr : 0x7ffa2003e380 and size 80 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e3d0 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003e410 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003e430 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e450 and size 48 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003e480 and size 40 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003e4a8 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e4e0 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003e520 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003e540 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e560 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003e590 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003e5b0 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e5d0 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003e610 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003e630 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e650 and size 48 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003e680 and size 32 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003e6a0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e6c8 and size 64 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003e708 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003e730 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e758 and size 48 : 
+my_malloc 6
+calling debug with ptr : 0x7ffa2003e788 and size 32 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003e7a8 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e7d8 and size 64 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003e818 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003e840 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e868 and size 48 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003e898 and size 40 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003e8c0 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003e900 and size 64 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003e940 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003e968 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003e990 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003e9c0 and size 32 : 
+my_malloc 27
+calling debug with ptr : 0x7ffa2003e9e0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ea10 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003ea50 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003ea70 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ea90 and size 48 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003eac0 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003eae0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003eb08 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003eb48 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003eb68 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003eb88 and size 48 : 
+my_malloc 30
+calling debug with ptr : 0x7ffa2003ebb8 and size 48 : 
+my_malloc 41
+calling debug with ptr : 0x7ffa2003ebe8 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ec28 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003ec68 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003ec88 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003eca8 and size 48 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa2003ecd8 and size 48 : 
+my_malloc 43
+calling debug with ptr : 0x7ffa2003ed08 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ed48 and size 64 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003ed88 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003edb0 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003edd8 and size 48 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa2003ee08 and size 48 : 
+my_malloc 50
+calling debug with ptr : 0x7ffa2003ee38 and size 72 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ee80 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003eec0 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003eee0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ef00 and size 48 : 
+my_malloc 46
+calling debug with ptr : 0x7ffa2003ef30 and size 64 : 
+my_malloc 62
+calling debug with ptr : 0x7ffa2003ef70 and size 80 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003efc0 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003f000 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003f020 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f040 and size 48 : 
+my_malloc 31
+calling debug with ptr : 0x7ffa2003f070 and size 48 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003f0a0 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f0e0 and size 64 : 
+my_malloc 6
+calling debug with ptr : 0x7ffa2003f120 and size 32 : 
+my_malloc 6
+calling debug with ptr : 0x7ffa2003f140 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f160 and size 48 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003f190 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003f1b0 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f1d0 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003f210 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003f238 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f260 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003f290 and size 32 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003f2b0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f2d8 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003f318 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003f338 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f358 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003f388 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003f3a8 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f3d0 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003f410 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003f430 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f450 and size 48 : 
+my_malloc 36
+calling debug with ptr : 0x7ffa2003f480 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f4b8 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f4f8 and size 64 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003f538 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003f558 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f578 and size 48 : 
+my_malloc 39
+calling debug with ptr : 0x7ffa2003f5a8 and size 56 : 
+my_malloc 54
+calling debug with ptr : 0x7ffa2003f5e0 and size 72 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f628 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003f668 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003f690 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f6b8 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003f6e8 and size 32 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003f708 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f730 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003f770 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003f790 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f7b0 and size 48 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003f7e0 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003f800 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f828 and size 64 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003f868 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003f888 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f8a8 and size 48 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2003f8d8 and size 72 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2003f920 and size 72 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003f968 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003f9a8 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003f9c8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003f9e8 and size 48 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa2003fa18 and size 48 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003fa48 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003fa88 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003fac8 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003fae8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003fb08 and size 48 : 
+my_malloc 170
+calling debug with ptr : 0x7ffa207481a8 and size 192 : 
+my_malloc 184
+calling debug with ptr : 0x7ffa20748268 and size 200 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003fb38 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003fb78 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003fb98 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003fbb8 and size 48 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003fbe8 and size 32 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003fc08 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003fc30 and size 64 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003fc70 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003fc90 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003fcb0 and size 48 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2003fce0 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003fd10 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003fd48 and size 64 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa2003fd88 and size 48 : 
+my_malloc 29
+calling debug with ptr : 0x7ffa2003fdb8 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003fde8 and size 48 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003fe18 and size 32 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003fe38 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003fe78 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003feb8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003fed8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003fef8 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003ff28 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ff48 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ff68 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003ffa8 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003ffc8 and size 32 : 
+my_malloc 32
+must allocate a new page
+calling debug with ptr : 0x7ffa2003c020 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003c050 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003c070 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c098 and size 64 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003c0d8 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003c100 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c128 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003c158 and size 32 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa2003c178 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c1a8 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003c1e8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003c208 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c228 and size 48 : 
+my_malloc 75
+calling debug with ptr : 0x7ffa2074e210 and size 96 : 
+my_malloc 87
+calling debug with ptr : 0x7ffa2074e270 and size 104 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c258 and size 64 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003c298 and size 40 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003c2c0 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c2e8 and size 48 : 
+my_malloc 35
+calling debug with ptr : 0x7ffa2003c318 and size 56 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa2003c350 and size 80 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c3a0 and size 64 : 
+my_malloc 30
+calling debug with ptr : 0x7ffa2003c3e0 and size 48 : 
+my_malloc 30
+calling debug with ptr : 0x7ffa2003c410 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c440 and size 48 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003c470 and size 56 : 
+my_malloc 63
+calling debug with ptr : 0x7ffa2003c4a8 and size 80 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c4f8 and size 64 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003c538 and size 40 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003c560 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c588 and size 48 : 
+my_malloc 80
+calling debug with ptr : 0x7ffa2074e2d8 and size 96 : 
+my_malloc 104
+calling debug with ptr : 0x7ffa2075b320 and size 120 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c5b8 and size 64 : 
+my_malloc 22
+calling debug with ptr : 0x7ffa2003c5f8 and size 40 : 
+my_malloc 22
+calling debug with ptr : 0x7ffa2003c620 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c648 and size 48 : 
+my_malloc 44
+calling debug with ptr : 0x7ffa2003c678 and size 64 : 
+my_malloc 66
+calling debug with ptr : 0x7ffa2074e338 and size 88 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c6b8 and size 64 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003c6f8 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003c720 and size 40 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c748 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003c778 and size 32 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003c798 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c7c0 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003c800 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003c820 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c840 and size 48 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003c870 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003c898 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c8c8 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003c908 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003c928 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003c948 and size 48 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003c978 and size 40 : 
+my_malloc 31
+calling debug with ptr : 0x7ffa2003c9a0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003c9d0 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ca10 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ca30 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ca50 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003ca80 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003caa0 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003cac8 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cb08 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cb28 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003cb48 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cb78 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003cb98 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003cbb8 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cbf8 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cc18 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003cc38 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cc68 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003cc88 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003cca8 and size 64 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cce8 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cd08 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003cd28 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cd58 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003cd78 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003cd98 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003cdd8 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003cdf8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ce18 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003ce48 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003ce68 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ce88 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cec8 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003cee8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003cf08 and size 48 : 
+my_malloc 68
+calling debug with ptr : 0x7ffa2074e390 and size 88 : 
+my_malloc 79
+calling debug with ptr : 0x7ffa2074e3e8 and size 96 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2003cf38 and size 72 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2003cf80 and size 72 : 
+wanting to free the block at : -0x7ffa2003cf40- of size : -72- and of true size : -56-
+next clean in 0
+my_malloc 48
+calling debug with ptr : 0x7ffa2003cf38 and size 64 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cfc8 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003cfe8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d008 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003d038 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d058 and size 64 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003d098 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003d0b8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d0d8 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003d108 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d128 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d168 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d188 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d1a8 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d1d8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d1f8 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d238 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d258 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d278 and size 48 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003d2a8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d2c8 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d308 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d328 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d348 and size 48 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003d378 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d3a0 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d3e0 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d400 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d420 and size 48 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003d450 and size 40 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003d478 and size 32 : 
+wanting to free the block at : -0x7ffa207599c0- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa207599a0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 48
+calling debug with ptr : 0x7ffa20759998 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003d498 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003d4b8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d4d8 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d508 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d528 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d568 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d588 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d5a8 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003d5d8 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d5f8 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d638 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003d658 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d678 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003d6a8 and size 32 : 
+my_malloc 34
+calling debug with ptr : 0x7ffa2003d6c8 and size 56 : 
+my_malloc 39
+calling debug with ptr : 0x7ffa2003d700 and size 56 : 
+wanting to free the block at : -0x7ffa2003d708- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -56- and of true size : -40-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa2003d6c8 and size 40 : 
+my_malloc 27
+calling debug with ptr : 0x7ffa2003d6f0 and size 48 : 
+wanting to free the block at : -0x7ffa2003d6f8- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 34
+calling debug with ptr : 0x7ffa2003d6c8 and size 56 : 
+my_malloc 39
+calling debug with ptr : 0x7ffa2003d700 and size 56 : 
+wanting to free the block at : -0x7ffa2003d708- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -56- and of true size : -40-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa2003d6c8 and size 40 : 
+my_malloc 27
+calling debug with ptr : 0x7ffa2003d6f0 and size 48 : 
+wanting to free the block at : -0x7ffa2003d6f8- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa2003d6c8 and size 32 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003d6e8 and size 40 : 
+wanting to free the block at : -0x7ffa2003d6f0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 15
+calling debug with ptr : 0x7ffa2003d6c8 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003d6e8 and size 40 : 
+wanting to free the block at : -0x7ffa2003d6f0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 10
+calling debug with ptr : 0x7ffa2003d6c8 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003d6e8 and size 32 : 
+wanting to free the block at : -0x7ffa2003d6f0- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003d6d0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 9
+calling debug with ptr : 0x7ffa2003d6c8 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003d6e8 and size 32 : 
+wanting to free the block at : -0x7ffa2003d6d0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 14
+calling debug with ptr : 0x7ffa2003d6c8 and size 32 : 
+wanting to free the block at : -0x7ffa2003d6f0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d6e8 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003d728 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003d748 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d768 and size 48 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003d798 and size 32 : 
+wanting to free the block at : -0x7ffa2003d6d0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d7b8 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003d7f8 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003d818 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d838 and size 48 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003d868 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003d890 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003d8d0 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003d8f0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d910 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003d940 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d978 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d9a8 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003d9d8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003d9f8 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003da28 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003da48 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003da78 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003da98 and size 48 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003dac8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003dae8 and size 48 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003db18 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003db38 and size 48 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003db68 and size 40 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003db90 and size 64 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003dbd0 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa2003dbf0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003dc10 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003dc40 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003dc60 and size 64 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003dca0 and size 32 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003dcc0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003dce0 and size 48 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003dd10 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003dd30 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003dd70 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003dd90 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ddb0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003dde0 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003de20 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003de40 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003de60 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003de90 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003ded0 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003def0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003df10 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003df40 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003df80 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003dfa0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003dfc0 and size 48 : 
+my_malloc 48
+must allocate a new page
+calling debug with ptr : 0x7ffa2003a020 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a060 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a080 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a0a0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a0d0 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a110 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a130 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a150 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a180 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003a1c0 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003a1e0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a200 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a230 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003a270 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003a290 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a2b0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a2e0 and size 64 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003a320 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa2003a340 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a360 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a390 and size 64 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003a3d0 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003a3f0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a410 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a440 and size 64 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003a480 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003a4a0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a4c0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a4f0 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003a530 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003a550 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a570 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003a5a0 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a5d8 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a608 and size 64 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a648 and size 32 : 
+my_malloc 7
+calling debug with ptr : 0x7ffa2003a668 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a688 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003a6b8 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a6f0 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a720 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003a760 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003a780 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a7a0 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003a7d0 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a808 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a838 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003a878 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003a898 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a8b8 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003a8e8 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a920 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003a950 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003a990 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003a9b0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003a9d0 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003aa00 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003aa38 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003aa68 and size 64 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003aaa8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003aac8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003aae8 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003ab18 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ab50 and size 48 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ab80 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003abc0 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003abe0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ac00 and size 48 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ac30 and size 32 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa20217338 and size 1040 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ac50 and size 64 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003ac90 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa2003acb0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003acd0 and size 48 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ad00 and size 32 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa20217748 and size 1040 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ad20 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003ad60 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003ad80 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ada0 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003add0 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003ae08 and size 48 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003ae38 and size 64 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ae78 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003aeb8 and size 32 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003aed8 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003aef8 and size 48 : 
+my_malloc 41
+calling debug with ptr : 0x7ffa2003af28 and size 64 : 
+wanting to free the block at : -0x7ffa2003ae40- of size : -64- and of true size : -48-
+next clean in 0
+my_malloc 145
+calling debug with ptr : 0x7ffa20748330 and size 168 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ae38 and size 64 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003af68 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa2003af88 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003afa8 and size 48 : 
+my_malloc 144
+calling debug with ptr : 0x7ffa207483d8 and size 160 : 
+wanting to free the block at : -0x7ffa20748338- of size : -168- and of true size : -152-
+next clean in 0
+my_malloc 1
+calling debug with ptr : 0x7ffa2003afd8 and size 32 : 
+my_malloc 880
+calling debug with ptr : 0x7ffa20217b58 and size 896 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003aff8 and size 32 : 
+my_malloc 880
+calling debug with ptr : 0x7ffa20217ed8 and size 896 : 
+wanting to free the block at : -0x7ffa2003b000- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 592
+calling debug with ptr : 0x7ffa20218258 and size 608 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003aff8 and size 32 : 
+my_malloc 108
+calling debug with ptr : 0x7ffa2075b398 and size 128 : 
+my_malloc 31
+calling debug with ptr : 0x7ffa2003b018 and size 48 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003b048 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003b070 and size 40 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003b098 and size 64 : 
+my_malloc 58
+calling debug with ptr : 0x7ffa2003b0d8 and size 80 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b128 and size 40 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa2003b150 and size 48 : 
+my_malloc 44
+calling debug with ptr : 0x7ffa2003b180 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003b1c0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003b1e0 and size 32 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003b200 and size 64 : 
+my_malloc 43
+calling debug with ptr : 0x7ffa2003b240 and size 64 : 
+my_malloc 62
+calling debug with ptr : 0x7ffa2003b280 and size 80 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003b2d0 and size 40 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b2f8 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003b320 and size 40 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa2003b348 and size 48 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2003b378 and size 72 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003b3c0 and size 64 : 
+my_malloc 27
+calling debug with ptr : 0x7ffa2003b400 and size 48 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b430 and size 32 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003b450 and size 40 : 
+my_malloc 54
+calling debug with ptr : 0x7ffa2003b478 and size 72 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003b4c0 and size 32 : 
+my_malloc 41
+calling debug with ptr : 0x7ffa2003b4e0 and size 64 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa2003b520 and size 80 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003b570 and size 32 : 
+my_malloc 50
+calling debug with ptr : 0x7ffa2003b590 and size 72 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003b5d8 and size 56 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003b610 and size 40 : 
+my_malloc 79
+calling debug with ptr : 0x7ffa2074e448 and size 96 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003b638 and size 32 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b658 and size 40 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b680 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003b6a8 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003b6d0 and size 48 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003b700 and size 40 : 
+my_malloc 87
+calling debug with ptr : 0x7ffa2074e4a8 and size 104 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2003b728 and size 72 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b770 and size 32 : 
+my_malloc 47
+calling debug with ptr : 0x7ffa2003b790 and size 64 : 
+my_malloc 76
+calling debug with ptr : 0x7ffa2074e510 and size 96 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b7d0 and size 40 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003b7f8 and size 56 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003b830 and size 40 : 
+my_malloc 63
+calling debug with ptr : 0x7ffa2003b858 and size 80 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b8a8 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003b8d0 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003b8f8 and size 48 : 
+my_malloc 35
+calling debug with ptr : 0x7ffa2003b928 and size 56 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003b960 and size 32 : 
+my_malloc 66
+calling debug with ptr : 0x7ffa2074e570 and size 88 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003b980 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b9a0 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003b9c0 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003b9e0 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003ba00 and size 40 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003ba28 and size 40 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003ba50 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003ba88 and size 64 : 
+my_malloc 104
+calling debug with ptr : 0x7ffa2075b418 and size 120 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2003bac8 and size 48 : 
+my_malloc 184
+calling debug with ptr : 0x7ffa20748478 and size 200 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003baf8 and size 32 : 
+my_malloc 216
+calling debug with ptr : 0x7ffa20751498 and size 232 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003bb18 and size 40 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003bb40 and size 64 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2003bb80 and size 72 : 
+my_malloc 37
+calling debug with ptr : 0x7ffa2003bbc8 and size 56 : 
+my_malloc 69
+calling debug with ptr : 0x7ffa2074e5c8 and size 88 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa2003bc00 and size 80 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003bc50 and size 40 : 
+wanting to free the block at : -0x7ffa20217ee0- of size : -896- and of true size : -880-
+next clean in 0
+wanting to free the block at : -0x7ffa20218260- of size : -608- and of true size : -592-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bc78 and size 32 : 
+wanting to free the block at : -0x7ffa207591c8- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa207591c0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bc98 and size 32 : 
+wanting to free the block at : -0x7ffa207591a8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bc80- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bc78 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa207591a0 and size 32 : 
+wanting to free the block at : -0x7ffa20759148- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bca0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bc98 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bcb8 and size 32 : 
+wanting to free the block at : -0x7ffa20759108- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa207591a8- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa207591a0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20759100 and size 32 : 
+wanting to free the block at : -0x7ffa20759188- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bcc0- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bcb8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bcd8 and size 32 : 
+wanting to free the block at : -0x7ffa20759168- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20759108- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 12
+calling debug with ptr : 0x7ffa20759100 and size 32 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa20217ed8 and size 1040 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa202182e8 and size 1040 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa202186f8 and size 1040 : 
+my_malloc 1
+calling debug with ptr : 0x7ffa20759140 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa20759160 and size 64 : 
+my_malloc 160
+calling debug with ptr : 0x7ffa20748540 and size 176 : 
+my_malloc 5
+calling debug with ptr : 0x7ffa2003bcf8 and size 32 : 
+my_malloc 256
+calling debug with ptr : 0x7ffa20751580 and size 272 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003bd18 and size 32 : 
+in realloc pointer is : -0x7ffa2003bd20- and size : -16-
+my_malloc 496
+calling debug with ptr : 0x7ffa201c71e0 and size 512 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bd38 and size 32 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003bd58 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003bd78 and size 48 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003bda8 and size 40 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bdd0 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bdf0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003be10 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003be40 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003be70 and size 48 : 
+my_malloc 64
+calling debug with ptr : 0x7ffa2003bea0 and size 80 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003bef0 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bf10 and size 32 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa2003bf30 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bf50 and size 32 : 
+my_malloc 112
+calling debug with ptr : 0x7ffa2075b490 and size 128 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa2003bf70 and size 32 : 
+wanting to free the block at : -0x7ffa2003bf78- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 2
+calling debug with ptr : 0x7ffa2003bf70 and size 32 : 
+wanting to free the block at : -0x7ffa2003bf78- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bf70 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bf90 and size 32 : 
+wanting to free the block at : -0x7ffa2003bf38- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 3
+calling debug with ptr : 0x7ffa2003bf30 and size 32 : 
+wanting to free the block at : -0x7ffa2075b498- of size : -128- and of true size : -112-
+next clean in 0
+my_malloc 32
+calling debug with ptr : 0x7ffa2003bfb0 and size 48 : 
+my_malloc 32
+must allocate a new page
+calling debug with ptr : 0x7ffa20038020 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa20038050 and size 32 : 
+my_malloc 34
+calling debug with ptr : 0x7ffa20038070 and size 56 : 
+my_malloc 37
+calling debug with ptr : 0x7ffa200380a8 and size 56 : 
+wanting to free the block at : -0x7ffa200380b0- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -56- and of true size : -40-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa20038070 and size 40 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa20038098 and size 48 : 
+wanting to free the block at : -0x7ffa200380a0- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 34
+calling debug with ptr : 0x7ffa20038070 and size 56 : 
+my_malloc 37
+calling debug with ptr : 0x7ffa200380a8 and size 56 : 
+wanting to free the block at : -0x7ffa200380b0- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -56- and of true size : -40-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa20038070 and size 40 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa20038098 and size 48 : 
+wanting to free the block at : -0x7ffa200380a0- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa20038090 and size 40 : 
+wanting to free the block at : -0x7ffa20038098- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 15
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa20038090 and size 40 : 
+wanting to free the block at : -0x7ffa20038098- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 10
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 9
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 6
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 9
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 5
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 11
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 17
+calling debug with ptr : 0x7ffa20038070 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa20038098 and size 40 : 
+wanting to free the block at : -0x7ffa200380a0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 10
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa20038090 and size 32 : 
+wanting to free the block at : -0x7ffa20038098- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 3
+calling debug with ptr : 0x7ffa20038070 and size 32 : 
+my_malloc 32
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 41
+calling debug with ptr : 0x7ffa20038090 and size 48 : 
+my_malloc 3
+calling debug with ptr : 0x7ffa20038070 and size 64 : 
+calling debug with ptr : 0x7ffa200380c0 and size 32 : 
+wanting to free the block at : -0x7ffa20038078- of size : -64- and of true size : -48-
+next clean in 0
+my_malloc 472
+wanting to free the block at : -0x7ffa2075a998- of size : -32- and of true size : -16-
+next clean in 0
+calling debug with ptr : 0x7ffa201c73e0 and size 488 : 
+wanting to free the block at : -0x7ffa2075a978- of size : -m3y2_-m aalnlodc  o4f0 9t6r
+ue size : -16-
+next clean in 0
+calling debug with ptr : 0x7ffa20042040 and size 4112 : 
+wanting to free the block at : -0x7ffa20038058- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bf38- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 64
+calling debug with ptr : 0x7ffa200380e0 and size 80 : 
+my_malloc 56
+my_malloc 1600
+calling debug with ptr : 0x7ffa20038130 and size 72 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa201d7568 and size 1616 : 
+calling debug with ptr : 0x7ffa20038178 and size 72 : 
+my_malloc 1024
+calling debug with ptr : 0x7ffa20218b08 and size 1040 : 
+in realloc pointer is : -0x7ffa20218b10- and size : -2048-
+need to be moved or greater size
+need to be moved
+my_malloc 2048
+calling debug with ptr : 0x7ffa201d7bb8 and size 2064 : 
+wanting to free the block at : -0x7ffa20218b10- of size : -1040- and of true size : -1024-
+next clean in 0
+wanting to free the block at : -0x7ffa20042048- of size : -4112- and of true size : -4096-
+next clean in 0
+wanting to free the block at : -0x7ffa201c73e8- of size : -488- and of true size : -472-
+next clean in 0
+my_malloc 41
+calling debug with ptr : 0x7ffa20038070 and size 64 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa200380b0 and size 72 : 
+my_malloc 50
+calling debug with ptr : 0x7ffa200380f8 and size 72 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa20038140 and size 72 : 
+my_malloc 50
+calling debug with ptr : 0x7ffa20038188 and size 72 : 
+wanting to free the block at : -0x7ffa20038190- of size : -72- and of true size : -56-
+next clean in 0
+my_malloc 41
+calling debug with ptr : 0x7ffa20038188 and size 64 : 
+wanting to free the block at : -0x7ffa20038190- of size : -64- and of true size : -48-
+next clean in 0
+my_malloc 8192
+calling debug with ptr : 0x7ffa200c2030 and size 8208 : 
+bash: line 1: fr: command not found
+my_malloc 8
+calling debug with ptr : 0x7ffa200381c0 and size 32 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa200381e0 and size 64 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa20038220 and size 32 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa20038240 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20038260 and size 48 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa20038290 and size 56 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa200382c8 and size 48 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa200382f8 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa20038328 and size 32 : 
+wanting to free the block at : -0x7ffa20038180- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa20038078- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038098- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038138- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003be18- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bdf8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bd60- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bdb0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bd80- of size : -48- and of true size : -32-
+next clean in 0
+in realloc pointer is : -0x7ffa2003bd20- and size : -16-
+my_malloc 4
+calling debug with ptr : 0x7ffa2003bd58 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003bd78 and size 48 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003bda8 and size 40 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003bdf0 and size 32 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa2003be10 and size 48 : 
+wanting to free the block at : -0x7ffa2003bef8- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 4
+calling debug with ptr : 0x7ffa2003bef0 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa20038130 and size 32 : 
+my_malloc 112
+calling debug with ptr : 0x7ffa2075b490 and size 128 : 
+my_malloc 2
+calling debug with ptr : 0x7ffa20038150 and size 32 : 
+wanting to free the block at : -0x7ffa20038158- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 2
+calling debug with ptr : 0x7ffa20038150 and size 32 : 
+wanting to free the block at : -0x7ffa20038158- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 2
+calling debug with ptr : 0x7ffa20038150 and size 32 : 
+wanting to free the block at : -0x7ffa20038158- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa20038138- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 4
+calling debug with ptr : 0x7ffa20038130 and size 32 : 
+wanting to free the block at : -0x7ffa2075b498- of size : -128- and of true size : -112-
+next clean in 0
+my_malloc 4
+calling debug with ptr : 0x7ffa20038150 and size 32 : 
+my_malloc 34
+calling debug with ptr : 0x7ffa20038170 and size 56 : 
+my_malloc 38
+calling debug with ptr : 0x7ffa20038050 and size 56 : 
+wanting to free the block at : -0x7ffa20038058- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -80- and of true size : -64-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa20038170 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa20038050 and size 48 : 
+wanting to free the block at : -0x7ffa20038058- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 34
+calling debug with ptr : 0x7ffa20038170 and size 56 : 
+my_malloc 38
+calling debug with ptr : 0x7ffa20038050 and size 56 : 
+wanting to free the block at : -0x7ffa20038058- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -80- and of true size : -64-
+next clean in 0
+my_malloc 22
+calling debug with ptr : 0x7ffa20038170 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa20038050 and size 48 : 
+wanting to free the block at : -0x7ffa20038058- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -40- and of true size : -24-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa20038170 and size 32 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa20038190 and size 40 : 
+wanting to free the block at : -0x7ffa20038198- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 15
+calling debug with ptr : 0x7ffa20038170 and size 32 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa20038190 and size 40 : 
+wanting to free the block at : -0x7ffa20038198- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 10
+calling debug with ptr : 0x7ffa20038170 and size 32 : 
+my_malloc 14
+calling debug with ptr : 0x7ffa20038190 and size 32 : 
+wanting to free the block at : -0x7ffa20038198- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20038178- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 9
+calling debug with ptr : 0x7ffa20038170 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa20038190 and size 32 : 
+wanting to free the block at : -0x7ffa20038178- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa20038170 and size 32 : 
+my_malloc 512
+calling debug with ptr : 0x7ffa201c73e0 and size 528 : 
+my_malloc 32
+calling debug with ptr : 0x7ffa20038050 and size 48 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa20038080 and size 32 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa200380a0 and size 32 : 
+my_malloc 13
+calling debug with ptr : 0x7ffa20038348 and size 32 : 
+wanting to free the block at : -0x7ffa2003b000- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2075b3a0- of size : -128- and of true size : -112-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b020- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b050- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b078- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b0a0- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b0e0- of size : -80- and of true size : -64-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b130- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b158- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b188- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b1c8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b1e8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b208- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b248- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b288- of size : -80- and of true size : -64-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b2d8- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b300- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b328- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b350- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b380- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b3c8- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b408- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b438- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b458- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b480- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b4c8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b4e8- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b528- of size : -80- and of true size : -64-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b578- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b598- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b5e0- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b618- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2074e450- of size : -96- and of true size : -80-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b640- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b660- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b688- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b6b0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b6d8- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b708- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2074e4b0- of size : -104- and of true size : -88-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b730- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b778- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b798- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2074e518- of size : -96- and of true size : -80-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b7d8- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b800- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b838- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b860- of size : -80- and of true size : -64-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b8b0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b8d8- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b900- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b930- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b968- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2074e578- of size : -88- and of true size : -72-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b988- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b9a8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003b9c8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003ba08- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003ba30- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003ba58- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2003ba90- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2075b420- of size : -120- and of true size : -104-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bad0- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa20748480- of size : -200- and of true size : -184-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bb00- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa207514a0- of size : -232- and of true size : -216-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bb20- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bb48- of size : -64- and of true size : -48-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bb88- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bbd0- of size : -56- and of true size : -40-
+next clean in 0
+wanting to free the block at : -0x7ffa2074e5d0- of size : -88- and of true size : -72-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bc08- of size : -80- and of true size : -64-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bc58- of size : -40- and of true size : -24-
+next clean in 0
+in realloc pointer is : -0x7ffa20217b60- and size : -888-
+need to be moved or greater size
+need to be moved
+my_malloc 888
+calling debug with ptr : 0x7ffa20218b08 and size 904 : 
+wanting to free the block at : -0x7ffa20217b60- of size : -896- and of true size : -880-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa2003ba00 and size 32 : 
+my_malloc 888
+calling debug with ptr : 0x7ffa20218e90 and size 904 : 
+wanting to free the block at : -0x7ffa2003ba08- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 584
+calling debug with ptr : 0x7ffa20219218 and size 600 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003ba00 and size 32 : 
+my_malloc 108
+calling debug with ptr : 0x7ffa2075b398 and size 128 : 
+my_malloc 31
+calling debug with ptr : 0x7ffa2003ba20 and size 48 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003ba50 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003ba78 and size 40 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003baa0 and size 64 : 
+my_malloc 58
+calling debug with ptr : 0x7ffa2003bae0 and size 80 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003bb30 and size 40 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa2003bb58 and size 48 : 
+my_malloc 44
+calling debug with ptr : 0x7ffa2003bb88 and size 64 : 
+my_malloc 10
+calling debug with ptr : 0x7ffa2003bbc8 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003bbe8 and size 32 : 
+my_malloc 45
+calling debug with ptr : 0x7ffa2003bc08 and size 64 : 
+my_malloc 43
+calling debug with ptr : 0x7ffa2003aff8 and size 64 : 
+my_malloc 62
+calling debug with ptr : 0x7ffa2003b038 and size 80 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003b088 and size 40 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b0b0 and size 40 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003b0d8 and size 40 : 
+my_malloc 28
+calling debug with ptr : 0x7ffa2003b100 and size 48 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2003b130 and size 72 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003b178 and size 64 : 
+my_malloc 27
+calling debug with ptr : 0x7ffa2003b1b8 and size 48 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b1e8 and size 32 : 
+my_malloc 21
+calling debug with ptr : 0x7ffa2003b208 and size 40 : 
+my_malloc 54
+calling debug with ptr : 0x7ffa2003b230 and size 72 : 
+my_malloc 41
+calling debug with ptr : 0x7ffa2003b278 and size 64 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa2003b2b8 and size 80 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003b308 and size 32 : 
+my_malloc 50
+calling debug with ptr : 0x7ffa2003b328 and size 72 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003b370 and size 56 : 
+my_malloc 19
+calling debug with ptr : 0x7ffa2003b3a8 and size 40 : 
+my_malloc 79
+calling debug with ptr : 0x7ffa2074e448 and size 96 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003b3d0 and size 32 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b3f0 and size 40 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b418 and size 40 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003b440 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003b468 and size 48 : 
+my_malloc 17
+calling debug with ptr : 0x7ffa2003b498 and size 40 : 
+my_malloc 87
+calling debug with ptr : 0x7ffa2074e4a8 and size 104 : 
+my_malloc 52
+calling debug with ptr : 0x7ffa2003b4c0 and size 72 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b508 and size 32 : 
+my_malloc 47
+calling debug with ptr : 0x7ffa2003b528 and size 64 : 
+my_malloc 76
+calling debug with ptr : 0x7ffa2074e510 and size 96 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b568 and size 40 : 
+my_malloc 40
+calling debug with ptr : 0x7ffa2003b590 and size 56 : 
+my_malloc 24
+calling debug with ptr : 0x7ffa2003b5c8 and size 40 : 
+my_malloc 63
+calling debug with ptr : 0x7ffa2003b5f0 and size 80 : 
+my_malloc 23
+calling debug with ptr : 0x7ffa2003b640 and size 40 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003b668 and size 40 : 
+my_malloc 26
+calling debug with ptr : 0x7ffa2003b690 and size 48 : 
+my_malloc 35
+calling debug with ptr : 0x7ffa2003b6c0 and size 56 : 
+my_malloc 12
+calling debug with ptr : 0x7ffa2003b6f8 and size 32 : 
+my_malloc 66
+calling debug with ptr : 0x7ffa2074e570 and size 88 : 
+my_malloc 11
+calling debug with ptr : 0x7ffa2003b718 and size 32 : 
+my_malloc 15
+calling debug with ptr : 0x7ffa2003b738 and size 32 : 
+my_malloc 8
+calling debug with ptr : 0x7ffa2003b758 and size 32 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b778 and size 40 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b7a0 and size 40 : 
+my_malloc 33
+calling debug with ptr : 0x7ffa2003b7c8 and size 56 : 
+my_malloc 48
+calling debug with ptr : 0x7ffa2003b800 and size 64 : 
+my_malloc 104
+calling debug with ptr : 0x7ffa2075b418 and size 120 : 
+my_malloc 25
+calling debug with ptr : 0x7ffa2003b840 and size 48 : 
+my_malloc 184
+calling debug with ptr : 0x7ffa20748478 and size 200 : 
+my_malloc 16
+calling debug with ptr : 0x7ffa2003b870 and size 32 : 
+my_malloc 216
+calling debug with ptr : 0x7ffa20751498 and size 232 : 
+my_malloc 18
+calling debug with ptr : 0x7ffa2003b890 and size 40 : 
+my_malloc 42
+calling debug with ptr : 0x7ffa2003b8b8 and size 64 : 
+my_malloc 56
+calling debug with ptr : 0x7ffa2003b8f8 and size 72 : 
+my_malloc 37
+calling debug with ptr : 0x7ffa2003b940 and size 56 : 
+my_malloc 69
+calling debug with ptr : 0x7ffa2074e5c8 and size 88 : 
+my_malloc 59
+calling debug with ptr : 0x7ffa2003b978 and size 80 : 
+my_malloc 20
+calling debug with ptr : 0x7ffa2003bc48 and size 40 : 
+wanting to free the block at : -0x7ffa20218e98- of size : -904- and of true size : -888-
+next clean in 0
+wanting to free the block at : -0x7ffa20219220- of size : -600- and of true size : -584-
+next clean in 0
+my_malloc 15
+calling debug with ptr : 0x7ffa20038368 and size 32 : 
+my_malloc 4
+calling debug with ptr : 0x7ffa20038388 and size 32 : 
+my_malloc 32
+wanting to free the block at : -0x7ffa20038390- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 16
+calling debug with ptr : 0x7ffa20038388 and size 32 : 
+calling debug with ptr : 0x7ffa200383a8 and size 48 : 
+my_malloc 5
+must allocate a new page
+wanting to free the block at : -0x7ffa20038198- of size : -48- and of true size : -32-
+next clean in 0
+my_malloc 4
+calling debug with ptr : 0x7fd56c058020 and size 32 : 
+calling debug with ptr : 0x7ffa20038190 and size 32 : 
+wanting to free the block at : -0x7fd56c058028- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 120
+must allocate a new page
+wanting to free the block at : -0x7ffa200380c8- of size : -32- and of true size : -16-
+next clean in 0
+calling debug with ptr : 0x7fd56c056020 and size 136 : 
+my_malloc 12
+must allocate a new page
+wanting to free the block at : -0x7ffa20038158- of size : -32- and of true size : -16-
+next clean in 0
+calling debug with ptr : 0x7fd56c054020 and size 32 : 
+my_malloc 776
+must allocate a new page
+wanting to free the block at : -0x7ffa20038138- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 56
+calling debug with ptr : 0x7fd56bb47020 and size 792 : 
+calling debug with ptr : 0x7ffa200383d8 and size 72 : 
+my_malloc 52
+my_malloc 112
+calling debug with ptr : 0x7ffa20038420 and size 72 : 
+calling debug with ptr : 0x7fd56c0560a8 and size 128 : 
+my_malloc 1336
+must allocate a new page
+calling debug with ptr : 0x7fd56bb07020 and size 1352 : 
+my_malloc 216
+must allocate a new page
+calling debug with ptr : 0x7fd56c04c020 and size 232 : 
+my_malloc 432
+must allocate a new page
+calling debug with ptr : 0x7fd56baf7020 and size 448 : 
+my_malloc 104
+calling debug with ptr : 0x7fd56c056128 and size 120 : 
+my_malloc 88
+must allocate a new page
+calling debug with ptr : 0x7fd56c049020 and size 104 : 
+my_malloc 120
+calling debug with ptr : 0x7fd56c0561a0 and size 136 : 
+my_malloc 168
+must allocate a new page
+calling debug with ptr : 0x7fd56c043020 and size 184 : 
+my_malloc 104
+calling debug with ptr : 0x7fd56c056228 and size 120 : 
+my_malloc 80
+calling debug with ptr : 0x7fd56c049088 and size 96 : 
+my_malloc 192
+calling debug with ptr : 0x7fd56c0430d8 and size 208 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054040 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054060 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054080 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c0540a0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c0540c0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c0540e0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054100 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054120 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054140 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054160 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c054180 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c0541a0 and size 32 : 
+my_malloc 12
+calling debug with ptr : 0x7fd56c0541c0 and size 32 : 
+my_malloc 34
+calling debug with ptr : 0x7fd56c0541e0 and size 56 : 
+my_malloc 10
+calling debug with ptr : 0x7fd56c054218 and size 32 : 
+my_malloc 8192
+must allocate a new page
+calling debug with ptr : 0x7fd56b9f7020 and size 8208 : 
+wanting to free the block at : -0x7fd56b9f7028- of size : -8208- and of true size : -8192-
+next clean in 0
+wanting to free the block at : -0x7ffa20038330- of size : -32- and of true size : -16-
+next clean in 0
+my_malloc 2
+calling debug with ptr : 0x7ffa20038328 and size 32 : 
+wanting to free the block at : -0x7ffa20038428- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa20038390- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa200383b0- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa200383e0- of size : -72- and of true size : -56-
+next clean in 0
+wanting to free the block at : -0x7ffa2003be18- of size : -48- and of true size : -32-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bdf8- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bd60- of size : -32- and of true size : -16-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bdb0- of size : -40- and of true size : -24-
+next clean in 0
+wanting to free the block at : -0x7ffa2003bd80- of size : -48- and of true size : -32-
+next clean in 0

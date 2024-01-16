@@ -26,6 +26,9 @@ void	*realloc(void *ptr, size_t size) {
 		close(fd);
 	# endif
 
+	if (size < 16) {
+		size = 16;
+	}
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
 		# ifdef LOG
 			int fd = open("./log", O_APPEND | O_WRONLY);

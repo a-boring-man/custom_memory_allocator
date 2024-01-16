@@ -33,6 +33,16 @@ int main() {
     ft_printf("printing memory\n");
     show_alloc_mem();
     ft_printf("\n");
+    
+    ft_printf("----------------testing different size_t of malloc----------------\n");
+    for (int i = 49; i < 100000; i = i * 1.5) {
+        char *lol = malloc(i);
+        lol[0] = 'a';
+        ft_printf("lol i is %d\n", i);
+    }
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
 
     ft_printf("----------------testing 100 allocation for each----------------\n");
     for (int i = 49; i < 9000; i = i * 1.5) {
@@ -136,6 +146,149 @@ int main() {
     free(test13);
 
     ft_printf("seeing the result\n");
+    show_alloc_mem();
+    ft_printf("\n");
+    
+    ft_printf("---------------- free everything----------------\n");
+    free_everything();
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
+    
+    ft_printf("---------------- testing realloc increassing size with nothing else ----------------\n");
+    char *rea = realloc(NULL, 25);
+    rea[0] = 'a';
+    rea[16] = '6';
+    show_alloc_mem_ex();
+    for (int i = 49; i < 10000; i = i * 1.2) {
+        rea = realloc(rea, i);
+        ft_printf("i : %d\n", i);
+        show_alloc_mem_ex();
+    }
+    ft_printf("\n");
+    
+    ft_printf("---------------- testing realloc decreasing size with nothing else ----------------\n");
+    for (int i = 10000; i > 25; i = i / 1.2) {
+        rea = realloc(rea, i);
+        ft_printf("i : %d\n", i);
+        show_alloc_mem_ex();
+    }
+    ft_printf("\n");
+    
+    ft_printf("---------------- testing realloc staying in the same size range ----------------\n");
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 25, padded(25) - 25, padded(25) + 16);
+    realloc(rea, 25);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 20, padded(20) - 20, padded(20) + 16);
+    realloc(rea, 20);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 15, padded(15) - 15, padded(15) + 16);
+    realloc(rea, 15);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 10, padded(10) - 10, padded(10) + 16);
+    realloc(rea, 10);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 30, padded(30) - 30, padded(30) + 16);
+    realloc(rea, 30);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 35, padded(35) - 35, padded(35) + 16);
+    realloc(rea, 35);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 40, padded(40) - 40, padded(40) + 16);
+    realloc(rea, 40);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 45, padded(45) - 45, padded(45) + 16);
+    realloc(rea, 45);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 50, padded(50) - 50, padded(50) + 16);
+    realloc(rea, 50);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 55, padded(55) - 55, padded(55) + 16);
+    realloc(rea, 55);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 60, padded(60) - 60, padded(60) + 16);
+    realloc(rea, 60);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 5, padded(5) - 5, padded(5) + 16);
+    realloc(rea, 5);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 42, padded(42) - 42, padded(42) + 16);
+    realloc(rea, 42);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 2, padded(2) - 2, padded(2) + 16);
+    realloc(rea, 2);
+        show_alloc_mem_ex();
+    ft_printf("\n");
+    
+    ft_printf("---------------- testing realloc staying in the same size range but with allocated block behind----------------\n");
+    free(rea);
+    rea = realloc(NULL, 32);
+    rea[0] = 'a';
+    rea[16] = '6';
+    realloc(NULL, 64);
+    show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 25, padded(25) - 25, padded(25) + 16);
+    rea = realloc(rea, 25);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 20, padded(20) - 20, padded(20) + 16);
+    rea = realloc(rea, 20);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 15, padded(15) - 15, padded(15) + 16);
+    rea = realloc(rea, 15);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 10, padded(10) - 10, padded(10) + 16);
+    rea = realloc(rea, 10);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 30, padded(30) - 30, padded(30) + 16);
+    rea = realloc(rea, 30);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 35, padded(35) - 35, padded(35) + 16);
+    rea = realloc(rea, 35);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 40, padded(40) - 40, padded(40) + 16);
+    rea = realloc(rea, 40);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 45, padded(45) - 45, padded(45) + 16);
+    rea = realloc(rea, 45);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 50, padded(50) - 50, padded(50) + 16);
+    rea = realloc(rea, 50);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 55, padded(55) - 55, padded(55) + 16);
+    rea = realloc(rea, 55);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 60, padded(60) - 60, padded(60) + 16);
+    rea = realloc(rea, 60);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 5, padded(5) - 5, padded(5) + 16);
+    rea = realloc(rea, 5);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 42, padded(42) - 42, padded(42) + 16);
+    rea = realloc(rea, 42);
+        show_alloc_mem_ex();
+        ft_printf("reallocing for %d with padding %d so a total size of %d\n", 2, padded(2) - 2, padded(2) + 16);
+    rea = realloc(rea, 2);
+        show_alloc_mem_ex();
+    ft_printf("\n");
+    
+    ft_printf("---------------- free everything----------------\n");
+    free_everything();
+    ft_printf("printing memory\n");
+    show_alloc_mem();
+    ft_printf("\n");
+    
+    ft_printf("---------------- testing calloc ----------------\n");
+    show_alloc_mem_ex();
+    for (int i = 49; i < 10000; i = i * 1.5) {
+        calloc(1, i);
+        ft_printf("i : %d\n", i);
+        show_alloc_mem_ex();
+    }
+    ft_printf("\n");
+    
+    ft_printf("---------------- free everything----------------\n");
+    free_everything();
+    ft_printf("printing memory\n");
     show_alloc_mem();
     ft_printf("\n");
 }

@@ -39,6 +39,10 @@ void	free(void *ptr) {
 		pthread_mutex_lock(&mutex);
 	# endif
 	
+	# ifdef PRINTF
+		// show_alloc_mem_ex();
+	# endif
+	
 	size_t	block_size;
 	int		data_size;
 	static int free_page_counter = FREE_DELAY; // the number of free before a page cleanup
