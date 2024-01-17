@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2024/01/15 15:20:24 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/17 13:57:47 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ HEADER_EXT := .h
 CPPFLAGS := #-std=c++98 #-pedantic
 
 #update if needed
-CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC \
+CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC\
 	-DDEBUG_FT=$(DEBUG_FT) \
 	-DPRINTF_FT=$(PRINTF_FT) \
 	-DFREE_DELAY_FT=$(FREE_DELAY_FT) \

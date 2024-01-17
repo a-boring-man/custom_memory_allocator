@@ -19,16 +19,19 @@ void	*realloc(void *ptr, size_t size) {
 	# ifdef MUTEX
 		pthread_mutex_lock(&mutex);
 	# endif
+	# ifdef PRINTF
+		//show_alloc_mem();
+	# endif
 
+	if (size < 16) {
+		size = 16;
+	}
 	# ifdef LOG
 		int fd = open("./log", O_APPEND | O_WRONLY);
 		ft_dprintf(fd, "realloc enter : -%p- with size : -%d-\n", ptr, size);
 		close(fd);
 	# endif
 
-	if (size < 16) {
-		size = 16;
-	}
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
 		# ifdef LOG
 			int fd = open("./log", O_APPEND | O_WRONLY);
@@ -60,6 +63,9 @@ void	*realloc(void *ptr, size_t size) {
 		# endif
 		# ifdef MUTEX
 			pthread_mutex_unlock(&mutex);
+		# endif
+		# ifdef PRINTF
+		debug_hexa((void *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
 		# endif
 		return (new_pointer);
 	}
@@ -115,12 +121,33 @@ void	*realloc(void *ptr, size_t size) {
 				ft_dprintf(2, "can stay in place because free\n");
 			# endif
 			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free1\n");
+			# endif
 			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove the right free block from the list
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free2\n");
+			# endif
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free3\n");
+			# endif
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // put the lenght of the two block and mark it as free;
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free4\n");
+			# endif
 			working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go back to the beginning
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free5\n");
+			# endif
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // set the left size to the size of the two block as free block
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free6\n");
+			# endif
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, padded(size));
+			# ifdef PRINTF
+				ft_dprintf(2, "can stay in place because free7\n");
+			# endif
 
 			# ifdef LOG
 				int fd = open("./log", O_APPEND | O_WRONLY);
@@ -132,6 +159,9 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
+			# ifdef PRINTF
+			debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+			# endif
 			return (ptr);
 		}
 		else { // call malloc then copy if need to be moved
@@ -149,7 +179,7 @@ void	*realloc(void *ptr, size_t size) {
 			
 			# ifdef LOG
 				int fd = open("./log", O_APPEND | O_WRONLY);
-				ft_dprintf(fd, "realloc exit : -%p-\n", new_pointer);
+				ft_dprintf(fd, "realloc exit calling free: -%p-\n", new_pointer);
 				close(fd);
 			# endif
 
@@ -158,6 +188,10 @@ void	*realloc(void *ptr, size_t size) {
 			# endif
 
 			free(ptr);
+
+			# ifdef PRINTF
+			debug_hexa((void *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+			# endif
 			return new_pointer;
 		}
 	}
@@ -196,6 +230,9 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
+			# ifdef PRINTF
+			debug_hexa((void *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+			# endif
 			return (return_pointer); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
@@ -220,6 +257,9 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
+			# ifdef PRINTF
+			debug_hexa((void *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+			# endif
 			return (return_pointer);
 		}
 		else {// block should be shrinked but no free block to the right and not shrink enought to allow a free block to appear
@@ -233,7 +273,10 @@ void	*realloc(void *ptr, size_t size) {
 			# ifdef MUTEX
 				pthread_mutex_unlock(&mutex);
 			# endif
-			
+
+			# ifdef PRITNF
+				debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+			# endif
 			return (ptr);
 		}
 	}

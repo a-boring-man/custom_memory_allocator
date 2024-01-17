@@ -49,6 +49,7 @@ void    *calloc(size_t nmemb, size_t size) {
 
 	# ifdef PRINTF
 		// show_alloc_mem_ex();
+        debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
 	# endif
 
     return ptr;
