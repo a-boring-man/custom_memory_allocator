@@ -42,7 +42,7 @@ static void display_page_ex(void *page) {
 		}
 		else {
 			ft_printf("free from : -%p- to -%p- : %d bytes\n", working_pointer.as_void, working_pointer.as_char + (*(working_pointer.as_sizeT) & -2), (*(working_pointer.as_sizeT)) & -2);
-			_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
+			//_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT) & -2;
 	}
