@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-void    printf_t_list(t_list *list_head) { // this is a debug function left here on purpose just in case something goes wrong during the defense and may induce some segfault due to debughexa
+void    _printf_t_list(t_list *list_head) { // this is a debug function left here on purpose just in case something goes wrong during the defense and may induce some segfault due to debughexa
     t_list *current = list_head;
     size_t element_nbr = 0;
 
@@ -11,16 +11,16 @@ void    printf_t_list(t_list *list_head) { // this is a debug function left here
     while (current->next != list_head) {
         element_nbr++;
         ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
-        debug_hexa((void *)((size_t *)current -1), 25);
+        _debug_hexa((void *)((size_t *)current -1), 25);
         current = current->next;
     }
     element_nbr++;
     ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
-    debug_hexa((void *)((size_t *)current -1), 25);
+    _debug_hexa((void *)((size_t *)current -1), 25);
     ft_printf("the list contain %d elements\n", element_nbr);
 }
 
-void	remove_block_from_t_list(t_list *block, t_list **head) {
+void	_remove_block_from_t_list(t_list *block, t_list **head) {
 	if (block == NULL)
 		return;
 	if (*head == block && block->next == block) { // one element
@@ -38,11 +38,11 @@ void	remove_block_from_t_list(t_list *block, t_list **head) {
 	block->next = NULL;
 	block->previous = NULL;
 	# ifdef POISON_FREE
-		poison_block((void *)block, sizeof(t_list), FREE_COLOR);
+		_poison_block((void *)block, sizeof(t_list), FREE_COLOR);
 	# endif
 }
 
-void	add_block_to_t_list(t_list *new_block, t_list **list_head) {
+void	_add_block_to_t_list(t_list *new_block, t_list **list_head) {
 	new_block->next = new_block; // circularise the block just in case i forgot to do it somwhere
 	new_block->previous = new_block;
 

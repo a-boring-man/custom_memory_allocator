@@ -7,7 +7,7 @@ void	free_everything() {
 		t_list *current_page = grimoire[i].page;
 		while (current_page != NULL) {
 			t_list *next = current_page->next;
-			remove_block_from_t_list(current_page, &(grimoire[i].page));
+			_remove_block_from_t_list(current_page, &(grimoire[i].page));
 			munmap((void *)((size_t *)(current_page) - 1), *((size_t *)(current_page) - 1));
 			if (current_page != next)
 				current_page = next;

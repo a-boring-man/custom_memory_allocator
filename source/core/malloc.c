@@ -4,14 +4,14 @@
 static size_t	Ceil_to_pagesize_integer(size_t size) {
 	size_t	computer_page_size = getpagesize();
 
-	return (ceilling_unsigned(size, computer_page_size) * computer_page_size);
+	return (_ceilling_unsigned(size, computer_page_size) * computer_page_size);
 }
 
 static size_t	determine_page_size(t_zone *zone, size_t size_to_be_malloc) {
 	size_t	page_size;
 
 	if (zone->max_size == 0) {
-		page_size = padded(size_to_be_malloc) + PAGE_OVERHEAD + MINIMUM_ALLOCATED_BLOCK_SIZE;
+		page_size = _padded(size_to_be_malloc) + PAGE_OVERHEAD + MINIMUM_ALLOCATED_BLOCK_SIZE;
 	}
 	else if (RED_ZONE_SIZE != 0 && zone->max_size <= 256) {
 		page_size = zone->max_size * 256;
@@ -108,7 +108,7 @@ static void	*create_page(t_zone *zone, size_t size) {
 	void	*new_page = NULL;
 
 	if (zone->max_size == 0) {
-		new_page = mmap(0, padded(size) + PAGE_OVERHEAD + MINIMUM_ALLOCATED_BLOCK_SIZE, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+		new_page = mmap(0, _padded(size) + PAGE_OVERHEAD + MINIMUM_ALLOCATED_BLOCK_SIZE, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 	}
 	else if (RED_ZONE_SIZE != 0 && zone->max_size <= 256) {
 		new_page = mmap(0, zone->max_size * 256, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
@@ -167,7 +167,7 @@ static void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated,
 	
 	if (left_over >= MINIMUM_FREE_BLOCK_SIZE) { // if the block can be split in a allocated block + a free block
 
-		remove_block_from_t_list(block, &(zone->free)); // remove the block from the free list
+		_remove_block_from_t_list(block, &(zone->free)); // remove the block from the free list
 		*working_pointer.as_sizeT = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
 		working_pointer.as_char += size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE - sizeof(size_t);
 		*working_pointer.as_sizeT = size_to_be_allocated + MINIMUM_ALLOCATED_BLOCK_SIZE + 1;
@@ -176,17 +176,17 @@ static void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated,
 		working_pointer.as_sizeT += 1; // move to the t_list part
 		working_pointer.as_Tlist->next = working_pointer.as_Tlist;
 		working_pointer.as_Tlist->previous = working_pointer.as_Tlist;
-		add_block_to_t_list(working_pointer.as_Tlist, &(zone->free));
+		_add_block_to_t_list(working_pointer.as_Tlist, &(zone->free));
 		working_pointer.as_char += left_over - 2 * sizeof(size_t); // move to the end
 		*working_pointer.as_sizeT = left_over;
-		return red_zone(block, size_to_be_allocated);
+		return _red_zone(block, size_to_be_allocated);
 	}
 	else { // if it can only contain the payload
-		remove_block_from_t_list(block, &(zone->free));
+		_remove_block_from_t_list(block, &(zone->free));
 		*(working_pointer.as_sizeT) += 1;
 		working_pointer.as_char += *(working_pointer.as_sizeT) - 1 - sizeof(size_t);
 		*(working_pointer.as_sizeT) += 1;
-		return red_zone(block, size_to_be_allocated);
+		return _red_zone(block, size_to_be_allocated);
 	}
 }
 
@@ -195,7 +195,7 @@ static void	*best_fit(size_t size_to_be_alloc, t_zone *zone) { // size if the ra
 	t_list	*list_head = zone->free;
 	size_t	left_over = MAX_SIZET;
 	t_list	*best_block = NULL;
-	size_t	true_size = padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE;
+	size_t	true_size = _padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE;
 
 	// whyle free list is not empty and free block size <= size_to_be_allocated continue
 	while (list_head != NULL \
@@ -215,15 +215,15 @@ static void	*best_fit(size_t size_to_be_alloc, t_zone *zone) { // size if the ra
 		if (new_page.as_void == (void *)-1)
 			return NULL; 
 		format_new_page(new_page.as_void, determine_page_size(zone, size_to_be_alloc));
-		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (&(zone->page)));
-		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), &(zone->free));
-		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), padded(size_to_be_alloc), zone));
+		_add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), (&(zone->page)));
+		_add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), &(zone->free));
+		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), _padded(size_to_be_alloc), zone));
 	}
 	else if (*((size_t *)list_head - 1) >= true_size && left_over > (*((size_t *)list_head -1) - true_size)) { // lats member is the best
-		return (mark_block_as_allocated(list_head, padded(size_to_be_alloc), zone));
+		return (mark_block_as_allocated(list_head, _padded(size_to_be_alloc), zone));
 	}
 	else { // a best block was found in the list
-		return (mark_block_as_allocated(best_block, padded(size_to_be_alloc), zone));
+		return (mark_block_as_allocated(best_block, _padded(size_to_be_alloc), zone));
 	}
 }
 # endif
@@ -237,11 +237,11 @@ static void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	// while free list is not empty and free block size <= size_to_be_allocated continue
 	while (list_head != NULL \
 		&& list_head->next != zone->free \
-		&& *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)
+		&& *((size_t *)(list_head) - 1) < _padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)
 	{
 		list_head = list_head->next;
 	}
-	if (list_head == NULL || (list_head->next == zone->free && *((size_t *)(list_head) - 1) < padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)) { // no block was found need to create a new page
+	if (list_head == NULL || (list_head->next == zone->free && *((size_t *)(list_head) - 1) < _padded(size_to_be_alloc) + MINIMUM_ALLOCATED_BLOCK_SIZE)) { // no block was found need to create a new page
 		# ifdef PRINTF
 			ft_dprintf(2, "must allocate a new page\n");
 		# endif
@@ -252,12 +252,12 @@ static void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 		if (new_page.as_void == (void *)-1)
 			return NULL; 
 		format_new_page(new_page.as_void, determine_page_size(zone, size_to_be_alloc));
-		add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), &(zone->page));
-		add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), &(zone->free));
-		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), padded(size_to_be_alloc), zone));
+		_add_block_to_t_list((t_list *)(new_page.as_sizeT + 1), &(zone->page));
+		_add_block_to_t_list((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), &(zone->free));
+		return (mark_block_as_allocated((t_list *)(new_page.as_char + PAGE_START_OVERHEAD + sizeof(size_t)), _padded(size_to_be_alloc), zone));
 	}
 	else { // if a block was found
-		return (mark_block_as_allocated(list_head, padded(size_to_be_alloc), zone));
+		return (mark_block_as_allocated(list_head, _padded(size_to_be_alloc), zone));
 	}
 }
 
@@ -287,7 +287,7 @@ void	*malloc(size_t size) {
 
 	void	*return_ptr;
 
-	t_zone	*zone = choose_the_right_page(size);
+	t_zone	*zone = _choose_the_right_page(size);
 
 	if (size < 16) {
 		size = 16;

@@ -6,7 +6,7 @@
 /*   By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 09:41:39 by jrinna            #+#    #+#             */
-/*   Updated: 2023/12/11 11:08:11 by jrinna           ###   ########lyon.fr   */
+/*   Updated: 2024/01/18 12:43:08 by jrinna           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stddef.h>
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+static void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ void	ft_putstr_fd(char *s, int fd)
 		}
 	}
 }
-void	ft_putchar_fd(char c, int fd)
+static void	ft_putchar_fd(char c, int fd)
 {
 	if (fd > -1){
 		int lol = write(fd, &c, 1);

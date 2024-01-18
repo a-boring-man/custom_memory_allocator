@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-void	debug_hexa(void *memory_location, size_t size) {
+void	_debug_hexa(void *memory_location, size_t size) {
 	size_t i = 0;
 	t_memory_pointer ptr;
 	ptr.as_void = memory_location;
@@ -38,11 +38,11 @@ static void display_page_ex(void *page) {
 	while (*(working_pointer.as_sizeT) != 1) {
 		if (*(working_pointer.as_sizeT) & 1) {
 			ft_printf("allocated from : -%p- to -%p- : %d bytes\n", working_pointer.as_void, working_pointer.as_char + (*(working_pointer.as_sizeT) & -2), (*working_pointer.as_sizeT) & -2);
-			debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
+			_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
 		}
 		else {
 			ft_printf("free from : -%p- to -%p- : %d bytes\n", working_pointer.as_void, working_pointer.as_char + (*(working_pointer.as_sizeT) & -2), (*(working_pointer.as_sizeT)) & -2);
-			debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
+			_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT) & -2;
 	}

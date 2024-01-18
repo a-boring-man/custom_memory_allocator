@@ -58,7 +58,7 @@ void    *calloc(size_t nmemb, size_t size) {
     # endif
 
 	if (ptr != NULL)
-    	ft_memset(ptr, 0, nmemb * size);
+    	_ft_memset(ptr, 0, nmemb * size);
 
     # ifdef LOG
 	    fd = open("./log", O_APPEND | O_WRONLY);

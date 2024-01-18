@@ -7,7 +7,7 @@ static void    remove_all_free_block_inside_page(t_list **free_list, t_list *pag
 	
 	working_pointer.as_char += sizeof(t_list) + sizeof(size_t); // set the pointer to the first block on the page
 	while (*working_pointer.as_sizeT != 1) { // go through all the block inside the page until the end
-		remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), free_list); // remove the block
+		_remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), free_list); // remove the block
 		working_pointer.as_char += *working_pointer.as_sizeT;
 	}
 }
@@ -18,7 +18,7 @@ static void    remove_page_if(t_list **list_head, int (*condition_function)(void
     while (ptr != NULL && *list_head != ptr->next) { // for all element execpt the last
         if (condition_function(ptr)) {
 			remove_all_free_block_inside_page(&(zone->free), ptr);
-            remove_block_from_t_list(ptr, &(zone->page));
+            _remove_block_from_t_list(ptr, &(zone->page));
 			munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
             ptr = *list_head;
             continue;
@@ -28,7 +28,7 @@ static void    remove_page_if(t_list **list_head, int (*condition_function)(void
     }
     if (ptr != NULL && condition_function(ptr)) {
 		remove_all_free_block_inside_page(&(zone->free), ptr);
-        remove_block_from_t_list(ptr, &(zone->page));
+        _remove_block_from_t_list(ptr, &(zone->page));
 	    munmap((size_t *)ptr - 1, *((size_t *)ptr - 1)); // cannot do anything if munmap return -1 because the programe will deallocated it's memory anyway and free cannot return a value
     }
 }
@@ -44,14 +44,14 @@ static	void	coalescing_left(void **block_ptr, t_zone *zone) { // return the left
 		return ;
 	}
 	left_block_size = *working_pointer.as_sizeT; // store the original left block size
-	remove_block_from_t_list((t_list *)((size_t *)(*block_ptr) + 1), &(zone->free));
+	_remove_block_from_t_list((t_list *)((size_t *)(*block_ptr) + 1), &(zone->free));
 	working_pointer.as_char += *((size_t *)(*block_ptr)); // go to the end of the block to change it's marked size
 	*working_pointer.as_sizeT += left_block_size; // change the end block marker
 	working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go to the first marker to change it
 	*working_pointer.as_sizeT += *((size_t *)(*block_ptr)); // change the first marker to the now true size of the block
 	working_pointer.as_sizeT += 1; // put the pointer to the t_list part
-	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
-	add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
+	_remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
+	_add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
 	working_pointer.as_sizeT -= 1;
 	*block_ptr = working_pointer.as_void; // srt the block address to the very begginning of the coalesced block
 }
@@ -67,15 +67,15 @@ static	void	coalescing_right(void *block_ptr, t_zone *zone) {
 	}
 	right_block_size = *working_pointer.as_sizeT; // store the right part
 	working_pointer.as_sizeT += 1; // move to the right block t_list part
-	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the right free block from the list
+	_remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the right free block from the list
 	working_pointer.as_sizeT -= 1; // move back to the size of the right block
 	working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // jump to the end
 	*working_pointer.as_sizeT += *((size_t *)(block_ptr)); // add the size of the left block to the end of the right block
 	working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // move to the begginning of the left block
 	*working_pointer.as_sizeT += right_block_size; // change it's value to be the sum of the two block lenght
 	working_pointer.as_sizeT += 1; // move to the t_list part to change the free list accordingly
-	remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
-	add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
+	_remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
+	_add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
 }
 
 static void	coalescing(void *ptr, t_zone *zone) {
@@ -99,7 +99,7 @@ static void	mark_block_as_free(void *block, t_zone *zone) {
 	# ifdef POISON_FREE
 		poison_block((char *)block - RED_ZONE_SIZe + sizeof(t_list), *working_pointer.as_sizeT - sizeof(t_list) - 2 * sizeof(size_t), FREE_COLOR);
 	# endif
-	add_block_to_t_list((t_list *)((char *)block - RED_ZONE_SIZE), &(zone->free));
+	_add_block_to_t_list((t_list *)((char *)block - RED_ZONE_SIZE), &(zone->free));
 }
 
 static size_t check_if_only_contain_free_block(void *first_free_block) { // the addres is the begginning of the size of the freeblock
@@ -189,7 +189,7 @@ void	free(void *ptr) {
 		ft_dprintf(2, "wanting to free the block at : -%p- of size : -%u- and of true size : -%u-\n", ptr, block_size, data_size);
 	# endif
 
-	t_zone	*zone = choose_the_right_page(data_size);
+	t_zone	*zone = _choose_the_right_page(data_size);
 	mark_block_as_free(ptr, zone);
 
 	# ifdef COALESCING

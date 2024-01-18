@@ -143,7 +143,6 @@ void	show_alloc_mem();
 
 void    *calloc(size_t nmemb, size_t size);
 void	show_alloc_mem_ex();
-void	free_everything();
 
 // -------------memory function----------------
 
@@ -153,7 +152,17 @@ void	free_everything();
  * @param size the size of the requested allocation
  * @return t_zone* the address of the t_zone corresponding to the allocated size
  */
-t_zone	*choose_the_right_page(size_t size);
+t_zone	*_choose_the_right_page(size_t size);
+
+/**
+ * @brief your standard memset function
+ * 
+ * @param block 
+ * @param c 
+ * @param size 
+ * @return void* 
+ */
+void	*_ft_memset(void *block, int c, size_t size);
 
 /**
  * @brief return the address of block but red_zonned according to the RED_ZONE_SIZE and RED_ZONE_COLOR variable
@@ -162,7 +171,7 @@ t_zone	*choose_the_right_page(size_t size);
  * @param size_allocated the size of the content of the block to not be redzoned so the padded size
  * @return void* 
  */
-void	*red_zone(void *block, size_t size_allocated);
+void	*_red_zone(void *block, size_t size_allocated);
 
 /**
  * @brief simply set the size first bit at block location to poison 
@@ -171,7 +180,7 @@ void	*red_zone(void *block, size_t size_allocated);
  * @param size the size of the poison
  * @param poison the poison in char format
  */
-void	poison_block(void *block, size_t size, char poison);
+void	_poison_block(void *block, size_t size, char poison);
 
 // -------------t_list function----------------
 
@@ -181,7 +190,7 @@ void	poison_block(void *block, size_t size, char poison);
  * @param new_block the block to be added
  * @param list_head the address of the t_list to be modified
  */
-void	add_block_to_t_list(t_list *new_block, t_list **list_head);
+void	_add_block_to_t_list(t_list *new_block, t_list **list_head);
 
 /**
  * @brief remove a block from a t_list
@@ -189,12 +198,24 @@ void	add_block_to_t_list(t_list *new_block, t_list **list_head);
  * @param block the block to be removed from the t_list
  * @param head the address of the list_head to be modified
  */
-void	remove_block_from_t_list(t_list *block, t_list **head);
+void	_remove_block_from_t_list(t_list *block, t_list **head);
 
-void	printf_t_list(t_list *list_head); // todo
+/**
+ * @brief count and display every element in a t_list of free block
+ * 
+ * @param free_list_head 
+ */
+void	_printf_free_list(t_list *free_list_head);
 
 // -------------helper function-----------------
 
+/**
+ * @brief your standard min function
+ * 
+ * @param a 
+ * @param b 
+ * @return size_t the minimum between a and b
+ */
 size_t	min(size_t a, size_t b);
 
 /**
@@ -204,22 +225,38 @@ size_t	min(size_t a, size_t b);
  * @param rounding rounded to rounding
  * @return size_t the rounded value
  */
-size_t	ceilling_unsigned(size_t x, size_t rounding);
+size_t	_ceilling_unsigned(size_t x, size_t rounding);
 
 /**
- * @brief return the padded (rounded to the upper sizeof(size_t)) size
+ * @brief return the ceilling of size to the nearest size_t
  * 
- * @param size size to be padded
- * @return size_t the returned size
+ * @param size 
+ * @return size_t the ceilling to the next size_t multiple
  */
-size_t	padded(size_t size);
+size_t	_padded(size_t size);
 
-int is_a_valid_address(void *ptr);
+// --------------debug function---------------------------
 
-void	*ft_memset(void *block, int c, size_t size);
+/**
+ * @brief a usefull function durring correction to free every allocation
+ * 
+ */
+void	free_everything();
 
-// -----------------------------------------
+/**
+ * @brief a function that return if a pointer is a valide allocated block
+ * 
+ * @param ptr 
+ * @return int 
+ */
+int 	is_a_valid_address(void *ptr);
 
-void	debug_hexa(void *memory_location, size_t size);
+/**
+ * @brief a debug function ment only for dev
+ * 
+ * @param memory_location 
+ * @param size 
+ */
+void	_debug_hexa(void *memory_location, size_t size);
 
 #endif
