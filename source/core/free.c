@@ -1,4 +1,5 @@
 #include "malloc.h"
+#include <sys/mman.h>
 
 static void    remove_all_free_block_inside_page(t_list **free_list, t_list *page) {
 	t_memory_pointer	working_pointer;
@@ -32,6 +33,7 @@ static void    remove_page_if(t_list **list_head, int (*condition_function)(void
     }
 }
 
+# ifdef COALESCING
 static	void	coalescing_left(void **block_ptr, t_zone *zone) { // return the left side of a free block coalesced with a potential left free block
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = *block_ptr;
@@ -84,6 +86,7 @@ static void	coalescing(void *ptr, t_zone *zone) {
 	coalescing_left(&working_pointer.as_void, zone);
 	coalescing_right(working_pointer.as_void, zone);
 }
+# endif
 
 static void	mark_block_as_free(void *block, t_zone *zone) {
 	t_memory_pointer	working_pointer;

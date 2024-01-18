@@ -190,6 +190,7 @@ static void	*mark_block_as_allocated(t_list *block, size_t size_to_be_allocated,
 	}
 }
 
+# ifdef BEST_FIT
 static void	*best_fit(size_t size_to_be_alloc, t_zone *zone) { // size if the raw size
 	t_list	*list_head = zone->free;
 	size_t	left_over = MAX_SIZET;
@@ -225,6 +226,7 @@ static void	*best_fit(size_t size_to_be_alloc, t_zone *zone) { // size if the ra
 		return (mark_block_as_allocated(best_block, padded(size_to_be_alloc), zone));
 	}
 }
+# endif
 
 static void	*first_fit(size_t size_to_be_alloc, t_zone *zone) {
 	t_list	*list_head = zone->free;

@@ -8,8 +8,8 @@ size_t	max(size_t a, size_t b) {
 }
 
 static int	will_overflow(size_t a, size_t b) {
-	size_t max = max(a, b);
-	size_t max_min_value = MAX_SIZET / max; // check the maximum value of the minimum between a and b for the multiplication between the two to not overflow
+	size_t lmax = max(a, b);
+	size_t max_min_value = MAX_SIZET / lmax; // check the maximum value of the minimum between a and b for the multiplication between the two to not overflow
 	return (min(a, b) > max_min_value); // return if the minimum between a and b is greater than the maximum value it can be without causing an overflow during multiplication
 }
 
