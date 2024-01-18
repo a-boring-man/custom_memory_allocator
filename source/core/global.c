@@ -1,5 +1,7 @@
 #include "malloc.h"
 
+pthread_mutex_t  mutex = PTHREAD_MUTEX_INITIALIZER;
+
 t_zone grimoire[11] = {
 	{64, NULL, NULL},
 	{96, NULL, NULL},

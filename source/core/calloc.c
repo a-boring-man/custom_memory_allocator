@@ -1,5 +1,18 @@
 # include "malloc.h"
 
+size_t	max(size_t a, size_t b) {
+	if (a >= b) {
+		return a;
+	}
+	return b;
+}
+
+static int	will_overflow(size_t a, size_t b) {
+	size_t max = max(a, b);
+	size_t max_min_value = MAX_SIZET / max; // check the maximum value of the minimum between a and b for the multiplication between the two to not overflow
+	return (min(a, b) > max_min_value); // return if the minimum between a and b is greater than the maximum value it can be without causing an overflow during multiplication
+}
+
 void    *calloc(size_t nmemb, size_t size) {
     # ifdef MUTEX
         pthread_mutex_lock(&mutex);
@@ -22,7 +35,17 @@ void    *calloc(size_t nmemb, size_t size) {
         # endif
         return NULL;
     }
-    // todo check overflow
+    if (will_overflow(nmemb, size)) {
+        # ifdef LOG
+		    int fd = open("./log", O_APPEND | O_WRONLY);
+	    	ft_dprintf(fd, "exiting callo returning NULL because of potential overflow : nmemb : -%d- and size : -%d-\n", nmemb, size);
+			close(fd);
+    	# endif
+        # ifdef MUTEX
+            pthread_mutex_unlock(&mutex);
+        # endif
+        return NULL;
+    }
 
     # ifdef MUTEX
         pthread_mutex_unlock(&mutex);
@@ -43,14 +66,14 @@ void    *calloc(size_t nmemb, size_t size) {
 		close(fd);
   	# endif
 
+	# ifdef PRINTF
+		// show_alloc_mem_ex();
+        //debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
+	# endif
+
     # ifdef MUTEX
         pthread_mutex_unlock(&mutex);
     # endif
-
-	# ifdef PRINTF
-		// show_alloc_mem_ex();
-        debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-	# endif
 
     return ptr;
 }

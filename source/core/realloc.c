@@ -1,7 +1,73 @@
 #include "malloc.h"
+//								FREE BLOCK BEFORE
+////////////////////////////////////////////////////////////////////////////
+//S(S | T |                                                          |S(S //
+//I I | _ |                                                          |I I //
+//Z Z | L |                                                          |Z Z //
+//E E | I |                                                          |E E //
+//  _ | S |                                                          |  _ //
+//  T)| T |                                                          |  T)//
+////////////////////////////////////////////////////////////////////////////
+//									|
+//									|
+//									|
+//									|
+//									|
+//									V
+//								SPLITED_BLOCK
+////////////////////////////////////////////////////////////////////////////
+//S(S |R Z|                              |R Z|S(S |S(S | T |         |S(S //
+//I I |E O|                              |E O|I I |I I | _ |         |I I //
+//Z Z |D N|	P A Y L O A D                |D N|Z Z |Z Z | L |FREE ZONE|Z Z //
+//E E |  E|                              |  E|E E |E E | I |         |E E //
+//  _ |   |                              |   |  _ |  _ | S |         |  _ //
+//  T)|   |                              |   |  T)|  T)| T |         |  T)//
+////////////////////////////////////////////////////////////////////////////
+//									|
+//									OR
+//									|
+//									V
+//								WASTED_BLOCK
+////////////////////////////////////////////////////////////////////////////
+//S(S |R Z|                                                     |R Z|S(S |//
+//I I |E O|                                                     |E O|I I |//
+//Z Z |D N|	P A Y L O A D                                       |D N|Z Z |//
+//E E |  E|                                                     |  E|E E |//
+//  _ |   |                                                     |   |  _ |//
+//  T)|   |                                                     |   |  T)|//
+////////////////////////////////////////////////////////////////////////////
 
-void	*ft_memcpy(void *to, void *from, size_t size)
-{
+
+static void	mark_block_as_allocated_from_realloc(void *block_beginning, t_zone *zone, size_t size) { // here size is the new size requested by realloc padded. here i already remove the free block from the list
+	t_memory_pointer	working_pointer;
+	working_pointer.as_void = block_beginning;
+	size_t	block_size = *working_pointer.as_sizeT & -2; // store the block size for later use
+	size_t	needed_size = size + MINIMUM_ALLOCATED_BLOCK_SIZE;
+	int		should_be_split = block_size - needed_size >= MINIMUM_FREE_BLOCK_SIZE; // determini if the block shoul be split into a allocated block and a free block
+
+	if (should_be_split) {
+		size_t	left_over = block_size - needed_size;
+		*working_pointer.as_sizeT = needed_size + 1; // put the true needed size
+		working_pointer.as_char += (needed_size - sizeof(size_t)); // move the pointer to the end of the nwely marked allocated block
+		*working_pointer.as_sizeT = needed_size + 1; // mark the end of the block
+		working_pointer.as_sizeT += 1; // move to the free section
+		*working_pointer.as_sizeT = left_over; // write the size of the free block
+		working_pointer.as_char += (left_over - sizeof(size_t)); // go to the end of the free block
+		*working_pointer.as_sizeT = left_over; // store the end marker
+		working_pointer.as_char -= (*working_pointer.as_sizeT - 2 * sizeof(size_t)); // return at the t_list emplacement
+		add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // add the last block to the free list
+		red_zone((char *)block_beginning + sizeof(size_t), size); // recollor the block
+	}
+	else { // cant split it
+		*working_pointer.as_sizeT = block_size + 1; // mark bothe end of the block
+		working_pointer.as_char += (block_size - sizeof(size_t));
+		*working_pointer.as_sizeT = block_size + 1;
+		working_pointer.as_char -= (block_size - 2 * sizeof(size_t)); // go back to the t_list part of the allocated block
+		red_zone(working_pointer.as_Tlist, size);
+	}
+}
+
+static void	*ft_memcpy(void *to, void *from, size_t size) {
 	size_t	i;
 
 	i = 0;
@@ -20,7 +86,7 @@ void	*realloc(void *ptr, size_t size) {
 		pthread_mutex_lock(&mutex);
 	# endif
 	# ifdef PRINTF
-		//show_alloc_mem();
+		ft_dprintf(2, "in realloc pointer is : -%p- and size : -%d-\n", ptr, size);
 	# endif
 
 	if (size < 16) {
@@ -43,36 +109,25 @@ void	*realloc(void *ptr, size_t size) {
 		# endif
 		return (malloc(size));
 	}
-	if (!is_a_valid_address(ptr)) {
-		# ifdef LOG
-			int fd = open("./log", O_APPEND | O_WRONLY);
-			ft_dprintf(fd, "realloc receive un invalide pointer, calling malloc for size and not copying content : -%p-\n", ptr);
-			close(fd);
-		# endif
-		# ifdef MUTEX
-			pthread_mutex_unlock(&mutex);
-		# endif
-		void	*new_pointer = malloc(size);
-		# ifdef MUTEX
-			pthread_mutex_lock(&mutex);
-		# endif
-		# ifdef LOG
-			fd = open("./log", O_APPEND | O_WRONLY);
-			ft_dprintf(fd, "exiting realloc giving the new malloced pointer : -%p-\n", new_pointer);
-			close(fd);
-		# endif
-		# ifdef MUTEX
-			pthread_mutex_unlock(&mutex);
-		# endif
-		# ifdef PRINTF
-		debug_hexa((void *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-		# endif
-		return (new_pointer);
-	}
+
+	# ifdef CHECK_FREE
+		if (!is_a_valid_address(ptr)) {
+			# ifdef LOG
+				int fd = open("./log", O_APPEND | O_WRONLY);
+				ft_dprintf(fd, "realloc receive un invalide pointer, returning NULL : -%p-\n", ptr);
+				close(fd);
+			# endif
+			# ifdef MUTEX
+				pthread_mutex_unlock(&mutex);
+			# endif
+			return (NULL);
+		}
+	# endif
+
 	if (size == 0) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 		# ifdef LOG
 			int fd = open("./log", O_APPEND | O_WRONLY);
-			ft_dprintf(fd, "realloc exit because of size 0 or invalid pointer calling free : -%p-\n", ptr);
+			ft_dprintf(fd, "realloc exit because of size 0 calling free : -%p-\n", ptr);
 			close(fd);
 		# endif
 		# ifdef MUTEX
@@ -84,13 +139,8 @@ void	*realloc(void *ptr, size_t size) {
 
 	t_memory_pointer	working_pointer;
 	working_pointer.as_void = ptr;
-	
 	working_pointer.as_char -= (sizeof(size_t) + RED_ZONE_SIZE); // put the working_pointer to the size of the block
 	
-	# ifdef PRINTF
-		ft_dprintf(2, "in realloc pointer is : -%p- and size : -%d-\n", ptr, size);
-	# endif
-
 	size_t	left_block_size = *working_pointer.as_sizeT & -2;
 	size_t	data_size = left_block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	if (padded(size) == data_size) {
@@ -112,42 +162,20 @@ void	*realloc(void *ptr, size_t size) {
 	int need_to_be_moved = block_zone != new_block_zone; // check to see if the content need to be moved
 
 	if (need_to_be_moved || size > data_size) { // need to check if a free space is next to the block and big enought else send back to malloc
+		
 		# ifdef PRINTF
 			ft_dprintf(2, "need to be moved or greater size\n");
 		# endif
+
 		working_pointer.as_char += left_block_size; // move the pointer to the next block to check if it's free
 		if (!(*working_pointer.as_sizeT & 1) && *working_pointer.as_sizeT >= (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) && !need_to_be_moved) { // if block is free and big enough and data doesn't need to be moved
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free\n");
-			# endif
 			size_t	right_block_size = *working_pointer.as_sizeT; // store the right block size
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free1\n");
-			# endif
 			remove_block_from_t_list((t_list *)(working_pointer.as_sizeT + 1), &(block_zone->free)); // remove the right free block from the list
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free2\n");
-			# endif
 			working_pointer.as_char += (right_block_size - sizeof(size_t)); // go to the end of the right block
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free3\n");
-			# endif
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // put the lenght of the two block and mark it as free;
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free4\n");
-			# endif
 			working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // go back to the beginning
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free5\n");
-			# endif
 			*working_pointer.as_sizeT = right_block_size + left_block_size; // set the left size to the size of the two block as free block
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free6\n");
-			# endif
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, padded(size));
-			# ifdef PRINTF
-				ft_dprintf(2, "can stay in place because free7\n");
-			# endif
 
 			# ifdef LOG
 				int fd = open("./log", O_APPEND | O_WRONLY);
@@ -159,23 +187,26 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
-			# ifdef PRINTF
-			debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-			# endif
 			return (ptr);
 		}
 		else { // call malloc then copy if need to be moved
+		 
 			# ifdef PRINTF
 				ft_dprintf(2, "need to be moved\n");
 			# endif
+			
 			# ifdef MUTEX
 				pthread_mutex_unlock(&mutex);
 			# endif
+			
 			void	*new_pointer = malloc(size);
+			
 			# ifdef MUTEX
 				pthread_mutex_lock(&mutex);
 			# endif
-			ft_memcpy(new_pointer, ptr, min(data_size, padded(size))); // copy the old content
+			
+			if (new_pointer != NULL)
+				ft_memcpy(new_pointer, ptr, min(data_size, padded(size))); // copy the old content
 			
 			# ifdef LOG
 				int fd = open("./log", O_APPEND | O_WRONLY);
@@ -188,17 +219,15 @@ void	*realloc(void *ptr, size_t size) {
 			# endif
 
 			free(ptr);
-
-			# ifdef PRINTF
-			debug_hexa((void *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)new_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-			# endif
 			return new_pointer;
 		}
 	}
 	else { // the size will be shrinked
+		
 		# ifdef PRINTF
 			ft_dprintf(2, "doesn't need to be moved\n");
 		# endif
+		
 		int should_be_split = data_size - padded(size) >= MINIMUM_FREE_BLOCK_SIZE; // if there is enough space to put a new free_block
 		size_t	left_over = data_size - padded(size);
 		working_pointer.as_char += left_block_size; // move the wp to the next block to see if it's a free block
@@ -230,9 +259,6 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
-			# ifdef PRINTF
-			debug_hexa((void *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-			# endif
 			return (return_pointer); // re redzone the block
 		}
 		else if (should_be_split) {//can be split
@@ -257,9 +283,6 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
-			# ifdef PRINTF
-			debug_hexa((void *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)return_pointer - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-			# endif
 			return (return_pointer);
 		}
 		else {// block should be shrinked but no free block to the right and not shrink enought to allow a free block to appear
@@ -274,11 +297,7 @@ void	*realloc(void *ptr, size_t size) {
 				pthread_mutex_unlock(&mutex);
 			# endif
 
-			# ifdef PRITNF
-				debug_hexa((void *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t)), (*(size_t *)((char *)ptr - RED_ZONE_SIZE - sizeof(size_t))) / sizeof(size_t));
-			# endif
 			return (ptr);
 		}
 	}
-	return NULL;
 }

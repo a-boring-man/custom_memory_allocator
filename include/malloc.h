@@ -31,12 +31,21 @@ typedef union u_memory_pointer {
 
 // -------------usefull define--------------
 
-//LOG		//for logging the allocation and free
-//PRINTF	//for all the printf on stderr
-//MUTEX	//for multithreading
-//POISON_FREE	//for poisonning free block
-//CHECK_FREE	// for checking if a pointer passed to free must be free
+//LOG			// for logging the allocation and free
+//PRINTF		// for debuging purpose
+//MUTEX			// for multithreading
+//POISON_FREE	// for poisonning free block
+//CHECK_FREE	// for checking if a pointer passed to free or realloc is valide
 //COALESCING	// for coalescing
+//BEST_FIT		// for changing the finding algorythme
+
+# if BEST_FIT_FT == 1
+# pragma message "BEST_FIT is defined"
+# endif
+
+# if BEST_FIT_FT == 1
+	# define BEST_FIT
+# endif
 
 # if MUTEX_FT == 1
 # pragma message "MUTEX is defined"
@@ -62,8 +71,8 @@ typedef union u_memory_pointer {
 	# define LOG
 # endif
 
-# if CHECK_FREE_FT == 1
-# pragma message "CHECK_FREE is defined"
+# if CHECK_FREE_FT == 0
+# pragma message "CHECK_FREE is not defined this will fail the test4 but will result in better performance"
 # endif
 
 # if CHECK_FREE_FT == 1
@@ -127,13 +136,13 @@ extern pthread_mutex_t	mutex;
 
 void	free(void *ptr);
 void	*malloc(size_t size);
-void    *calloc(size_t nmemb, size_t size);
 void	*realloc(void *ptr, size_t size);
 void	show_alloc_mem();
-void	show_alloc_mem_ex();
-void	free_everything();
 
 // -------------bonus function-------------
+void	free_everything();
+void    *calloc(size_t nmemb, size_t size);
+void	show_alloc_mem_ex();
 
 void	show_alloc_mem_ex();
 
@@ -269,6 +278,7 @@ t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void
 
 // -------------helper function-----------------
 
+int will_overflow(size_t a, size_t b);2
 size_t	max(size_t a, size_t b);
 size_t	min(size_t a, size_t b);
 

@@ -1,7 +1,6 @@
 #include "malloc.h"
 
-
-int is_a_valid_block(t_list *page, void *ptr) { // check if it's a valide allocated block
+static int is_a_valid_block(t_list *page, void *ptr) { // check if it's a valide allocated block
     t_memory_pointer    working_pointer;
     working_pointer.as_Tlist = page;
 
@@ -16,7 +15,7 @@ int is_a_valid_block(t_list *page, void *ptr) { // check if it's a valide alloca
 }
 
 // tell if the ptr is contain within a page
-int is_in_the_page(void *ptr, t_list *page) {
+static int is_in_the_page(void *ptr, t_list *page) {
     t_memory_pointer    working_pointer;
     working_pointer.as_Tlist = page;
 
@@ -28,6 +27,24 @@ int is_in_the_page(void *ptr, t_list *page) {
         return 1;
     }
     return 0;
+}
+
+// will traverse the list of page and applied is in the page if yes it return the page else it return NULL
+static t_list *applied_to_all_element(t_list *list_head, int (*condition_function)(void *ptr, t_list *page), void *ptr) {
+    t_list *current = list_head;
+    if (list_head == NULL) { // list is empty
+        return NULL;
+    }
+    while (current->next != list_head) { // all element execpt last
+        if (condition_function(ptr, current)) { // if pointer is in page
+            return current;
+        }
+        current = current->next;
+    }
+    if (condition_function(ptr, current)) { // check for the last element
+        return current;
+    }
+    return NULL;
 }
 
 int is_a_valid_address(void *ptr) {

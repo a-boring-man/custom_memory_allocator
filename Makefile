@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2024/01/17 13:57:47 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/18 11:20:01 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,20 +62,20 @@ else
 	COALESCING_FT := 1
 endif
 
+ifeq ($(BEST_FIT),)
+	BEST_FIT_FT := 0
+else
+	BEST_FIT_FT := 1
+endif
+
 #update on every project
-LST_SRC :=	core/malloc core/free core/realloc core/grimoire core/show_alloc core/calloc \
+LST_SRC :=	core/malloc core/free core/realloc core/global core/show_alloc core/calloc \
 			\
-			bonus_features/poisoning bonus_features/find_free_block_bonus_algo \
-			bonus_features/coalescing bonus_features/mutex \
+			memory/memset \
 			\
-			memory/create_page memory/format_new_page memory/mark_allocated \
-			memory/find_free_block memory/mark_free \
+			t_list/t_list \
 			\
-			t_list/add_block_to_t_list t_list/remove_block_from_t_list t_list/apply_to_all_element \
-			\
-			utils/ceilling utils/page_size utils/page_selector utils/pointer_verification \
-			\
-			ft_printf
+			utils/free_everything utils/math utils/page_selector utils/pointer_verification utils/ft_printf
 
 NAME := libft_malloc_$(HOSTTYPE).so
 LINKNAME := libft_malloc.so
@@ -95,9 +95,10 @@ CFLAGS = -Wall -Wextra -Werror -MD -I$(DIR_INC) -g3 -fPIC\
 	-DCHECK_FREE_FT=$(CHECK_FREE_FT) \
 	-DLOG_FT=$(LOG_FT) \
 	-DMUTEX_FT=$(MUTEX_FT) \
-	-DCOALESCING_FT=$(COALESCING_FT) 
+	-DCOALESCING_FT=$(COALESCING_FT) \
+	-DBEST_FIT_FT=$(BEST_FIT_FT)
 DIR_SRC := source#.
-SUB_DIR_LST := core utils bonus_features memory t_list
+SUB_DIR_LST := core utils memory t_list
 
 #shouldn't need to update
 RM := rm -rf
@@ -119,6 +120,7 @@ all : $(NAME)
 	@echo "LOG_FT IS $(LOG_FT)"
 	@echo "MUTEX_FT IS $(MUTEX_FT)"
 	@echo "COALESCING_FT IS $(COALESCING_FT)"
+	@echo "BEST_FIT_FT IS $(BEST_FIT_FT)"
 
 $(NAME) : $(OBJ)
 	$(CC) -shared $^ -o $@
