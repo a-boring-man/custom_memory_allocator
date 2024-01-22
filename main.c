@@ -281,4 +281,21 @@ int main() {
     ft_printf("printing memory\n");
     show_alloc_mem();
     ft_printf("\n");
+
+    ft_printf("---------------- testing best_fit ----------------\n");
+    char *best1 = malloc(300);
+    char *best2 = malloc(400);
+    char *best3 = malloc(500);
+    char *best4 = malloc(450);
+    ft_printf("printing memory\n");
+    show_alloc_mem_ex();
+    ft_printf("after freeing some stuff\n");
+    free(best1);
+    free(best4);
+    free(best3);
+    show_alloc_mem_ex();
+    malloc(260);
+    ft_printf("after re mallocing a small part\n");
+    show_alloc_mem_ex();
+    ft_printf("\n");
 }

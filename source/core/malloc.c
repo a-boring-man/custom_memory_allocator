@@ -85,7 +85,7 @@ static void	format_free_space(void *new_page, size_t free_block_size) {
 	*(working_pointer.as_sizeT) = free_block_size;
 	
 	# ifdef POISON_FREE
-		poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), FREE_COLOR);
+		_poison_block((void *)(working_pointer.as_char - free_block_size + 2 * sizeof(size_t) + sizeof(t_list)), free_block_size - (MINIMUM_FREE_BLOCK_SIZE), FREE_COLOR);
 	# endif
 } 
 
@@ -296,14 +296,14 @@ void	*malloc(size_t size) {
 	return_ptr = find_free_block(size, zone);
 	
 	# ifdef LOG	
-		int fd = open("./log", O_APPEND | O_WRONLY);
+		int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 		ft_dprintf(fd, "malloc : -%p- size : -%d-\n", return_ptr, size);
 		close(fd);
 	# endif
 	
 	# ifdef PRINTF
-		ft_dprintf(2, "calling debug with ptr : %p and size %d : \n", (char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE);
-		debug_hexa((char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), (padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) / sizeof(size_t));
+		ft_dprintf(2, "calling debug with ptr : %p and size %d : \n", (char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), _padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE);
+		_debug_hexa(2, (char *)return_ptr - RED_ZONE_SIZE - sizeof(size_t), (_padded(size) + MINIMUM_ALLOCATED_BLOCK_SIZE) / sizeof(size_t));
 	# endif
 
 	# ifdef MUTEX

@@ -19,14 +19,14 @@ void    *calloc(size_t nmemb, size_t size) {
     # endif
 
     # ifdef LOG
-		int fd = open("./log", O_APPEND | O_WRONLY);
+		int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 		ft_dprintf(fd, "calloc of nmemb : -%d- and size : -%d-\n", nmemb, size);
 		close(fd);
     # endif
 
     if (nmemb == 0 || size == 0) {
         # ifdef LOG
-		    int fd = open("./log", O_APPEND | O_WRONLY);
+		    int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 	    	ft_dprintf(fd, "exiting callo returning NULL because : nmemb : -%d- and size : -%d-\n", nmemb, size);
 			close(fd);
     	# endif
@@ -37,7 +37,7 @@ void    *calloc(size_t nmemb, size_t size) {
     }
     if (will_overflow(nmemb, size)) {
         # ifdef LOG
-		    int fd = open("./log", O_APPEND | O_WRONLY);
+		    int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 	    	ft_dprintf(fd, "exiting callo returning NULL because of potential overflow : nmemb : -%d- and size : -%d-\n", nmemb, size);
 			close(fd);
     	# endif
@@ -61,7 +61,7 @@ void    *calloc(size_t nmemb, size_t size) {
     	_ft_memset(ptr, 0, nmemb * size);
 
     # ifdef LOG
-	    fd = open("./log", O_APPEND | O_WRONLY);
+	    fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 	   	ft_dprintf(fd, "exiting calloc returning : -%p-, nmemb : -%d- and size : -%d-\n", ptr, nmemb, size);
 		close(fd);
   	# endif

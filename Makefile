@@ -6,7 +6,7 @@
 #    By: jrinna <jrinna@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 14:21:09 by jrinna            #+#    #+#              #
-#    Updated: 2024/01/18 11:20:01 by jrinna           ###   ########lyon.fr    #
+#    Updated: 2024/01/22 12:50:08 by jrinna           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,7 +139,8 @@ clean :
 fclean : clean
 	$(RM) $(NAME) $(LINKNAME)
 
-re : fclean all
+re : fclean 
+	make all
 
 .PHONY : all clean fclean re
 

@@ -11,12 +11,12 @@ void    _printf_t_list(t_list *list_head) { // this is a debug function left her
     while (current->next != list_head) {
         element_nbr++;
         ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
-        _debug_hexa((void *)((size_t *)current -1), 25);
+        _debug_hexa(1, (void *)((size_t *)current -1), 25);
         current = current->next;
     }
     element_nbr++;
     ft_printf("t_list element nbr : %d is at adress %p\n", element_nbr, current);
-    _debug_hexa((void *)((size_t *)current -1), 25);
+    _debug_hexa(1, (void *)((size_t *)current -1), 25);
     ft_printf("the list contain %d elements\n", element_nbr);
 }
 

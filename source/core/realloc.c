@@ -93,14 +93,14 @@ void	*realloc(void *ptr, size_t size) {
 		size = 16;
 	}
 	# ifdef LOG
-		int fd = open("./log", O_APPEND | O_WRONLY);
+		int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 		ft_dprintf(fd, "realloc enter : -%p- with size : -%d-\n", ptr, size);
 		close(fd);
 	# endif
 
 	if (ptr == NULL) { // if ptr is NULL the call is equivalent to malloc(size) regardless of size
 		# ifdef LOG
-			int fd = open("./log", O_APPEND | O_WRONLY);
+			int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 			ft_dprintf(fd, "realloc exit because of null pointer calling malloc : -%p-\n", ptr);
 			close(fd);
 		# endif
@@ -113,7 +113,7 @@ void	*realloc(void *ptr, size_t size) {
 	# ifdef CHECK_FREE
 		if (!is_a_valid_address(ptr)) {
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc receive un invalide pointer, returning NULL : -%p-\n", ptr);
 				close(fd);
 			# endif
@@ -126,7 +126,7 @@ void	*realloc(void *ptr, size_t size) {
 
 	if (size == 0) { // if size == 0 the call is equivalent to free(ptr) and NULL can be returned
 		# ifdef LOG
-			int fd = open("./log", O_APPEND | O_WRONLY);
+			int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 			ft_dprintf(fd, "realloc exit because of size 0 calling free : -%p-\n", ptr);
 			close(fd);
 		# endif
@@ -145,7 +145,7 @@ void	*realloc(void *ptr, size_t size) {
 	size_t	data_size = left_block_size - MINIMUM_ALLOCATED_BLOCK_SIZE;
 	if (_padded(size) == data_size) {
 		# ifdef LOG
-			int fd = open("./log", O_APPEND | O_WRONLY);
+			int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 			ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
 			close(fd);
 		# endif
@@ -178,7 +178,7 @@ void	*realloc(void *ptr, size_t size) {
 			mark_block_as_allocated_from_realloc(working_pointer.as_void, block_zone, _padded(size));
 
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
 				close(fd);
 			# endif
@@ -209,7 +209,7 @@ void	*realloc(void *ptr, size_t size) {
 				ft_memcpy(new_pointer, ptr, min(data_size, _padded(size))); // copy the old content
 			
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc exit calling free: -%p-\n", new_pointer);
 				close(fd);
 			# endif
@@ -250,7 +250,7 @@ void	*realloc(void *ptr, size_t size) {
 			void *return_pointer = _red_zone((void *)(working_pointer.as_char + sizeof(size_t)), _padded(size));
 			
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc exit : -%p-\n", return_pointer);
 				close(fd);
 			# endif
@@ -274,7 +274,7 @@ void	*realloc(void *ptr, size_t size) {
 			void *return_pointer = _red_zone((void *)(working_pointer.as_sizeT + 1), _padded(size));
 			
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc exit : -%p-\n", return_pointer);
 				close(fd);
 			# endif
@@ -288,7 +288,7 @@ void	*realloc(void *ptr, size_t size) {
 		else {// block should be shrinked but no free block to the right and not shrink enought to allow a free block to appear
 
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "realloc exit : -%p-\n", ptr);
 				close(fd);
 			# endif

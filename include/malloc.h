@@ -257,6 +257,6 @@ int 	is_a_valid_address(void *ptr);
  * @param memory_location 
  * @param size 
  */
-void	_debug_hexa(void *memory_location, size_t size);
+void	_debug_hexa(int fd, void *memory_location, size_t size);
 
 #endif

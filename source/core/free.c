@@ -56,12 +56,12 @@ static	void	coalescing_left(void **block_ptr, t_zone *zone) { // return the left
 	*block_ptr = working_pointer.as_void; // srt the block address to the very begginning of the coalesced block
 }
 
-static	void	coalescing_right(void *block_ptr, t_zone *zone) {
+static	void	coalescing_right(void **block_ptr, t_zone *zone) {
 	t_memory_pointer	working_pointer;
-	working_pointer.as_void = block_ptr;
+	working_pointer.as_void = *block_ptr;
 	size_t	right_block_size;
 
-	working_pointer.as_char += *((size_t *)(block_ptr)); // put the pointer to the begginnin of the right block
+	working_pointer.as_char += *((size_t *)(*block_ptr)); // put the pointer to the begginnin of the right block
 	if (*working_pointer.as_sizeT & 1) { // if the right block is allocated
 		return ;
 	}
@@ -70,12 +70,14 @@ static	void	coalescing_right(void *block_ptr, t_zone *zone) {
 	_remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the right free block from the list
 	working_pointer.as_sizeT -= 1; // move back to the size of the right block
 	working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // jump to the end
-	*working_pointer.as_sizeT += *((size_t *)(block_ptr)); // add the size of the left block to the end of the right block
+	*working_pointer.as_sizeT += *((size_t *)(*block_ptr)); // add the size of the left block to the end of the right block
 	working_pointer.as_char -= (*working_pointer.as_sizeT - sizeof(size_t)); // move to the begginning of the left block
 	*working_pointer.as_sizeT += right_block_size; // change it's value to be the sum of the two block lenght
 	working_pointer.as_sizeT += 1; // move to the t_list part to change the free list accordingly
 	_remove_block_from_t_list(working_pointer.as_Tlist, &(zone->free)); // remove the big block from the free list
 	_add_block_to_t_list(working_pointer.as_Tlist, &(zone->free)); // re add the block back so it's first on the list to avoid splinter at the beginning of list
+	working_pointer.as_sizeT -= 1;
+	*block_ptr = working_pointer.as_void; // srt the block address to the very begginning of the coalesced block
 }
 
 static void	coalescing(void *ptr, t_zone *zone) {
@@ -84,7 +86,7 @@ static void	coalescing(void *ptr, t_zone *zone) {
 	
 	working_pointer.as_char -= (RED_ZONE_SIZE + sizeof(size_t)); // pointer to the size of the block
 	coalescing_left(&working_pointer.as_void, zone);
-	coalescing_right(working_pointer.as_void, zone);
+	coalescing_right(&working_pointer.as_void, zone);
 }
 # endif
 
@@ -97,7 +99,7 @@ static void	mark_block_as_free(void *block, t_zone *zone) {
 	working_pointer.as_char += *working_pointer.as_sizeT - sizeof(size_t); // move to the end of the block
 	*working_pointer.as_sizeT = *working_pointer.as_sizeT & -2; // mark as free // here i delibaratly not set the t_list part of the block since i added the setting part to add_block function
 	# ifdef POISON_FREE
-		poison_block((char *)block - RED_ZONE_SIZe + sizeof(t_list), *working_pointer.as_sizeT - sizeof(t_list) - 2 * sizeof(size_t), FREE_COLOR);
+		_poison_block((char *)block - RED_ZONE_SIZE + sizeof(t_list), *working_pointer.as_sizeT - sizeof(t_list) - 2 * sizeof(size_t), FREE_COLOR);
 	# endif
 	_add_block_to_t_list((t_list *)((char *)block - RED_ZONE_SIZE), &(zone->free));
 }
@@ -150,7 +152,7 @@ void	free(void *ptr) {
 	static int free_page_counter = FREE_DELAY; // the number of free before a page cleanup
 	
 	# ifdef LOG
-		int fd = open("./log", O_APPEND | O_WRONLY);
+		int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 		ft_dprintf(fd, "free : -%p-\n", ptr);
 		close(fd);
 	# endif
@@ -166,7 +168,7 @@ void	free(void *ptr) {
 		if (!is_a_valid_address(ptr)) { // check if the pointer is a valid pointer
 		
 			# ifdef LOG
-				int fd = open("./log", O_APPEND | O_WRONLY);
+				int fd = open("./log", O_APPEND | O_WRONLY | O_CREAT);
 				ft_dprintf(fd, "free invalid pointer : -%p-\n", ptr);
 				close(fd);
 			# endif

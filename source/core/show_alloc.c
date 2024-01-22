@@ -1,17 +1,17 @@
 #include "malloc.h"
 
-void	_debug_hexa(void *memory_location, size_t size) {
+void	_debug_hexa(int fd, void *memory_location, size_t size) {
 	size_t i = 0;
 	t_memory_pointer ptr;
 	ptr.as_void = memory_location;
-	ft_printf("pointer at : -%p-\n", memory_location);
+	ft_dprintf(fd, "pointer at : -%p-\n", memory_location);
 
 	while (i < size) {
-		ft_printf("%x ", (*(ptr.as_sizeT)));
+		ft_dprintf(fd, "%x ", (*(ptr.as_sizeT)));
 		ptr.as_sizeT += 1;
 		i += 1;
 	}
-	ft_printf("\n");
+	ft_dprintf(fd, "\n");
 }
 
 static void display_page(void *page) {
@@ -38,11 +38,11 @@ static void display_page_ex(void *page) {
 	while (*(working_pointer.as_sizeT) != 1) {
 		if (*(working_pointer.as_sizeT) & 1) {
 			ft_printf("allocated from : -%p- to -%p- : %d bytes\n", working_pointer.as_void, working_pointer.as_char + (*(working_pointer.as_sizeT) & -2), (*working_pointer.as_sizeT) & -2);
-			_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
+			_debug_hexa(1, working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
 		}
 		else {
 			ft_printf("free from : -%p- to -%p- : %d bytes\n", working_pointer.as_void, working_pointer.as_char + (*(working_pointer.as_sizeT) & -2), (*(working_pointer.as_sizeT)) & -2);
-			//_debug_hexa(working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
+			//_debug_hexa(1, working_pointer.as_void, (*(working_pointer.as_sizeT) & -2) / sizeof(size_t));
 		}
 		working_pointer.as_char += *(working_pointer.as_sizeT) & -2;
 	}
