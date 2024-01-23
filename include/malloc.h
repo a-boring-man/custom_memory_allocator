@@ -31,6 +31,7 @@ typedef union u_memory_pointer {
 
 // -------------usefull define--------------
 
+//DEBUG			// for allocating extra memory
 //LOG			// for logging the allocation and free
 //PRINTF		// for debuging purpose
 //MUTEX			// for multithreading
